@@ -85,7 +85,7 @@ const reminderWithoutName = "Please name your reminder.";
 
 */
 
-const addNote = "Hey, let's keep track of your notes!";
+const addNote = "Let's add a new note!";
 const chooseNoteTitle = "We should start by naming your note:";
 const enterNoteContent =
     "Fill in your note content down below.\nYou can use the markup language called Markdown.";
