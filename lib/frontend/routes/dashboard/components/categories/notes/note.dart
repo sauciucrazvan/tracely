@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
+
+import '../../../../../config/messages.dart';
 
 class NoteWidget extends StatefulWidget {
-  final int index;
+  final String id;
+  final Map data;
 
-  const NoteWidget({super.key, required this.index});
+  const NoteWidget({super.key, required this.id, required this.data});
 
   @override
   State<NoteWidget> createState() => _NoteWidgetState();
@@ -35,7 +42,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Note #${widget.index + 1}",
+                    widget.data['title'],
                     style: TextStyle(
                       color: textColor,
                     ),
@@ -54,7 +61,11 @@ class _NoteWidgetState extends State<NoteWidget> {
                         width: 4,
                       ),
                       Text(
-                        "08:00 11/09/2001",
+                        DateFormat("HH:mm dd/MM/yyyy").format(
+                          DateTime.parse(
+                            widget.data['last_edit'],
+                          ),
+                        ),
                         style: TextStyle(
                           color: textColor,
                           fontSize: 12,
@@ -76,7 +87,17 @@ class _NoteWidgetState extends State<NoteWidget> {
                           icon: const Icon(Icons.edit, color: Colors.lightBlue),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => alertDialog(
+                              context,
+                              removeNote,
+                              () {
+                                deleteNote(widget.id);
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ),
                           icon: const Icon(Icons.delete, color: Colors.red),
                         ),
                       ],

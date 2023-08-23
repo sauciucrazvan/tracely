@@ -23,6 +23,7 @@ AlertDialog alertDialog(
         fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
+      textAlign: TextAlign.center,
     ),
     backgroundColor: Theme.of(context).colorScheme.background,
     actionsAlignment: MainAxisAlignment.center,

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "665390345056",
+    "firebase_url": "https://tracely-f42f5-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "tracely-f42f5",
     "storage_bucket": "tracely-f42f5.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "665390345056-lv9kpj19a66b6tntb7fucps81muf4jvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tracely",
+            "certificate_hash": "c12bacaa2934daf54d0b3ea7d951f3da88d6d57b"
+          }
+        },
         {
           "client_id": "665390345056-ccej8q8q82igaq3b6ccgdrqg5slvqqcu.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +38,13 @@
             {
               "client_id": "665390345056-91suntanv1rpae1dvi1b9imn3knhmanr.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "665390345056-0ugbhnkpa928gt88im41u4ekh6h5gpjd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tracely.RunnerTests"
+              }
             }
           ]
         }

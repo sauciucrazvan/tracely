@@ -3,7 +3,7 @@
 
 # Tracely
 
-Tracely is your ultimate management app with seamless cloud synchronization. Keep an organized track of all your projects, ideas, notes, and everything else you can imagine – all in one place. 📊🗂️
+Tracely is your ultimate management app with seamless cloud synchronization. Keep an organized track of all your projects, ideas, notes, and everything else you can imagine – all in one place, across multiple devices. 📊🗂️
 
 > **Status: In Progress** 🚧
 >

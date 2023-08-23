@@ -17,6 +17,9 @@ dependencies:
   # Firebase Plugins
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.2
+  cloud_firestore: ^4.8.3
+  firebase_storage: ^11.2.5
+  firebase_database: ^10.2.4
 
   # Sign in platforms
   google_sign_in: ^6.1.4

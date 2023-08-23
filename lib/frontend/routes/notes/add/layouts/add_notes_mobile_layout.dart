@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_editable_textinput/format_markdown.dart';
 import 'package:markdown_editable_textinput/markdown_text_input.dart';
+import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/button.dart';
@@ -156,12 +157,20 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                       backgroundColor: primaryColor,
                       icon: Icons.done,
                       onPressed: () {
-                        String text = _titleController.text;
-                        if (text.isEmpty) {
+                        String title = _titleController.text;
+                        String content = _contentController.text;
+                        if (title.isEmpty) {
                           return showElevatedNotification(
-                              context, reminderWithoutName, Colors.red);
+                              context, noteWithoutName, Colors.red);
                         }
-                        //print("${_titleController.text} / $date");
+
+                        if (content.isEmpty) {
+                          return showElevatedNotification(
+                              context, noteWithoutContent, Colors.red);
+                        }
+
+                        insertNote(title, content);
+                        Navigator.pop(context);
                       },
                     ),
                     const SizedBox(

@@ -8,11 +8,6 @@ const appName = "Tracely";
 const appDesc =
     "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, notes - and everything you can think of.";
 
-const noConnection = "No internet connection available!";
-const reconnectNeeded =
-    "Please reconnect to the internet in order to use $appName!";
-const restartNeeded = "Please restart or refresh the app in order to use it.";
-
 /*
 
   LOGIN PAGE
@@ -57,6 +52,9 @@ const info = {
   "The app is still in beta. Please report any bugs on the GitHub page!",
 };
 
+const removeNote =
+    "Are you sure you want to delete this note?\nThis action can not be reverted!";
+
 /*
 
   ADD A REMINDER PAGE
@@ -77,8 +75,6 @@ const every = "Every";
 const date = "Date";
 const time = "Time";
 
-const reminderWithoutName = "Please name your reminder.";
-
 /*
 
   ADD A NOTE PAGE
@@ -90,5 +86,20 @@ const chooseNoteTitle = "We should start by naming your note:";
 const enterNoteContent =
     "Fill in your note content down below.\nYou can use the markup language called Markdown.";
 
+/*
+
+  ERRORS
+
+*/
+
+const noConnection = "No internet connection available!";
+const reconnectNeeded =
+    "Please reconnect to the internet in order to use $appName!";
+const restartNeeded = "Please restart or refresh the app in order to use it.";
+
+const noNotesSaved = "You don't have any notes stored yet! :(";
+
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
+
+const reminderWithoutName = "Please name your reminder.";

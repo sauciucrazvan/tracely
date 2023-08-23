@@ -81,12 +81,6 @@ class DashboardMobileLayout extends StatelessWidget {
               reminders,
               remindersRoute,
               () => showAddRemindersRoute(context),
-              /*() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AddReminders()),
-                );
-              },*/
             ),
 
             ConstrainedBox(
