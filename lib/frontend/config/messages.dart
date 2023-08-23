@@ -88,6 +88,16 @@ const enterNoteContent =
 
 /*
 
+  EDIT NOTE
+
+*/
+
+const modifyNote = "You are currently editing a note";
+const editNoteTitle = "Edit your title:";
+const editNoteContent = "Edit the content of your note:";
+
+/*
+
   ERRORS
 
 */

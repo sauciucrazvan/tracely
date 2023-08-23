@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import '../../../../../config/messages.dart';
@@ -83,7 +84,8 @@ class _NoteWidgetState extends State<NoteWidget> {
                               color: Colors.lightGreen),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () => showEditNotesRoute(
+                              context, widget.id, widget.data),
                           icon: const Icon(Icons.edit, color: Colors.lightBlue),
                         ),
                         IconButton(
