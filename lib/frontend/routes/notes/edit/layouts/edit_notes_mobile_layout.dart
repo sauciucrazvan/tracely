@@ -155,8 +155,35 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                 ),
 
                 const SizedBox(
+                  height: 25,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FittedBox(
+                      child: Text(
+                        shouldUseMarkdown,
+                        style: TextStyle(
+                          color: textColor,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Switch(
+                      activeColor: primaryColor,
+                      value: widget.data['useMarkdown'],
+                      onChanged: (value) {
+                        setState(() => widget.data['useMarkdown'] = value);
+                      },
+                    ),
+                  ],
+                ),
+
+                const SizedBox(
                   height: 50,
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -177,7 +204,8 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        editNote(widget.id, title, content);
+                        editNote(widget.id, title, content,
+                            widget.data['useMarkdown']);
                         Navigator.pop(context);
                       },
                     ),

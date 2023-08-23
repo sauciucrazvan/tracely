@@ -85,6 +85,7 @@ const addNote = "Let's add a new note!";
 const chooseNoteTitle = "We should start by naming your note:";
 const enterNoteContent =
     "Fill in your note content down below.\nYou can use the markup language called Markdown.";
+const shouldUseMarkdown = "Should we use Markdown formatting?";
 
 /*
 
@@ -95,6 +96,14 @@ const enterNoteContent =
 const modifyNote = "You are currently editing a note";
 const editNoteTitle = "Edit your title:";
 const editNoteContent = "Edit the content of your note:";
+
+/*
+
+  VIEW NOTE
+
+*/
+
+const lastEdit = "Last edit";
 
 /*
 

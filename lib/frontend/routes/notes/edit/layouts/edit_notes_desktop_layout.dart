@@ -35,6 +35,8 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
 
+    _titleController.text = widget.data['title'];
+
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: header(
@@ -135,7 +137,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
 
                 MarkdownTextInput(
                   (String value) {},
-                  "",
+                  _contentController.text,
                   label: 'Description',
                   actions: const [
                     MarkdownType.bold,
@@ -150,6 +152,30 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                   ],
                   controller: _contentController,
                   textStyle: TextStyle(color: textColor, fontSize: 16),
+                ),
+
+                const SizedBox(
+                  height: 25,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      shouldUseMarkdown,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: primaryColor,
+                      value: widget.data['useMarkdown'],
+                      onChanged: (value) {
+                        setState(() => widget.data['useMarkdown'] = value);
+                      },
+                    ),
+                  ],
                 ),
 
                 const SizedBox(
@@ -175,7 +201,8 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        insertNote(title, content);
+                        editNote(widget.id, title, content,
+                            widget.data['useMarkdown']);
                         Navigator.pop(context);
                       },
                     ),

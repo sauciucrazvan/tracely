@@ -79,7 +79,8 @@ class _NoteWidgetState extends State<NoteWidget> {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              showViewNotesRoute(context, widget.data),
                           icon: const Icon(Icons.visibility,
                               color: Colors.lightGreen),
                         ),

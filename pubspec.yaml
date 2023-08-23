@@ -29,6 +29,7 @@ dependencies:
 
   # Markdown Editable Text Input for notes
   markdown_editable_textinput: ^2.1.0
+  flutter_markdown: ^0.6.17+1
 
   # Lottie for animations
   lottie: ^2.6.0

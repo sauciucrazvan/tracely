@@ -12,20 +12,22 @@ String userId = currentUser!.uid;
 
 */
 
-void insertNote(String title, String content) async {
+void insertNote(String title, String content, bool useMarkdown) async {
   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
   await database.child("users/$userId/notes/$id").set({
     'title': title,
     'content': content,
+    'useMarkdown': useMarkdown,
     'last_edit': DateTime.now().toString(),
   });
 }
 
-void editNote(String id, String title, String content) async {
+void editNote(String id, String title, String content, bool useMarkdown) async {
   await database.child("users/$userId/notes/$id").update({
     'title': title,
     'content': content,
+    'useMarkdown': useMarkdown,
     'last_edit': DateTime.now().toString(),
   });
 }

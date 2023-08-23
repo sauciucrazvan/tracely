@@ -24,6 +24,8 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
 
+  bool useMarkdown = true;
+
   @override
   Widget build(BuildContext context) {
     Color textColor = Theme.of(context).colorScheme.tertiary;
@@ -147,6 +149,30 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                 ),
 
                 const SizedBox(
+                  height: 25,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      shouldUseMarkdown,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: primaryColor,
+                      value: useMarkdown,
+                      onChanged: (value) {
+                        setState(() => useMarkdown = value);
+                      },
+                    ),
+                  ],
+                ),
+
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
@@ -169,7 +195,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        insertNote(title, content);
+                        insertNote(title, content, useMarkdown);
                         Navigator.pop(context);
                       },
                     ),
