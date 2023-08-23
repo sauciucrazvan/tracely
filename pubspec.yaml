@@ -1,0 +1,58 @@
+name: tracely
+description: Fully fledged management app with cloud synchronization. Keep track of your projects, ideas, notes - and everything you can think of.
+version: 1.0.0+1
+
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  provider: ^6.0.5
+  intl: ^0.18.1
+
+  # Firebase Plugins
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.7.2
+
+  # Sign in platforms
+  google_sign_in: ^6.1.4
+
+  # Connectivity checker
+  connectivity_plus: ^4.0.2
+
+  # Markdown Editable Text Input for notes
+  markdown_editable_textinput: ^2.1.0
+
+  # Lottie for animations
+  lottie: ^2.6.0
+
+  # Google Fonts! A library of fonts used across the app
+  google_fonts: ^5.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: ^0.13.1
+
+  flutter_lints: ^2.0.0
+
+# Icon generator for Android & iOS
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/foregroundLogo.png"
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/logo.png
+    - assets/images/
+    - assets/animations/

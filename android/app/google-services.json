@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665390345056",
+    "project_id": "tracely-f42f5",
+    "storage_bucket": "tracely-f42f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665390345056:android:b9a31ed36d8a2ee545cc05",
+        "android_client_info": {
+          "package_name": "com.example.tracely"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665390345056-ccej8q8q82igaq3b6ccgdrqg5slvqqcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6kb8WHsSwYdzlP-r-3dYM9gufEURL58w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665390345056-91suntanv1rpae1dvi1b9imn3knhmanr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
