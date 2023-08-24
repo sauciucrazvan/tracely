@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
+
+import 'package:tracely/frontend/widgets/navigation_bar/navigation_bar.dart';
 
 import '../../../config/messages.dart';
 import '../../../widgets/header/header.dart';
 
-import '../components/categories/notes/notes.dart';
-import '../components/titlebar.dart';
 import '../components/topbar.dart';
 
 class DashboardMobileLayout extends StatelessWidget {
@@ -49,6 +48,7 @@ class DashboardMobileLayout extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: const NavigationPanel(index: 0),
       body: SafeArea(
         child: Column(
           children: [
@@ -68,21 +68,8 @@ class DashboardMobileLayout extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(
               height: 8,
-            ),
-
-            // NOTES
-            titleBar(
-              context,
-              notes,
-              notesRoute,
-              () => showAddNotesRoute(context),
-            ),
-
-            const Expanded(
-              child: SingleChildScrollView(child: BuildNotes()),
             ),
           ],
         ),
