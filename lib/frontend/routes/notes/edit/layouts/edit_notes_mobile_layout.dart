@@ -148,7 +148,6 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                     MarkdownType.blockquote,
                     MarkdownType.code,
                     MarkdownType.separator,
-                    MarkdownType.link,
                   ],
                   controller: _contentController,
                   textStyle: TextStyle(color: textColor, fontSize: 16),

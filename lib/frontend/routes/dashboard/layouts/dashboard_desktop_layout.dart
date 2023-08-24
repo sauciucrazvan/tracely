@@ -109,7 +109,11 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                                 notesRoute,
                                 () => showAddNotesRoute(context),
                               ),
-                              const Expanded(child: BuildNotes()),
+                              const Expanded(
+                                child: SingleChildScrollView(
+                                  child: BuildNotes(),
+                                ),
+                              ),
                             ],
                           ),
                         ),

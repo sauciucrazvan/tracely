@@ -148,7 +148,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                     MarkdownType.blockquote,
                     MarkdownType.code,
                     MarkdownType.separator,
-                    MarkdownType.link,
+                    //MarkdownType.link, <---- does not work
                   ],
                   controller: _contentController,
                   textStyle: TextStyle(color: textColor, fontSize: 16),

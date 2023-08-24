@@ -96,7 +96,9 @@ class DashboardMobileLayout extends StatelessWidget {
               () => showAddNotesRoute(context),
             ),
 
-            const Expanded(child: BuildNotes()),
+            const Expanded(
+              child: SingleChildScrollView(child: BuildNotes()),
+            ),
           ],
         ),
       ),

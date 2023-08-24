@@ -142,7 +142,6 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                     MarkdownType.blockquote,
                     MarkdownType.code,
                     MarkdownType.separator,
-                    MarkdownType.link,
                   ],
                   controller: _contentController,
                   textStyle: TextStyle(color: textColor, fontSize: 16),
