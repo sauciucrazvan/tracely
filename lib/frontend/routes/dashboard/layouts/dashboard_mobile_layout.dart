@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 
-import '../../../../backend/handlers/routes/reminders/reminders_routes.dart';
 import '../../../config/messages.dart';
 import '../../../widgets/header/header.dart';
 
 import '../components/categories/notes/notes.dart';
-import '../components/categories/reminders.dart';
 import '../components/titlebar.dart';
 import '../components/topbar.dart';
 
@@ -73,19 +71,6 @@ class DashboardMobileLayout extends StatelessWidget {
 
             const SizedBox(
               height: 8,
-            ),
-
-            // REMINDERS
-            titleBar(
-              context,
-              reminders,
-              remindersRoute,
-              () => showAddRemindersRoute(context),
-            ),
-
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 128),
-              child: buildReminders(context),
             ),
 
             // NOTES

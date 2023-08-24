@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  provider: ^6.0.5
+  # Time formatting
   intl: ^0.18.1
 
   # Firebase Plugins

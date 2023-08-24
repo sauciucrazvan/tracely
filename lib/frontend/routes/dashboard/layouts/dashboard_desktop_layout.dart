@@ -2,10 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
-import 'package:tracely/backend/handlers/routes/reminders/reminders_routes.dart';
 import 'package:tracely/frontend/routes/dashboard/components/categories/notes/notes.dart';
-
-import 'package:tracely/frontend/routes/dashboard/components/categories/reminders.dart';
 
 import '../../../config/messages.dart';
 
@@ -75,31 +72,6 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // REMINDERS
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 4,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Column(
-                                  children: [
-                                    titleBar(
-                                      context,
-                                      reminders,
-                                      remindersRoute,
-                                      () => showAddRemindersRoute(context),
-                                    ),
-                                    buildReminders(
-                                      context,
-                                      horizontal: false,
-                                      countPerLine: 3,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
                         Expanded(
                           child: Column(
                             children: [

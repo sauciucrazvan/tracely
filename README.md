@@ -24,7 +24,6 @@ Tracely is built using modern and efficient technologies, ensuring a smooth user
 ### Dependencies:
 
 - **[lottie](https://pub.dev/packages/lottie):** Lottie brings animations to life within Tracely. With easy integration of captivating animations, we enhance the app's visual appeal and user engagement. 🎬🎉
-- **[provider](https://pub.dev/packages/provider):** A package utilized for efficient state management and data manipulation within the app. This enables us to manage complex UI interactions and ensure a responsive user experience. 🔄📦
 - **[connectivity_plus](https://pub.dev/packages/connectivity_plus):** This dependency allows Tracely to check the internet connectivity status, ensuring that users stay connected and their data remains synchronized. 🌐🔌
 - **[markdown_editable_textinput](https://pub.dev/packages/markdown_editable_textinput):** By incorporating this dependency, we empower users to edit and create notes using Markdown formatting. This enriches their note-taking experience with visual elements and structured text. 📝✨
 
