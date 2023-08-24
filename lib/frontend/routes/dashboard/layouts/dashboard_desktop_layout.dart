@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 import 'package:tracely/backend/handlers/routes/reminders/reminders_routes.dart';
-
 import 'package:tracely/frontend/routes/dashboard/components/categories/notes/notes.dart';
+
 import 'package:tracely/frontend/routes/dashboard/components/categories/reminders.dart';
 
 import '../../../config/messages.dart';
@@ -109,7 +109,7 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                                 notesRoute,
                                 () => showAddNotesRoute(context),
                               ),
-                              Expanded(child: buildNotes(context)),
+                              const Expanded(child: BuildNotes()),
                             ],
                           ),
                         ),
