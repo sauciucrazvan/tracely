@@ -32,8 +32,13 @@ const loading = "Please wait while we do our magic";
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "To Do";
+const about = "About";
+
+const jumpNotes = "Jump to Notes";
+const jumpTodo = "Jump to To Do";
 
 const notesRoute = "Note";
+const todoRoute = "To Do";
 
 const welcome = {
   "Welcome back,",
