@@ -18,7 +18,7 @@ class AuthentificationService {
   signIn(BuildContext context) async {
     showDialog(
       context: context,
-      barrierDismissible: false,
+      barrierDismissible: true,
       builder: (context) => Center(
         child: CircularProgressIndicator(
           color: Theme.of(context).colorScheme.primary,
@@ -31,6 +31,8 @@ class AuthentificationService {
     } catch (error) {
       //print(error);
     }
-    if (context.mounted) Navigator.pop(context);
+
+    // ignore: use_build_context_synchronously
+    if (Navigator.of(context).canPop()) Navigator.pop(context);
   }
 }
