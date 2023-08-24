@@ -110,7 +110,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                             : Colors.red,
                       ),
                       child: Text(
-                        "Markdown",
+                        "MD",
                         style: TextStyle(
                           color: textColor,
                           fontSize: 16,

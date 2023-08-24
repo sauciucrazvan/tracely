@@ -5,6 +5,7 @@ import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
+import '../../../../../../backend/functions/limit_string.dart';
 import '../../../../../config/messages.dart';
 
 class NoteWidget extends StatefulWidget {
@@ -43,7 +44,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.data['title'],
+                    limitString(widget.data['title'], 40),
                     style: TextStyle(
                       color: textColor,
                     ),

@@ -137,7 +137,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
 
                 MarkdownTextInput(
                   (String value) {},
-                  _contentController.text,
+                  widget.data['content'],
                   label: 'Description',
                   actions: const [
                     MarkdownType.bold,
