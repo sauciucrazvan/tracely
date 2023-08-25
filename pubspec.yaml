@@ -37,9 +37,6 @@ dependencies:
   # Google Fonts! A library of fonts used across the app
   google_fonts: ^5.1.0
 
-  # Page Transitions
-  page_transition: ^2.0.9
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
