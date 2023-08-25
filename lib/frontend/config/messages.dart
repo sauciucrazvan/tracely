@@ -34,8 +34,9 @@ const notes = "Notes";
 const todo = "To Do";
 const about = "About";
 
-const jumpNotes = "Jump to Notes";
-const jumpTodo = "Jump to To Do";
+const stats = "Statistics";
+const notesSaved = "Notes saved:";
+const todoSaved = "Checklists saved:";
 
 const notesRoute = "Note";
 const todoRoute = "To Do";

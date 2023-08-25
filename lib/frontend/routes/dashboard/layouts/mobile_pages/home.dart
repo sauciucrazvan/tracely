@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/routes/dashboard/components/topbar.dart';
 
+import '../../../../../backend/domains/notes/notes_manipulator.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Statistics",
+                                stats,
                                 style: GoogleFonts.roboto(
                                   color: textColor,
                                   fontSize: 24,
@@ -76,17 +78,9 @@ class _HomeState extends State<Home> {
                               const SizedBox(
                                 height: 4,
                               ),
+                              numberOfNotes(context),
                               Text(
-                                "Notes saved: 0",
-                                style: GoogleFonts.roboto(
-                                  color: textColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w100,
-                                ),
-                                textAlign: TextAlign.start,
-                              ),
-                              Text(
-                                "Checklists saved: 0",
+                                "$todoSaved 0",
                                 style: GoogleFonts.roboto(
                                   color: textColor,
                                   fontSize: 16,
