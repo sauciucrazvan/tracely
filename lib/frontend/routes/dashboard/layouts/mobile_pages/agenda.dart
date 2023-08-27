@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../config/messages.dart';
+import '../../../checklists/add_checklist.dart';
 import '../../components/titlebar.dart';
 
-class TodoDashboard extends StatelessWidget {
-  const TodoDashboard({super.key});
+class AgendaDashboard extends StatelessWidget {
+  const AgendaDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +16,20 @@ class TodoDashboard extends StatelessWidget {
             height: 8,
           ),
 
-          // TO DO
+          // AGENDA
           titleBar(
             context,
             todo,
             todoRoute,
-            () => {},
+            () => showDialog(
+              context: context,
+              builder: (context) => addChecklist(context),
+            ),
           ),
 
           // const Expanded(
           //   child: SingleChildScrollView(
-          //     child: BuildTodo(),
+          //     child: BuildAgenda(),
           //   ),
           // ),
         ],

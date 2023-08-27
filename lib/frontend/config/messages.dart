@@ -31,15 +31,16 @@ const loading = "Please wait while we do our magic";
 
 const dashboard = "Home";
 const notes = "Notes";
-const todo = "To Do";
+const todo = "Agenda";
 const about = "About";
 
 const stats = "Statistics";
 const notesSaved = "Notes saved:";
 const todoSaved = "Checklists saved:";
 
+const routePrefix = "Add ";
 const notesRoute = "Note";
-const todoRoute = "To Do";
+const todoRoute = "Checklist";
 
 const welcome = {
   "Welcome back,",
@@ -104,3 +105,5 @@ const noNotesSaved = "You don't have any notes stored yet! :(";
 
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
+
+const checklistWithoutName = "The checklist does not have a name!";
