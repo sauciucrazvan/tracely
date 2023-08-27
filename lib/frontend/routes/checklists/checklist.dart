@@ -48,25 +48,28 @@ class ChecklistWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: ListTile(
-        title: Text(
-          name,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 18,
-          ),
-        ),
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        shape: RoundedRectangleBorder(
+      child: Container(
+        decoration: BoxDecoration(
+          color: secondaryColor,
           borderRadius: BorderRadius.circular(12),
         ),
-        tileColor: secondaryColor,
-        trailing: Icon(
-          Icons.keyboard_tab,
-          color: textColor,
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              name,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 18,
+              ),
+            ),
+            Icon(
+              Icons.keyboard_tab,
+              color: textColor,
+            ),
+          ],
         ),
-        onTap: () {},
       ),
     );
   }

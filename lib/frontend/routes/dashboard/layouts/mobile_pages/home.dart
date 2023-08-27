@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:lottie/lottie.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
-import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/routes/dashboard/components/trackers/statistics.dart';
 import 'package:tracely/frontend/routes/dashboard/components/topbar.dart';
 
-import '../../../../../backend/domains/notes/notes_manipulator.dart';
+import '../../components/trackers/about.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,7 +15,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return SafeArea(
@@ -54,44 +50,7 @@ class _HomeState extends State<Home> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: secondaryColor,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                stats,
-                                style: GoogleFonts.roboto(
-                                  color: textColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.start,
-                              ),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              numberOfNotes(context),
-                              numberOfChecklists(context),
-                            ],
-                          ),
-                          Lottie.asset(
-                            "assets/animations/chart.json",
-                            width: 64,
-                            height: 64,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: showStatistics(context),
                 ),
 
                 // ABOUT
@@ -101,54 +60,7 @@ class _HomeState extends State<Home> {
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: secondaryColor,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "About",
-                                style: GoogleFonts.roboto(
-                                  color: textColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.start,
-                              ),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width / 2,
-                                child: Text(
-                                  "$appName $appDesc",
-                                  style: GoogleFonts.roboto(
-                                    color: textColor,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w100,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Lottie.asset(
-                            "assets/animations/about.json",
-                            width: 64,
-                            height: 64,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: showAbout(context),
                 ),
               ],
             ),

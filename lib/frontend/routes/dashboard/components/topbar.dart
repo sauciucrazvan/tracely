@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
@@ -10,7 +9,9 @@ import '../../../widgets/buttons/rounded_button.dart';
 
 Widget topBar(BuildContext context, {bool expanded = false}) {
   Color textColor = Theme.of(context).colorScheme.tertiary;
-  int index = Random().nextInt(welcome.length);
+
+  // Displays a different message everyday
+  int index = DateTime.now().day.toInt() % welcome.length;
 
   return Padding(
     padding: const EdgeInsets.symmetric(

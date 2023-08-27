@@ -1,15 +1,20 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
-import 'package:tracely/frontend/routes/notes/notes.dart';
+
+import '../../../../frontend/routes/notes/notes.dart';
+import '../../../../backend/handlers/routes/notes/notes_routes.dart';
 
 import '../../../config/messages.dart';
 
+import '../../../widgets/header/header.dart';
+
 import '../../checklists/add/add_checklist.dart';
 import '../../checklists/checklists.dart';
+
 import '../components/titlebar.dart';
 import '../components/topbar.dart';
+
+import '../components/trackers/about.dart';
+import '../components/trackers/statistics.dart';
 
 class DashboardDesktopLayout extends StatefulWidget {
   const DashboardDesktopLayout({super.key});
@@ -21,101 +26,103 @@ class DashboardDesktopLayout extends StatefulWidget {
 class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
     Color backgroundColor = Theme.of(context).colorScheme.background;
-
-    int index = Random().nextInt(info.length);
+    Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: SafeArea(
-        child: Row(
+      appBar: header(
+        Image.asset(
+          "assets/logo.png",
+          height: 32,
+          width: 32,
+        ),
+        secondaryColor,
+        true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            Drawer(
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/logo.png",
-                      height: 64,
-                      width: 64,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            info.elementAt(index),
-                            style: TextStyle(
-                              color: textColor,
-                              fontSize: 16,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+            // Displays the greetings message & sign out button
+            Container(
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: const BorderRadius.vertical(
+                  bottom: Radius.circular(24),
                 ),
               ),
-            ),
-            Expanded(
               child: Column(
                 children: [
                   topBar(context),
-                  Divider(color: Theme.of(context).colorScheme.secondary),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              titleBar(
-                                context,
-                                todo,
-                                todoRoute,
-                                () => showDialog(
-                                  context: context,
-                                  builder: (context) => addChecklist(context),
-                                ),
-                              ),
-                              const Expanded(
-                                child: SingleChildScrollView(
-                                  child: BuildAgenda(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              titleBar(
-                                context,
-                                notes,
-                                notesRoute,
-                                () => showAddNotesRoute(context),
-                              ),
-                              const Expanded(
-                                child: SingleChildScrollView(
-                                  child: BuildNotes(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  const SizedBox(
+                    height: 8,
                   ),
                 ],
               ),
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Displays about
+                showAbout(context),
+
+                const SizedBox(
+                  width: 16,
+                ),
+
+                // Displays statistics
+                SizedBox(
+                  width: 512,
+                  child: showStatistics(context),
+                ),
+              ],
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+
+            // Agenda
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      titleBar(
+                        context,
+                        todo,
+                        todoRoute,
+                        () => showDialog(
+                          context: context,
+                          builder: (context) => addChecklist(context),
+                        ),
+                      ),
+                      const BuildAgenda(),
+                    ],
+                  ),
+                ),
+
+                // Notes
+                Expanded(
+                  child: Column(
+                    children: [
+                      titleBar(
+                        context,
+                        notes,
+                        notesRoute,
+                        () => showAddNotesRoute(context),
+                      ),
+                      const BuildNotes(),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

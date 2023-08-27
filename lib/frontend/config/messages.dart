@@ -32,9 +32,10 @@ const loading = "Please wait while we do our magic";
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
-const about = "About";
 
+const about = "About";
 const stats = "Statistics";
+
 const notesSaved = "Notes saved:";
 const todoSaved = "Checklists saved:";
 
