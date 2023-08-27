@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
+import 'package:tracely/frontend/routes/checklists/rename/rename_checklist.dart';
 
 import '../../config/messages.dart';
 import '../../widgets/dialogs/dialog.dart';
@@ -20,6 +21,15 @@ class ChecklistWidget extends StatelessWidget {
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
         children: [
+          SlidableAction(
+            backgroundColor: Colors.lightGreen.shade800,
+            foregroundColor: Colors.white,
+            icon: Icons.edit,
+            onPressed: (context) => showDialog(
+              context: context,
+              builder: (context) => editChecklist(context, id, name),
+            ),
+          ),
           SlidableAction(
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
@@ -53,7 +63,7 @@ class ChecklistWidget extends StatelessWidget {
         ),
         tileColor: secondaryColor,
         trailing: Icon(
-          Icons.arrow_back_ios,
+          Icons.keyboard_tab,
           color: textColor,
         ),
         onTap: () {},

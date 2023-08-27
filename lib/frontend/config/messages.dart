@@ -94,6 +94,14 @@ const lastEdit = "Last edit";
 
 /*
 
+  CHECKLISTS & CHECKBOXES
+
+*/
+
+const rename = "Rename";
+
+/*
+
   ERRORS
 
 */

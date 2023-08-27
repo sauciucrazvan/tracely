@@ -13,6 +13,12 @@ void insertChecklist(String name) async {
   });
 }
 
+void renameChecklist(String id, String name) async {
+  await database.child("users/$userId/checklists/$id").set({
+    'title': name,
+  });
+}
+
 void removeChecklist(String id) async {
   await database.child("users/$userId/checklists/$id").remove();
 }

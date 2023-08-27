@@ -6,8 +6,10 @@ import '../../../../backend/domains/checklists/checklist_manipulator.dart';
 import '../../../config/messages.dart';
 import '../../../widgets/buttons/button.dart';
 
-Widget addChecklist(BuildContext context) {
+Widget editChecklist(BuildContext context, String id, String title) {
   TextEditingController titleController = TextEditingController();
+
+  titleController.text = title; // DEFAULT VALUE
 
   Color textColor = Theme.of(context).colorScheme.tertiary;
   Color backgroundColor = Theme.of(context).colorScheme.background;
@@ -28,7 +30,7 @@ Widget addChecklist(BuildContext context) {
       child: Column(
         children: [
           Text(
-            "$routePrefix$todoRoute",
+            "$rename $todoRoute",
             style: GoogleFonts.arimo(
               color: textColor,
               fontSize: 16,
@@ -71,7 +73,7 @@ Widget addChecklist(BuildContext context) {
         icon: Icons.done,
         onPressed: () {
           if (titleController.text.isNotEmpty) {
-            insertChecklist(titleController.text);
+            renameChecklist(id, titleController.text);
           } else {
             showElevatedNotification(context, checklistWithoutName, Colors.red);
           }
