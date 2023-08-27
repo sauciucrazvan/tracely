@@ -6,7 +6,6 @@ import 'package:tracely/frontend/config/messages.dart';
 import '../../handlers/users/account_handler.dart';
 
 final DatabaseReference database = FirebaseDatabase.instance.ref();
-
 String userId = getUID();
 
 /*
@@ -46,7 +45,7 @@ void deleteNote(String id) async =>
 
 Widget numberOfNotes(BuildContext context) {
   return StreamBuilder(
-    stream: database.child("users/$userId}/notes").onValue.asBroadcastStream(),
+    stream: database.child("users/$userId/notes").onValue.asBroadcastStream(),
     builder: (context, dataSnapshot) {
       int numberOfNotes = 0;
 

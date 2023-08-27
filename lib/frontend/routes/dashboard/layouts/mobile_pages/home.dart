@@ -105,6 +105,7 @@ class _HomeState extends State<Home> {
                 const SizedBox(
                   height: 16,
                 ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Container(

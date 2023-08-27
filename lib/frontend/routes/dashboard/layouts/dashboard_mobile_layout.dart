@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/home.dart';
-import 'package:tracely/frontend/routes/loading/loading.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/todo.dart';
 
 import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/notes.dart';
 
@@ -21,7 +21,7 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
   final pages = [
     const Home(),
     const NotesDashboard(),
-    const Loading(),
+    const TodoDashboard(),
   ];
 
   @override

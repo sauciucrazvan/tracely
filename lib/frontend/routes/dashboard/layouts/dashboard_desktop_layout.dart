@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
-import 'package:tracely/frontend/routes/dashboard/components/categories/notes/notes.dart';
+import 'package:tracely/frontend/routes/notes/view/notes.dart';
 
 import '../../../config/messages.dart';
 
