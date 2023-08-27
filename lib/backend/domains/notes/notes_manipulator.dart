@@ -1,12 +1,12 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tracely/frontend/config/messages.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+import '../../../frontend/config/messages.dart';
 import '../../handlers/users/account_handler.dart';
 
 final DatabaseReference database = FirebaseDatabase.instance.ref();
-String userId = getUID();
 
 /*
 
@@ -15,6 +15,7 @@ String userId = getUID();
 */
 
 void insertNote(String title, String content, bool useMarkdown) async {
+  String userId = getUID();
   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
   await database.child("users/$userId/notes/$id").set({
@@ -26,6 +27,8 @@ void insertNote(String title, String content, bool useMarkdown) async {
 }
 
 void editNote(String id, String title, String content, bool useMarkdown) async {
+  String userId = getUID();
+
   await database.child("users/$userId/notes/$id").update({
     'title': title,
     'content': content,
@@ -34,8 +37,11 @@ void editNote(String id, String title, String content, bool useMarkdown) async {
   });
 }
 
-void deleteNote(String id) async =>
-    await database.child("users/$userId/notes/$id").remove();
+void deleteNote(String id) async {
+  String userId = getUID();
+
+  await database.child("users/$userId/notes/$id").remove();
+}
 
 /*
 
@@ -44,6 +50,8 @@ void deleteNote(String id) async =>
 */
 
 Widget numberOfNotes(BuildContext context) {
+  String userId = getUID();
+
   return StreamBuilder(
     stream: database.child("users/$userId/notes").onValue.asBroadcastStream(),
     builder: (context, dataSnapshot) {

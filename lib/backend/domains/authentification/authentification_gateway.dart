@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,9 +16,19 @@ StreamBuilder<User?> authentificationGateway() {
 
       if (snapshot.connectionState == ConnectionState.active) {
         if (snapshot.data == null) {
+          // Database going offline while signed out
+          FirebaseDatabase.instance.goOffline();
+
+          // Creating the authentification page
           return const Authentification();
         } else {
+          // Database going online after sign in
+          FirebaseDatabase.instance.goOnline();
+
+          // Updating the user after changing the account
           setUser(FirebaseAuth.instance.currentUser!);
+
+          // Creating the dashboard
           return const Dashboard();
         }
       }

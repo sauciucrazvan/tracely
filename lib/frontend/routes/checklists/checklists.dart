@@ -7,9 +7,14 @@ import 'package:tracely/frontend/routes/checklists/checklist.dart';
 import '../../../backend/handlers/users/account_handler.dart';
 import '../../config/messages.dart';
 
-class BuildAgenda extends StatelessWidget {
+class BuildAgenda extends StatefulWidget {
   const BuildAgenda({super.key});
 
+  @override
+  State<BuildAgenda> createState() => _BuildAgendaState();
+}
+
+class _BuildAgendaState extends State<BuildAgenda> {
   @override
   Widget build(BuildContext context) {
     DatabaseReference database = FirebaseDatabase.instance.ref();

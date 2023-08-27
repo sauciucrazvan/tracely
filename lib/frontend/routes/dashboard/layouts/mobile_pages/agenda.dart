@@ -6,9 +6,14 @@ import '../../../../config/messages.dart';
 import '../../../checklists/add/add_checklist.dart';
 import '../../components/titlebar.dart';
 
-class AgendaDashboard extends StatelessWidget {
+class AgendaDashboard extends StatefulWidget {
   const AgendaDashboard({super.key});
 
+  @override
+  State<AgendaDashboard> createState() => _AgendaDashboardState();
+}
+
+class _AgendaDashboardState extends State<AgendaDashboard> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

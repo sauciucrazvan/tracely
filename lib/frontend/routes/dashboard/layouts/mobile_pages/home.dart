@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/routes/dashboard/components/topbar.dart';
 
@@ -79,15 +80,7 @@ class _HomeState extends State<Home> {
                                 height: 4,
                               ),
                               numberOfNotes(context),
-                              Text(
-                                "$todoSaved 0",
-                                style: GoogleFonts.roboto(
-                                  color: textColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w100,
-                                ),
-                                textAlign: TextAlign.start,
-                              ),
+                              numberOfChecklists(context),
                             ],
                           ),
                           Lottie.asset(
