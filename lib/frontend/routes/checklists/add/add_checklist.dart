@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 
-import '../../../backend/domains/checklists/checklist_manipulator.dart';
-import '../../config/messages.dart';
-import '../../widgets/buttons/button.dart';
+import '../../../../backend/domains/checklists/checklist_manipulator.dart';
+import '../../../config/messages.dart';
+import '../../../widgets/buttons/button.dart';
 
 Widget addChecklist(BuildContext context) {
-  TextEditingController _titleController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
 
   Color textColor = Theme.of(context).colorScheme.tertiary;
   Color backgroundColor = Theme.of(context).colorScheme.background;
@@ -44,7 +44,7 @@ Widget addChecklist(BuildContext context) {
               horizontal: 16,
             ),
             child: TextField(
-              controller: _titleController,
+              controller: titleController,
               maxLength: 64,
               maxLines: 1,
               obscureText: false,
@@ -73,8 +73,8 @@ Widget addChecklist(BuildContext context) {
         backgroundColor: Theme.of(context).colorScheme.primary,
         icon: Icons.done,
         onPressed: () {
-          if (_titleController.text.isNotEmpty) {
-            insertChecklist(_titleController.text);
+          if (titleController.text.isNotEmpty) {
+            insertChecklist(titleController.text);
           } else {
             showElevatedNotification(context, checklistWithoutName, Colors.red);
           }
@@ -86,7 +86,7 @@ Widget addChecklist(BuildContext context) {
         backgroundColor: Colors.red,
         icon: Icons.close,
         onPressed: () {
-          _titleController.clear();
+          titleController.clear();
           Navigator.pop(context);
         },
       ),

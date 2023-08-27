@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:tracely/frontend/routes/checklists/checklists.dart';
+
 import '../../../../config/messages.dart';
-import '../../../checklists/add_checklist.dart';
+import '../../../checklists/add/add_checklist.dart';
 import '../../components/titlebar.dart';
 
 class AgendaDashboard extends StatelessWidget {
@@ -27,11 +29,11 @@ class AgendaDashboard extends StatelessWidget {
             ),
           ),
 
-          // const Expanded(
-          //   child: SingleChildScrollView(
-          //     child: BuildAgenda(),
-          //   ),
-          // ),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: BuildAgenda(),
+            ),
+          ),
         ],
       ),
     );

@@ -59,6 +59,8 @@ const info = {
 
 const removeNote =
     "Are you sure you want to delete this note?\nThis action can not be reverted!";
+const deleteChecklist =
+    "Are you sure you want to delete this checklist?\nEvery entry will be deleted and this action can not be reverted!";
 
 /*
 
@@ -102,6 +104,7 @@ const reconnectNeeded =
 const restartNeeded = "Please restart or refresh the app in order to use it.";
 
 const noNotesSaved = "You don't have any notes stored yet! :(";
+const noChecklistsSaved = "No checklists saved.";
 
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";

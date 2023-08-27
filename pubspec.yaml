@@ -37,6 +37,9 @@ dependencies:
   # Google Fonts! A library of fonts used across the app
   google_fonts: ^5.1.0
 
+  # Slidables ~ used for Checklists & checkboxes
+  flutter_slidable: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

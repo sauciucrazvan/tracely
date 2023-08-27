@@ -2,41 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:tracely/frontend/routes/checklists/checklist.dart';
 
-import 'package:tracely/backend/handlers/users/account_handler.dart';
-import 'package:tracely/frontend/config/messages.dart';
+import '../../../backend/handlers/users/account_handler.dart';
+import '../../config/messages.dart';
 
-import '../note.dart';
-
-DatabaseReference database = FirebaseDatabase.instance.ref();
-
-class BuildNotes extends StatefulWidget {
-  const BuildNotes({super.key});
-
-  @override
-  State<BuildNotes> createState() => _BuildNotesState();
-}
-
-class _BuildNotesState extends State<BuildNotes> {
-  @override
-  void initState() {
-    FirebaseDatabase.instance.goOnline();
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    FirebaseDatabase.instance.goOffline();
-
-    super.dispose();
-  }
+class BuildAgenda extends StatelessWidget {
+  const BuildAgenda({super.key});
 
   @override
   Widget build(BuildContext context) {
+    DatabaseReference database = FirebaseDatabase.instance.ref();
+
     return StreamBuilder(
-      stream:
-          database.child("users/${getUID()}/notes").onValue.asBroadcastStream(),
+      stream: database
+          .child("users/${getUID()}/checklists")
+          .onValue
+          .asBroadcastStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
@@ -50,23 +32,20 @@ class _BuildNotesState extends State<BuildNotes> {
 
         if (snapshot.data?.snapshot.value != null &&
             snapshot.data?.snapshot.value is Map) {
-          final notes = snapshot.data?.snapshot.value as Map<dynamic, dynamic>;
+          final checklists =
+              snapshot.data?.snapshot.value as Map<dynamic, dynamic>;
 
-          final notesList = notes.entries.toList();
-
-          // Sorting the notes
-          notesList.sort((a, b) {
-            final DateTime lastEditA = DateTime.parse(a.value['last_edit']);
-            final DateTime lastEditB = DateTime.parse(b.value['last_edit']);
-            return lastEditB.compareTo(lastEditA);
-          });
+          final checklistsList = checklists.entries.toList();
 
           return Column(
-            children: notesList
+            children: checklistsList
                 .map(
                   (entry) => Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: NoteWidget(id: entry.key, data: entry.value),
+                    child: ChecklistWidget(
+                      id: entry.key,
+                      name: entry.value['title'],
+                    ),
                   ),
                 )
                 .toList(),
@@ -84,7 +63,7 @@ class _BuildNotesState extends State<BuildNotes> {
                 height: 256,
               ),
               Text(
-                noNotesSaved,
+                noChecklistsSaved,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.tertiary,
                   fontSize: 16,

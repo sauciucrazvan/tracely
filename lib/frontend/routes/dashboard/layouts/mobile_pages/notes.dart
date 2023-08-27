@@ -4,7 +4,7 @@ import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 
 import '../../../../config/messages.dart';
 
-import '../../../notes/view/notes.dart';
+import '../../../notes/notes.dart';
 import '../../components/titlebar.dart';
 
 class NotesDashboard extends StatelessWidget {

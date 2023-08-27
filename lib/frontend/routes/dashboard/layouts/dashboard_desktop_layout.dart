@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
-import 'package:tracely/frontend/routes/notes/view/notes.dart';
+import 'package:tracely/frontend/routes/notes/notes.dart';
 
 import '../../../config/messages.dart';
 
+import '../../checklists/add/add_checklist.dart';
+import '../../checklists/checklists.dart';
 import '../components/titlebar.dart';
 import '../components/topbar.dart';
 
@@ -72,6 +74,26 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              titleBar(
+                                context,
+                                todo,
+                                todoRoute,
+                                () => showDialog(
+                                  context: context,
+                                  builder: (context) => addChecklist(context),
+                                ),
+                              ),
+                              const Expanded(
+                                child: SingleChildScrollView(
+                                  child: BuildAgenda(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         Expanded(
                           child: Column(
                             children: [
