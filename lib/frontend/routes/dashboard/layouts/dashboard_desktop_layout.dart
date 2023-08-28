@@ -100,7 +100,7 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                         todoRoute,
                         () => showDialog(
                           context: context,
-                          builder: (context) => addChecklist(context),
+                          builder: (context) => const AddChecklist(),
                         ),
                       ),
                       const BuildAgenda(),

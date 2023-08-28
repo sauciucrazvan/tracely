@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
-import 'package:tracely/frontend/routes/checklists/rename/rename_checklist.dart';
+import 'package:tracely/frontend/routes/checklists/rename/modify_checklist.dart';
 
 import '../../config/messages.dart';
 import '../../widgets/dialogs/dialog.dart';
@@ -9,8 +9,10 @@ import '../../widgets/dialogs/dialog.dart';
 class ChecklistWidget extends StatelessWidget {
   final String id;
   final String name;
+  final String color;
 
-  const ChecklistWidget({super.key, required this.id, required this.name});
+  const ChecklistWidget(
+      {super.key, required this.id, required this.name, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,11 @@ class ChecklistWidget extends StatelessWidget {
             icon: Icons.edit,
             onPressed: (context) => showDialog(
               context: context,
-              builder: (context) => editChecklist(context, id, name),
+              builder: (context) => ModifyChecklist(
+                id: id,
+                name: name,
+                color: color,
+              ),
             ),
           ),
           SlidableAction(
@@ -38,9 +44,9 @@ class ChecklistWidget extends StatelessWidget {
               context: context,
               builder: (context) => alertDialog(
                 context,
-                deleteChecklist,
+                removeChecklist,
                 () {
-                  removeChecklist(id);
+                  deleteChecklist(id);
                   Navigator.pop(context);
                 },
               ),
@@ -48,29 +54,42 @@ class ChecklistWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Text(
-                name,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 18,
+      child: GestureDetector(
+        onTap: () {}, // show checkboxes saved
+        child: Container(
+          decoration: BoxDecoration(
+            color: secondaryColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 8,
+                  backgroundColor: getColor(color),
                 ),
               ),
-            ),
-            Icon(
-              Icons.keyboard_tab,
-              color: textColor,
-            ),
-          ],
+              Expanded(
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 64,
+                child: Icon(
+                  Icons.keyboard_tab,
+                  color: textColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

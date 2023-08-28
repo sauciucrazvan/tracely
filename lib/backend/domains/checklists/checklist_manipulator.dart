@@ -14,28 +14,60 @@ final DatabaseReference database = FirebaseDatabase.instance.ref();
 
 */
 
-void insertChecklist(String name) async {
+void insertChecklist(String name, String color) async {
   String userId = getUID();
 
   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
   await database.child("users/$userId/checklists/$id").set({
     'title': name,
+    'color': color,
   });
 }
 
-void renameChecklist(String id, String name) async {
+void editChecklist(String id, String name, String color) async {
   String userId = getUID();
 
   await database.child("users/$userId/checklists/$id").set({
     'title': name,
+    'color': color,
   });
 }
 
-void removeChecklist(String id) async {
+void deleteChecklist(String id) async {
   String userId = getUID();
 
   await database.child("users/$userId/checklists/$id").remove();
+}
+
+Color getColor(String color) {
+  switch (color) {
+    case "red":
+      return Colors.red;
+    case "blue":
+      return Colors.blue;
+    case "green":
+      return Colors.green;
+    case "yellow":
+      return Colors.yellow;
+    case "purple":
+      return Colors.purple;
+    case "pink":
+      return Colors.pink;
+    case "orange":
+      return Colors.orange;
+    case "cyan":
+      return Colors.cyan;
+    case "lime":
+      return Colors.lime;
+    case "amber":
+      return Colors.amber;
+    case "lightgreen":
+      return Colors.lightGreen;
+    case "lightblue":
+      return Colors.lightBlue;
+  }
+  return Colors.white;
 }
 
 /*

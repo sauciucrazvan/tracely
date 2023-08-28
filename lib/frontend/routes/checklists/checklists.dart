@@ -7,14 +7,9 @@ import 'package:tracely/frontend/routes/checklists/checklist.dart';
 import '../../../backend/handlers/users/account_handler.dart';
 import '../../config/messages.dart';
 
-class BuildAgenda extends StatefulWidget {
+class BuildAgenda extends StatelessWidget {
   const BuildAgenda({super.key});
 
-  @override
-  State<BuildAgenda> createState() => _BuildAgendaState();
-}
-
-class _BuildAgendaState extends State<BuildAgenda> {
   @override
   Widget build(BuildContext context) {
     DatabaseReference database = FirebaseDatabase.instance.ref();
@@ -50,6 +45,7 @@ class _BuildAgendaState extends State<BuildAgenda> {
                     child: ChecklistWidget(
                       id: entry.key,
                       name: entry.value['title'],
+                      color: entry.value['color'] ?? "red",
                     ),
                   ),
                 )
@@ -63,7 +59,7 @@ class _BuildAgendaState extends State<BuildAgenda> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset(
-                "assets/animations/empty.json",
+                "assets/animations/error.json",
                 width: 256,
                 height: 256,
               ),

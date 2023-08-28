@@ -8,13 +8,13 @@ import 'package:tracely/frontend/config/messages.dart';
 
 import 'note.dart';
 
-DatabaseReference database = FirebaseDatabase.instance.ref();
-
 class BuildNotes extends StatelessWidget {
   const BuildNotes({super.key});
 
   @override
   Widget build(BuildContext context) {
+    DatabaseReference database = FirebaseDatabase.instance.ref();
+
     return StreamBuilder(
       stream:
           database.child("users/${getUID()}/notes").onValue.asBroadcastStream(),
@@ -60,7 +60,7 @@ class BuildNotes extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset(
-                "assets/animations/empty.json",
+                "assets/animations/error.json",
                 width: 256,
                 height: 256,
               ),

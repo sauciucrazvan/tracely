@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
 import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 
-import '../../../../backend/domains/checklists/checklist_manipulator.dart';
 import '../../../config/messages.dart';
 import '../../../widgets/buttons/button.dart';
 
-class AddChecklist extends StatefulWidget {
-  const AddChecklist({super.key});
+class ModifyChecklist extends StatefulWidget {
+  final String id;
+  final String name;
+  final String color;
+
+  const ModifyChecklist(
+      {super.key, required this.id, required this.name, required this.color});
 
   @override
-  State<AddChecklist> createState() => _AddChecklistState();
+  State<ModifyChecklist> createState() => _ModifyChecklistState();
 }
 
-class _AddChecklistState extends State<AddChecklist> {
-  String selectedColor = "red";
+class _ModifyChecklistState extends State<ModifyChecklist> {
   TextEditingController titleController = TextEditingController();
+  String selectedColor = "red";
+
+  @override
+  void initState() {
+    titleController.text = widget.name;
+    selectedColor = widget.color;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +51,7 @@ class _AddChecklistState extends State<AddChecklist> {
         child: Column(
           children: [
             Text(
-              "$routePrefix$todoRoute",
+              rename,
               style: GoogleFonts.arimo(
                 color: textColor,
                 fontSize: 16,
@@ -103,7 +116,7 @@ class _AddChecklistState extends State<AddChecklist> {
           icon: Icons.done,
           onPressed: () {
             if (titleController.text.isNotEmpty) {
-              insertChecklist(titleController.text, selectedColor);
+              editChecklist(widget.id, titleController.text, selectedColor);
             } else {
               showElevatedNotification(
                   context, checklistWithoutName, Colors.red);
