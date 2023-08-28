@@ -57,11 +57,13 @@ class ChecklistWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              name,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 18,
+            Expanded(
+              child: Text(
+                name,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 18,
+                ),
               ),
             ),
             Icon(

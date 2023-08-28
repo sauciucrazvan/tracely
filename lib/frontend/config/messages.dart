@@ -52,12 +52,6 @@ const welcome = {
   "Everything for you,",
 };
 
-const info = {
-  "You can download $appName on iOS or Android for free!",
-  "$appName is free and open-source. You can contribute on GitHub.",
-  "The app is still in beta. Please report any bugs on the GitHub page!",
-};
-
 const removeNote =
     "Are you sure you want to delete this note?\nThis action can not be reverted!";
 const deleteChecklist =
