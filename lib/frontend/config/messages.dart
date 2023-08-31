@@ -37,6 +37,7 @@ const usedData =
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
+const checkboxes = "Checkboxes";
 
 // Widgets
 const about = "About";
@@ -51,6 +52,7 @@ const routePrefix = "Add ";
 
 const notesRoute = "Note";
 const todoRoute = "Checklist";
+const checkboxesRoute = "Checkbox";
 
 // Daily message that's being displayed on the home page
 const welcome = {
@@ -104,6 +106,8 @@ const colors = [
   'purple',
 ];
 
+const checkboxFinished = "Finished";
+
 /*
 
   ERRORS
@@ -117,6 +121,7 @@ const restartNeeded = "Please restart or refresh the app in order to use it.";
 
 const noNotesSaved = "You don't have any notes stored yet! :(";
 const noChecklistsSaved = "No checklists saved.";
+const noCheckboxesSaved = "No checkboxes here!";
 
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
@@ -133,3 +138,4 @@ const removeNote =
     "Are you sure you want to delete this note?\nThis action can not be reverted!";
 const removeChecklist =
     "Are you sure you want to delete this checklist?\nEvery entry will be deleted and this action can not be reverted!";
+const removeCheckbox = "Are you sure you want to delete this checkbox?";

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
+import 'package:tracely/frontend/routes/checkboxes/view/view_checkboxes.dart';
 import 'package:tracely/frontend/routes/checklists/rename/modify_checklist.dart';
 
 import '../../config/messages.dart';
@@ -55,7 +56,16 @@ class ChecklistWidget extends StatelessWidget {
         ],
       ),
       child: GestureDetector(
-        onTap: () {}, // show checkboxes saved
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ViewCheckboxes(
+              id: id,
+              name: name,
+              color: color,
+            ),
+          ),
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: secondaryColor,

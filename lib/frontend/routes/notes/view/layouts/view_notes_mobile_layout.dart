@@ -89,7 +89,7 @@ class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "$lastEdit: ${DateFormat("HH:mm dd/MM/yyyy").format(
+                      "$lastEdit: ${DateFormat("MMM d, yyyy | HH:mm").format(
                         DateTime.parse(
                           widget.data['last_edit'],
                         ),
