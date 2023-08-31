@@ -25,6 +25,46 @@ class ChecklistWidget extends StatelessWidget {
     Color textColor = Theme.of(context).colorScheme.tertiary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
+    // EASTER EGGS
+    DateTime currentDate = DateTime.now();
+
+    bool isChristmas = (currentDate.day >= 25 &&
+        currentDate.day <= 27 &&
+        currentDate.month == 12);
+    bool isNewYear = (currentDate.day == 1 && currentDate.month == 1);
+    bool isHalloween = (currentDate.day == 31 && currentDate.month == 10);
+
+    Widget specialIcon() {
+      if (isChristmas &&
+          (color == "green" ||
+              color == "red" ||
+              color == "lightgreen" ||
+              color == "lime")) {
+        return Icon(
+          Icons.snowing,
+          color: textColor,
+          size: 16,
+        );
+      }
+      if (isNewYear &&
+          (color == "blue" || color == "lightblue" || color == "cyan")) {
+        return Icon(
+          Icons.celebration,
+          color: textColor,
+          size: 16,
+        );
+      }
+      if (isHalloween && (color == "orange" || color == "amber")) {
+        return Icon(
+          Icons.bloodtype,
+          color: textColor,
+          size: 16,
+        );
+      }
+
+      return Container();
+    }
+
     return Slidable(
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
@@ -83,8 +123,9 @@ class ChecklistWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(
-                  radius: 8,
+                  radius: 12,
                   backgroundColor: getColor(color),
+                  child: specialIcon(),
                 ),
               ),
               Column(
