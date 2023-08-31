@@ -183,7 +183,7 @@ class _AddCheckboxMobileLayoutState extends State<AddCheckboxMobileLayout> {
                         String text = _titleController.text;
                         if (text.isEmpty) {
                           return showElevatedNotification(
-                              context, noteWithoutName, Colors.red);
+                              context, checkboxWithoutName, Colors.red);
                         }
 
                         insertCheckbox(

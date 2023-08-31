@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
+
+import 'package:tracely/frontend/routes/checkboxes/add/layouts/add_checkbox_desktop_layout.dart';
 import 'package:tracely/frontend/routes/checkboxes/add/layouts/add_checkbox_mobile_layout.dart';
+
 import 'package:tracely/frontend/routes/responsive_layout.dart';
 
 class AddCheckbox extends StatefulWidget {
@@ -16,7 +19,7 @@ class _AddCheckboxState extends State<AddCheckbox> {
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       mobileBody: AddCheckboxMobileLayout(categoryID: widget.categoryID),
-      desktopBody: const Placeholder(),
+      desktopBody: AddCheckboxDesktopLayout(categoryID: widget.categoryID),
     );
   }
 }

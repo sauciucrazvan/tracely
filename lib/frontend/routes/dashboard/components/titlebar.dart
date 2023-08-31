@@ -6,8 +6,9 @@ import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
 Widget titleBar(
   BuildContext context,
   String title,
-  Function()? onPressed,
-) {
+  Function()? onPressed, {
+  double size = 12,
+}) {
   Color textColor = Theme.of(context).colorScheme.tertiary;
   Color primaryColor = Theme.of(context).colorScheme.primary;
 
@@ -35,10 +36,10 @@ Widget titleBar(
           Icon(
             Icons.add,
             color: textColor,
-            size: 16,
+            size: size * 2,
           ),
           onPressed,
-          size: 8,
+          size: size,
         ),
         const Divider(),
       ],

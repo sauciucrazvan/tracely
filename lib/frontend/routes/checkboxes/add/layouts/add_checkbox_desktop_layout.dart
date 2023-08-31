@@ -1,30 +1,46 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:markdown_editable_textinput/format_markdown.dart';
-import 'package:markdown_editable_textinput/markdown_text_input.dart';
-import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
-import 'package:tracely/frontend/widgets/buttons/button.dart';
 
-import 'package:tracely/frontend/widgets/header/header.dart';
-import 'package:tracely/frontend/widgets/buttons/back_button.dart';
-import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
+import 'package:tracely/backend/domains/checkboxes/checkbox_manipulator.dart';
 
-class AddNotesDesktopLayout extends StatefulWidget {
-  const AddNotesDesktopLayout({super.key});
+import '../../../../widgets/buttons/back_button.dart';
+import '../../../../widgets/buttons/button.dart';
+import '../../../../widgets/header/header.dart';
+import '../../../../widgets/notifications/elevated_notification.dart';
+
+class AddCheckboxDesktopLayout extends StatefulWidget {
+  final String categoryID;
+
+  const AddCheckboxDesktopLayout({super.key, required this.categoryID});
 
   @override
-  State<AddNotesDesktopLayout> createState() => _AddNotesDesktopLayoutState();
+  State<AddCheckboxDesktopLayout> createState() =>
+      _AddCheckboxDesktopLayoutState();
 }
 
-class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
+class _AddCheckboxDesktopLayoutState extends State<AddCheckboxDesktopLayout> {
   final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _contentController = TextEditingController();
 
-  bool useMarkdown = true;
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(selectedDate.year + 5),
+    );
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,24 +64,20 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 256.0,
-              vertical: 24.0,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 256.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Lottie.asset(
-                    "assets/animations/note.json",
+                    "assets/animations/check.json",
                     height: 128,
                     width: 128,
                   ),
                 ),
 
-                // add note title
                 Text(
-                  addNote,
+                  "Adding a new checklist",
                   style: GoogleFonts.arimo(
                     color: textColor,
                     fontWeight: FontWeight.bold,
@@ -77,9 +89,9 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   height: 25,
                 ),
 
-                // note title
+                // checklist title
                 Text(
-                  chooseNoteTitle,
+                  "Let's choose a title for your checklist",
                   style: TextStyle(
                     color: textColor,
                     fontSize: 16,
@@ -96,7 +108,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   ),
                   child: TextField(
                     controller: _titleController,
-                    maxLength: 128,
+                    maxLength: 64,
                     maxLines: 1,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -118,62 +130,43 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   height: 25,
                 ),
 
-                // add note content
-                Text(
-                  enterNoteContent,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
-                ),
+                const Divider(),
 
-                const SizedBox(
-                  height: 8,
-                ),
-
-                MarkdownTextInput(
-                  (String value) {},
-                  "",
-                  label: 'Description',
-                  actions: const [
-                    MarkdownType.bold,
-                    MarkdownType.italic,
-                    MarkdownType.strikethrough,
-                    MarkdownType.list,
-                    //MarkdownType.title, <--- bugged for some reason, may fix later
-                    MarkdownType.blockquote,
-                    MarkdownType.code,
-                    MarkdownType.separator,
-                    //MarkdownType.link, <---- does not work
-                  ],
-                  controller: _contentController,
-                  textStyle: TextStyle(color: textColor, fontSize: 16),
-                ),
-
-                const SizedBox(
-                  height: 25,
-                ),
-
+                // date selector
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      shouldUseMarkdown,
+                      "Select a date",
                       style: TextStyle(
                         color: textColor,
                         fontSize: 16,
                       ),
                     ),
-                    Switch(
-                      activeColor: primaryColor,
-                      value: useMarkdown,
-                      onChanged: (value) {
-                        setState(() => useMarkdown = value);
-                      },
+                    Row(
+                      children: [
+                        Text(
+                          DateFormat("MMM dd, yyyy").format(selectedDate),
+                          style: TextStyle(
+                            color: textColor,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        actionButton(
+                          context,
+                          backgroundColor: secondaryColor,
+                          icon: Icons.calendar_today,
+                          onPressed: () => selectDate(context),
+                        ),
+                      ],
                     ),
                   ],
                 ),
 
+                // add/cancel button
                 const SizedBox(
                   height: 50,
                 ),
@@ -185,19 +178,18 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                       backgroundColor: primaryColor,
                       icon: Icons.done,
                       onPressed: () {
-                        String title = _titleController.text;
-                        String content = _contentController.text;
-                        if (title.isEmpty) {
+                        String text = _titleController.text;
+                        if (text.isEmpty) {
                           return showElevatedNotification(
-                              context, noteWithoutName, Colors.red);
+                              context, checkboxWithoutName, Colors.red);
                         }
 
-                        if (content.isEmpty) {
-                          return showElevatedNotification(
-                              context, noteWithoutContent, Colors.red);
-                        }
+                        insertCheckbox(
+                          widget.categoryID,
+                          text,
+                          selectedDate.toString(),
+                        );
 
-                        insertNote(title, content, useMarkdown);
                         Navigator.pop(context);
                       },
                     ),

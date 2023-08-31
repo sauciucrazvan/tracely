@@ -92,7 +92,7 @@ class ChecklistWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width - 200,
+                    width: MediaQuery.of(context).size.width / 2.5,
                     child: Text(
                       name,
                       style: TextStyle(
