@@ -13,12 +13,13 @@ class ChecklistWidget extends StatelessWidget {
   final String color;
   final int count;
 
-  const ChecklistWidget(
-      {super.key,
-      required this.id,
-      required this.name,
-      required this.color,
-      required this.count});
+  const ChecklistWidget({
+    super.key,
+    required this.id,
+    required this.name,
+    required this.color,
+    required this.count,
+  });
 
   @override
   Widget build(BuildContext context) {
