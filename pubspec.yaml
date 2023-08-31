@@ -16,7 +16,7 @@ dependencies:
 
   # Firebase Plugins
   firebase_core: ^2.15.0
-  firebase_auth: ^4.7.2
+  firebase_auth: ^4.8.0
   cloud_firestore: ^4.8.3
   firebase_storage: ^11.2.5
   firebase_database: ^10.2.4
@@ -40,6 +40,9 @@ dependencies:
   # Slidables ~ used for Checklists & checkboxes
   flutter_slidable: ^3.0.0
 
+#  flutter_native_splash: ^2.3.2 <- waiting for an update, does not work (JpegAdobe does not exist)
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -54,6 +57,20 @@ flutter_launcher_icons:
   ios: true
   remove_alpha_ios: true
   image_path: "assets/foregroundLogo.png"
+
+# flutter_native_splash:
+#   color: "#F1F1F9"
+#   image: "assets/logo.png"
+#   color_dark: "#333333"
+#   image_dark: "assets/logo.png"
+
+#   android_12:
+#     color: "#F1F1F9"
+#     image: "assets/logo.png"
+#     color_dark: "#333333"
+#     image_dark: "assets/logo.png"
+
+#   web: false
 
 flutter:
 
