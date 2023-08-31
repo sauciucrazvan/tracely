@@ -107,10 +107,10 @@ class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
                             ? Colors.green.shade700
                             : Colors.red,
                       ),
-                      child: Text(
+                      child: const Text(
                         "MD",
                         style: TextStyle(
-                          color: textColor,
+                          color: Colors.white,
                           fontSize: 16,
                         ),
                       ),

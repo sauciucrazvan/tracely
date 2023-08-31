@@ -46,4 +46,3 @@ app.*.map.json
 # Private keys
 /lib/firebase_options.dart
 /lib/backend/keys/
-/ios/Runner/GoogleService-Info.plist
