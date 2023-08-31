@@ -91,7 +91,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "$lastEdit: ${DateFormat("HH:mm dd/MM/yyyy").format(
+                      "$lastEdit: ${DateFormat("MMM d, yyyy | HH:mm").format(
                         DateTime.parse(
                           widget.data['last_edit'],
                         ),
@@ -109,10 +109,10 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                             ? Colors.green.shade700
                             : Colors.red,
                       ),
-                      child: Text(
+                      child: const Text(
                         "MD",
                         style: TextStyle(
-                          color: textColor,
+                          color: Colors.white,
                           fontSize: 16,
                         ),
                       ),

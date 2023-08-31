@@ -60,6 +60,11 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
             icon: Icon(Icons.event),
             label: todo,
           ),
+          // Congrats! You've found an upcoming feature to Tracely!
+          // NavigationDestination(
+          //   icon: Icon(Icons.wallet),
+          //   label: "Expenses",
+          // ),
         ],
         onDestinationSelected: (index) => setState(
           () => _selectedIndex = index,

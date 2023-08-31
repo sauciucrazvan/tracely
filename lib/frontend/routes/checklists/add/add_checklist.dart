@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
@@ -14,7 +16,8 @@ class AddChecklist extends StatefulWidget {
 }
 
 class _AddChecklistState extends State<AddChecklist> {
-  String selectedColor = "red";
+  String selectedColor =
+      colors[Random().nextInt(colors.length)]; // DEFAULT VALUE
   TextEditingController titleController = TextEditingController();
 
   @override
@@ -38,7 +41,7 @@ class _AddChecklistState extends State<AddChecklist> {
         child: Column(
           children: [
             Text(
-              "$routePrefix$todoRoute",
+              addTodo,
               style: GoogleFonts.arimo(
                 color: textColor,
                 fontSize: 16,
@@ -74,7 +77,7 @@ class _AddChecklistState extends State<AddChecklist> {
               ),
               child: TextField(
                 controller: titleController,
-                maxLength: 64,
+                maxLength: 128,
                 maxLines: 1,
                 obscureText: false,
                 decoration: InputDecoration(

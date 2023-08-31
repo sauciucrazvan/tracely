@@ -63,7 +63,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                         width: 4,
                       ),
                       Text(
-                        DateFormat("HH:mm dd/MM/yyyy").format(
+                        DateFormat("MMM d, yyyy | HH:mm").format(
                           DateTime.parse(
                             widget.data['last_edit'],
                           ),

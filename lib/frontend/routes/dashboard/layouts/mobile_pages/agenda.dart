@@ -27,7 +27,6 @@ class _AgendaDashboardState extends State<AgendaDashboard> {
           titleBar(
             context,
             todo,
-            todoRoute,
             () => showDialog(
               context: context,
               builder: (context) => const AddChecklist(),

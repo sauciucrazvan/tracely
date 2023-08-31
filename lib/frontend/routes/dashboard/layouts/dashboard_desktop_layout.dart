@@ -97,7 +97,6 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                       titleBar(
                         context,
                         todo,
-                        todoRoute,
                         () => showDialog(
                           context: context,
                           builder: (context) => const AddChecklist(),
@@ -115,7 +114,6 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                       titleBar(
                         context,
                         notes,
-                        notesRoute,
                         () => showAddNotesRoute(context),
                       ),
                       const BuildNotes(),

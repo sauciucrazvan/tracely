@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:tracely/frontend/routes/checklists/checklist.dart';
+import 'package:tracely/frontend/routes/checkboxes/checkbox.dart';
 
 import '../../../backend/handlers/users/account_handler.dart';
 import '../../config/messages.dart';
 
-class BuildAgenda extends StatelessWidget {
-  const BuildAgenda({super.key});
+class BuildCheckboxes extends StatelessWidget {
+  final String id;
+  final String name;
+  final String color;
+
+  const BuildCheckboxes(
+      {super.key, required this.id, required this.color, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class BuildAgenda extends StatelessWidget {
 
     return StreamBuilder(
       stream: database
-          .child("users/${getUID()}/checklists")
+          .child("users/${getUID()}/checklists/$id/checkboxes")
           .onValue
           .asBroadcastStream(),
       builder: (context, snapshot) {
@@ -32,25 +37,31 @@ class BuildAgenda extends StatelessWidget {
 
         if (snapshot.data?.snapshot.value != null &&
             snapshot.data?.snapshot.value is Map) {
-          final checklists =
+          final checkboxes =
               snapshot.data?.snapshot.value as Map<dynamic, dynamic>;
 
-          final checklistsList = checklists.entries.toList();
+          final checkboxesList = checkboxes.entries.toList();
+
+          // Sorting checkboxes
+          checkboxesList.sort((a, b) {
+            final DateTime lastEditA = DateTime.parse(a.value['date']);
+            final DateTime lastEditB = DateTime.parse(b.value['date']);
+            return lastEditA.compareTo(lastEditB);
+          });
 
           return Column(
-            children: checklistsList
+            children: checkboxesList
                 .map(
                   (entry) => Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: ChecklistWidget(
-                      id: entry.key,
-                      name: entry.value['title'],
-                      color: entry.value['color'] ?? "red",
-                      count: (entry.value['checkboxes'] != null
-                          ? (entry.value['checkboxes']!
-                                  as Map<dynamic, dynamic>)
-                              .length
-                          : 0),
+                    child: CheckboxWidget(
+                      categoryName: name,
+                      categoryColor: color,
+                      title: entry.value['title'],
+                      date: entry.value['date'],
+                      checked: entry.value['checked'],
+                      categoryID: id,
+                      checkboxID: entry.key,
                     ),
                   ),
                 )
@@ -69,7 +80,7 @@ class BuildAgenda extends StatelessWidget {
                 height: 256,
               ),
               Text(
-                noChecklistsSaved,
+                noCheckboxesSaved,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.tertiary,
                   fontSize: 16,

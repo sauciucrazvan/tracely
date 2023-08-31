@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
 
 Widget titleBar(
   BuildContext context,
   String title,
-  String route,
-  Function()? onPressed,
-) {
+  Function()? onPressed, {
+  double size = 12,
+}) {
   Color textColor = Theme.of(context).colorScheme.tertiary;
   Color primaryColor = Theme.of(context).colorScheme.primary;
 
@@ -29,20 +30,16 @@ Widget titleBar(
           textAlign: TextAlign.left,
         ),
         const Spacer(),
-        TextButton(
-          onPressed: onPressed,
-          style: TextButton.styleFrom(
-            backgroundColor: primaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
-            ),
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            alignment: Alignment.center,
+        roundedButton(
+          textColor,
+          primaryColor,
+          Icon(
+            Icons.add,
+            color: textColor,
+            size: size * 2,
           ),
-          child: Text(
-            "Add $route",
-            style: TextStyle(color: textColor),
-          ),
+          onPressed,
+          size: size,
         ),
         const Divider(),
       ],

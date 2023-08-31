@@ -28,7 +28,7 @@ void insertChecklist(String name, String color) async {
 void editChecklist(String id, String name, String color) async {
   String userId = getUID();
 
-  await database.child("users/$userId/checklists/$id").set({
+  await database.child("users/$userId/checklists/$id").update({
     'title': name,
     'color': color,
   });

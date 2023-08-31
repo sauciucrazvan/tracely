@@ -16,20 +16,20 @@ dependencies:
 
   # Firebase Plugins
   firebase_core: ^2.15.0
-  firebase_auth: ^4.8.0
-  cloud_firestore: ^4.8.3
+  firebase_auth: ^4.9.0
+  cloud_firestore: ^4.9.1
   firebase_storage: ^11.2.5
   firebase_database: ^10.2.4
 
   # Sign in platforms
-  google_sign_in: ^6.1.4
+  google_sign_in: ^6.1.5
 
   # Connectivity checker
   connectivity_plus: ^4.0.2
 
   # Markdown Editable Text Input for notes
   markdown_editable_textinput: ^2.1.0
-  flutter_markdown: ^0.6.17+1
+  flutter_markdown: ^0.6.17+2
 
   # Lottie for animations
   lottie: ^2.6.0

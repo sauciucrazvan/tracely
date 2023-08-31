@@ -33,10 +33,11 @@ const usedData =
 
 */
 
-// Pages
+// Pages & Titles
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
+const checkboxes = "Checklist Board";
 
 // Widgets
 const about = "About";
@@ -47,10 +48,9 @@ const notesSaved = "Notes saved:";
 const todoSaved = "Checklists saved:";
 
 // Routes
-const routePrefix = "Add ";
+const addEntries = "Add";
 
-const notesRoute = "Note";
-const todoRoute = "Checklist";
+const addTodo = "Add a new checklist!";
 
 // Daily message that's being displayed on the home page
 const welcome = {
@@ -87,7 +87,14 @@ const lastEdit = "Last edit";
 
 */
 
+const checkboxesCountSingular = "entry";
+const checkboxesCountPlural = "entries";
+
 const rename = "Rename checklist";
+
+const addCheckbox = "Adding a new checkbox";
+const chooseTitleCheckbox = "Let's choose a title for your checkbox";
+const selectCheckboxDate = "Select a date";
 
 const colors = [
   'red',
@@ -117,11 +124,13 @@ const restartNeeded = "Please restart or refresh the app in order to use it.";
 
 const noNotesSaved = "You don't have any notes stored yet! :(";
 const noChecklistsSaved = "No checklists saved.";
+const noCheckboxesSaved = "No checkboxes here!";
 
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
 
 const checklistWithoutName = "The checklist does not have a name!";
+const checkboxWithoutName = "The checkbox is not named! :(";
 
 /*
 
@@ -133,3 +142,4 @@ const removeNote =
     "Are you sure you want to delete this note?\nThis action can not be reverted!";
 const removeChecklist =
     "Are you sure you want to delete this checklist?\nEvery entry will be deleted and this action can not be reverted!";
+const removeCheckbox = "Are you sure you want to delete this checkbox?";

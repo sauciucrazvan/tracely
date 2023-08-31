@@ -23,7 +23,6 @@ class NotesDashboard extends StatelessWidget {
           titleBar(
             context,
             notes,
-            notesRoute,
             () => showAddNotesRoute(context),
           ),
 
