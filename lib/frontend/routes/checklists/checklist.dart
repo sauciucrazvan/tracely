@@ -11,9 +11,14 @@ class ChecklistWidget extends StatelessWidget {
   final String id;
   final String name;
   final String color;
+  final int count;
 
   const ChecklistWidget(
-      {super.key, required this.id, required this.name, required this.color});
+      {super.key,
+      required this.id,
+      required this.name,
+      required this.color,
+      required this.count});
 
   @override
   Widget build(BuildContext context) {
@@ -82,14 +87,28 @@ class ChecklistWidget extends StatelessWidget {
                   backgroundColor: getColor(color),
                 ),
               ),
-              Expanded(
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 18,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 200,
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
-                ),
+                  Text(
+                    "$checkboxesCountPrefix $count $checkboxesCountSuffix",
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 width: 64,

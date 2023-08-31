@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
+import 'package:tracely/backend/functions/limit_string.dart';
 
 import '../../../backend/domains/checkboxes/checkbox_manipulator.dart';
 import '../../../backend/domains/checklists/checklist_manipulator.dart';
@@ -148,11 +149,14 @@ class CheckboxWidget extends StatelessWidget {
                         backgroundColor: getColor(categoryColor),
                       ),
                     ),
-                    Text(
-                      categoryName,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 12,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: Text(
+                        limitString(categoryName, 32),
+                        style: TextStyle(
+                          color: textColor,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ],

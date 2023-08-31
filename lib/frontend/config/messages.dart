@@ -33,11 +33,11 @@ const usedData =
 
 */
 
-// Pages
+// Pages & Titles
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
-const checkboxes = "Checkboxes";
+const checkboxes = "Checklist Board";
 
 // Widgets
 const about = "About";
@@ -88,6 +88,9 @@ const lastEdit = "Last edit";
   CHECKLISTS & CHECKBOXES
 
 */
+
+const checkboxesCountPrefix = "Found";
+const checkboxesCountSuffix = "entries";
 
 const rename = "Rename checklist";
 
