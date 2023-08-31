@@ -92,6 +92,10 @@ const checkboxesCountPlural = "entries";
 
 const rename = "Rename checklist";
 
+const addCheckbox = "Adding a new checkbox";
+const chooseTitleCheckbox = "Let's choose a title for your checkbox";
+const selectCheckboxDate = "Select a date";
+
 const colors = [
   'red',
   'cyan',

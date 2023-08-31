@@ -72,7 +72,7 @@ class _AddCheckboxMobileLayoutState extends State<AddCheckboxMobileLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Adding a new checklist",
+                      addCheckbox,
                       style: GoogleFonts.arimo(
                         color: textColor,
                         fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _AddCheckboxMobileLayoutState extends State<AddCheckboxMobileLayout> {
 
                 // checklist title
                 Text(
-                  "Let's choose a title for your checklist",
+                  chooseTitleCheckbox,
                   style: TextStyle(
                     color: textColor,
                     fontSize: 16,
@@ -110,7 +110,7 @@ class _AddCheckboxMobileLayoutState extends State<AddCheckboxMobileLayout> {
                   ),
                   child: TextField(
                     controller: _titleController,
-                    maxLength: 64,
+                    maxLength: 128,
                     maxLines: 1,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -139,7 +139,7 @@ class _AddCheckboxMobileLayoutState extends State<AddCheckboxMobileLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Select a date",
+                      selectCheckboxDate,
                       style: TextStyle(
                         color: textColor,
                         fontSize: 16,
