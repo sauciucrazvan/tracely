@@ -102,7 +102,7 @@ class ChecklistWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "$checkboxesCountPrefix $count $checkboxesCountSuffix",
+                    "$count ${(count == 1) ? checkboxesCountSingular : checkboxesCountPlural}",
                     style: TextStyle(
                       color: textColor,
                       fontSize: 12,

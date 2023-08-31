@@ -44,7 +44,6 @@ class ViewCheckboxes extends StatelessWidget {
               titleBar(
                 context,
                 checkboxes,
-                checkboxesRoute,
                 () {
                   insertCheckbox(id, "Inserted as debug :o");
                 },

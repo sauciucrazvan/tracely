@@ -78,44 +78,36 @@ class CheckboxWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width - 128,
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 18,
-                      decoration: checked
-                          ? TextDecoration.lineThrough
-                          : TextDecoration.none,
-                      decorationColor: getColor(categoryColor),
-                      decorationThickness: 2.0,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
                 Row(
                   children: [
-                    if (checked) ...[
+                    if (checked)
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Icon(
                           Icons.check,
                           size: 16,
-                          color: Colors.green.shade800,
+                          color: getColor(categoryColor),
                         ),
                       ),
-                      Text(
-                        checkboxFinished,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width - 150,
+                      child: Text(
+                        title,
                         style: TextStyle(
                           color: textColor,
-                          fontSize: 12,
+                          fontSize: 18,
+                          decoration: checked
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none,
+                          decorationColor: getColor(categoryColor),
+                          decorationThickness: 2.0,
                         ),
                       ),
-                    ]
+                    ),
                   ],
+                ),
+                const SizedBox(
+                  height: 4,
                 ),
                 Row(
                   children: [

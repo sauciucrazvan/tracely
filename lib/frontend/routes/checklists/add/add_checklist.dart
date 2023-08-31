@@ -38,7 +38,7 @@ class _AddChecklistState extends State<AddChecklist> {
         child: Column(
           children: [
             Text(
-              "$routePrefix$todoRoute",
+              addTodo,
               style: GoogleFonts.arimo(
                 color: textColor,
                 fontSize: 16,

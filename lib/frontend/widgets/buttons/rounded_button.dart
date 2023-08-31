@@ -4,15 +4,17 @@ ElevatedButton roundedButton(
   Color foregroundColor,
   Color backgroundColor,
   Widget child,
-  Function()? onPressed,
-) {
+  Function()? onPressed, {
+  double size = 16,
+}) {
   return ElevatedButton(
     onPressed: onPressed,
     style: ElevatedButton.styleFrom(
       foregroundColor: foregroundColor,
       backgroundColor: backgroundColor,
       shape: const CircleBorder(),
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(size),
+      minimumSize: Size(size * 2, size * 2),
     ),
     child: child,
   );

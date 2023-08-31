@@ -48,11 +48,9 @@ const notesSaved = "Notes saved:";
 const todoSaved = "Checklists saved:";
 
 // Routes
-const routePrefix = "Add ";
+const addEntries = "Add";
 
-const notesRoute = "Note";
-const todoRoute = "Checklist";
-const checkboxesRoute = "Checkbox";
+const addTodo = "Add a new checklist!";
 
 // Daily message that's being displayed on the home page
 const welcome = {
@@ -89,8 +87,8 @@ const lastEdit = "Last edit";
 
 */
 
-const checkboxesCountPrefix = "Found";
-const checkboxesCountSuffix = "entries";
+const checkboxesCountSingular = "entry";
+const checkboxesCountPlural = "entries";
 
 const rename = "Rename checklist";
 
@@ -108,8 +106,6 @@ const colors = [
   'pink',
   'purple',
 ];
-
-const checkboxFinished = "Finished";
 
 /*
 
