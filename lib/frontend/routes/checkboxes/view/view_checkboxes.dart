@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tracely/backend/domains/checkboxes/checkbox_manipulator.dart';
 
 import 'package:tracely/frontend/routes/checkboxes/checkboxes.dart';
+import 'package:tracely/frontend/routes/checkboxes/add/add_checkbox.dart';
 import 'package:tracely/frontend/routes/dashboard/components/titlebar.dart';
 
 import '../../../config/messages.dart';
@@ -44,9 +44,12 @@ class ViewCheckboxes extends StatelessWidget {
               titleBar(
                 context,
                 checkboxes,
-                () {
-                  insertCheckbox(id, "Inserted as debug :o");
-                },
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddCheckbox(categoryID: id),
+                  ),
+                ),
               ),
 
               SizedBox(

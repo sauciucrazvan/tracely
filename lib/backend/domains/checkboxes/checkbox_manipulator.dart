@@ -10,7 +10,7 @@ final DatabaseReference database = FirebaseDatabase.instance.ref();
 
 */
 
-void insertCheckbox(String categoryID, String name) async {
+void insertCheckbox(String categoryID, String name, String date) async {
   String userId = getUID();
 
   String checkboxID = DateTime.now().millisecondsSinceEpoch.toString();
@@ -19,7 +19,7 @@ void insertCheckbox(String categoryID, String name) async {
       .child("users/$userId/checklists/$categoryID/checkboxes/$checkboxID")
       .set({
     'title': name,
-    'date': DateTime.now().toString(),
+    'date': date,
     'checked': false,
   });
 }

@@ -126,6 +126,7 @@ const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
 
 const checklistWithoutName = "The checklist does not have a name!";
+const checkboxWithoutName = "The checkbox is not named! :(";
 
 /*
 
