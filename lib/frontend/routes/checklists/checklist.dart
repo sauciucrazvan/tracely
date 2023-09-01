@@ -126,8 +126,9 @@ class ChecklistWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
-                    radius: 8,
+                    radius: 12,
                     backgroundColor: getColor(color),
+                    child: specialIcon(),
                   ),
                 ),
                 Column(
