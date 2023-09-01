@@ -38,7 +38,6 @@ class CheckboxWidget extends StatelessWidget {
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
-            autoClose: false,
             backgroundColor: Colors.lightGreen.shade800,
             foregroundColor: Colors.white,
             borderRadius: BorderRadius.circular(12),
