@@ -40,7 +40,6 @@ dependencies:
   # Slidables ~ used for Checklists & checkboxes
   flutter_slidable: ^3.0.0
 
-  image: ^4.0.17
   flutter_native_splash: ^2.3.2
   
 
