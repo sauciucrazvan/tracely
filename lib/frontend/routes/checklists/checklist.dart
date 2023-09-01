@@ -60,64 +60,67 @@ class ChecklistWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ViewCheckboxes(
-              id: id,
-              name: name,
-              color: color,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewCheckboxes(
+                id: id,
+                name: name,
+                color: color,
+              ),
             ),
           ),
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-            color: secondaryColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  radius: 8,
-                  backgroundColor: getColor(color),
+          child: Container(
+            decoration: BoxDecoration(
+              color: secondaryColor,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    radius: 8,
+                    backgroundColor: getColor(color),
+                  ),
                 ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    child: Text(
-                      name,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 18,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                          color: textColor,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    "$count ${(count == 1) ? checkboxesCountSingular : checkboxesCountPlural}",
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 12,
+                    Text(
+                      "$count ${(count == 1) ? checkboxesCountSingular : checkboxesCountPlural}",
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: 64,
-                child: Icon(
-                  Icons.keyboard_tab,
-                  color: textColor,
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  width: 64,
+                  child: Icon(
+                    Icons.keyboard_tab,
+                    color: textColor,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -44,8 +44,8 @@ const about = "About";
 const stats = "Statistics";
 
 // Stats content
-const notesSaved = "Notes saved:";
-const todoSaved = "Checklists saved:";
+const notesSaved = "Notes synced:";
+const todoSaved = "Checklists synced:";
 
 // Routes
 const addEntries = "Add";

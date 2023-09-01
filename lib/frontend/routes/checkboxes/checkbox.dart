@@ -65,104 +65,107 @@ class CheckboxWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    if (checked)
+      child: GestureDetector(
+        onLongPress: () => markCheckbox(categoryID, checkboxID, !checked),
+        child: Container(
+          decoration: BoxDecoration(
+            color: secondaryColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      if (checked)
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Icon(
+                            Icons.check,
+                            size: 16,
+                            color: getColor(categoryColor),
+                          ),
+                        ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width - 150,
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            color: textColor,
+                            fontSize: 18,
+                            decoration: checked
+                                ? TextDecoration.lineThrough
+                                : TextDecoration.none,
+                            decorationColor: getColor(categoryColor),
+                            decorationThickness: 2.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  Row(
+                    children: [
                       Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Icon(
-                          Icons.check,
+                          Icons.calendar_today,
                           size: 16,
-                          color: getColor(categoryColor),
-                        ),
-                      ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width - 150,
-                      child: Text(
-                        title,
-                        style: TextStyle(
                           color: textColor,
-                          fontSize: 18,
-                          decoration: checked
-                              ? TextDecoration.lineThrough
-                              : TextDecoration.none,
-                          decorationColor: getColor(categoryColor),
-                          decorationThickness: 2.0,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Icon(
-                        Icons.calendar_today,
-                        size: 16,
-                        color: textColor,
-                      ),
-                    ),
-                    Text(
-                      DateFormat("MMM d, yyyy").format(
-                        DateTime.parse(
-                          date,
+                      Text(
+                        DateFormat("MMM d, yyyy").format(
+                          DateTime.parse(
+                            date,
+                          ),
                         ),
-                      ),
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: CircleAvatar(
-                        radius: 6,
-                        backgroundColor: getColor(categoryColor),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: Text(
-                        limitString(categoryName, 32),
                         style: TextStyle(
                           color: textColor,
                           fontSize: 12,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 64,
-              child: Icon(
-                Icons.keyboard_tab,
-                color: textColor,
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: CircleAvatar(
+                          radius: 6,
+                          backgroundColor: getColor(categoryColor),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: Text(
+                          limitString(categoryName, 32),
+                          style: TextStyle(
+                            color: textColor,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ),
-          ],
+              SizedBox(
+                width: 64,
+                child: Icon(
+                  Icons.keyboard_tab,
+                  color: textColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
