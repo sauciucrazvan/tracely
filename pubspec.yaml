@@ -41,7 +41,7 @@ dependencies:
   flutter_slidable: ^3.0.0
 
   image: ^4.0.17
-  flutter_native_splash: ^2.3.2 # <- waiting for an update, does not work (JpegAdobe does not exist)
+  flutter_native_splash: ^2.3.2
   
 
 dev_dependencies:
@@ -61,15 +61,11 @@ flutter_launcher_icons:
 
 flutter_native_splash:
   color: "#F1F1F9"
-  image: assets/logo.png
   color_dark: "#333333"
-  image_dark: assets/logo.png
 
   android_12:
     color: "#F1F1F9"
-    image: assets/logo.png
     color_dark: "#333333"
-    image_dark: assets/logo.png
 
   web: false
 
