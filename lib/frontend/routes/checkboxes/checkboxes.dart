@@ -42,11 +42,18 @@ class BuildCheckboxes extends StatelessWidget {
 
           final checkboxesList = checkboxes.entries.toList();
 
-          // Sorting checkboxes
+          // Sorting checkboxes by date
           checkboxesList.sort((a, b) {
             final DateTime lastEditA = DateTime.parse(a.value['date']);
             final DateTime lastEditB = DateTime.parse(b.value['date']);
             return lastEditA.compareTo(lastEditB);
+          });
+
+          // Sorting checkboxes by value
+          checkboxesList.sort((a, b) {
+            final bool lastEditA = a.value['checked'];
+            final bool lastEditB = b.value['checked'];
+            return lastEditA.toString().compareTo(lastEditB.toString());
           });
 
           return Column(
