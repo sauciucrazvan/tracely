@@ -34,6 +34,18 @@ void markCheckbox(String categoryID, String checkboxID, bool value) async {
   });
 }
 
+void updateCheckbox(
+    String categoryID, String checkboxID, String name, String date) async {
+  String userId = getUID();
+
+  await database
+      .child("users/$userId/checklists/$categoryID/checkboxes/$checkboxID")
+      .update({
+    'title': name,
+    'date': date,
+  });
+}
+
 void deleteCheckbox(String categoryID, String checkboxID) async {
   String userId = getUID();
 
