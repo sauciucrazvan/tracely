@@ -5,6 +5,7 @@ import 'package:tracely/frontend/routes/checkboxes/view/view_checkboxes.dart';
 import 'package:tracely/frontend/routes/checklists/rename/modify_checklist.dart';
 
 import '../../config/messages.dart';
+import '../../config/palette.dart';
 import '../../widgets/dialogs/dialog.dart';
 
 class ChecklistWidget extends StatelessWidget {
@@ -127,7 +128,7 @@ class ChecklistWidget extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
                     radius: 12,
-                    backgroundColor: getColor(color),
+                    backgroundColor: colors[color],
                     child: specialIcon(),
                   ),
                 ),

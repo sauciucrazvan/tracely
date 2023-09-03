@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
 import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 
 import '../../../config/messages.dart';
+import '../../../config/palette.dart';
 import '../../../widgets/buttons/button.dart';
 
 class ModifyChecklist extends StatefulWidget {
@@ -64,12 +66,12 @@ class _ModifyChecklistState extends State<ModifyChecklist> {
             ),
             DropdownButton(
               value: selectedColor,
-              items: colors
+              items: colors.keys
                   .map<DropdownMenuItem<String>>(
                     (value) => DropdownMenuItem(
                       value: value,
                       child: CircleAvatar(
-                        backgroundColor: getColor(value),
+                        backgroundColor: colors[value],
                         radius: 8,
                       ),
                     ),

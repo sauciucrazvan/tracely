@@ -96,21 +96,6 @@ const addCheckbox = "Adding a new checkbox";
 const chooseTitleCheckbox = "Let's choose a title for your checkbox";
 const selectCheckboxDate = "Select a date";
 
-const colors = [
-  'red',
-  'cyan',
-  'lightblue',
-  'blue',
-  'green',
-  'lightgreen',
-  'lime',
-  'yellow',
-  'amber',
-  'orange',
-  'pink',
-  'purple',
-];
-
 const editCheckbox = "Editing a checkbox";
 const editTitleCheckbox = "Edit the title:";
 

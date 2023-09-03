@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:intl/intl.dart';
-import 'package:tracely/backend/functions/limit_string.dart';
-import 'package:tracely/frontend/routes/checkboxes/edit/edit_checkbox.dart';
 
+import 'package:intl/intl.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+import '../../../frontend/routes/checkboxes/edit/edit_checkbox.dart';
+import '../../../backend/functions/limit_string.dart';
 import '../../../backend/domains/checkboxes/checkbox_manipulator.dart';
-import '../../../backend/domains/checklists/checklist_manipulator.dart';
+
 import '../../config/messages.dart';
+import '../../config/palette.dart';
 import '../../widgets/dialogs/dialog.dart';
 
 class CheckboxWidget extends StatelessWidget {
@@ -105,7 +107,7 @@ class CheckboxWidget extends StatelessWidget {
                           child: Icon(
                             Icons.check,
                             size: 16,
-                            color: getColor(categoryColor),
+                            color: colors[categoryColor],
                           ),
                         ),
                       SizedBox(
@@ -118,7 +120,7 @@ class CheckboxWidget extends StatelessWidget {
                             decoration: checked
                                 ? TextDecoration.lineThrough
                                 : TextDecoration.none,
-                            decorationColor: getColor(categoryColor),
+                            decorationColor: colors[categoryColor],
                             decorationThickness: 2.0,
                           ),
                         ),
@@ -157,7 +159,7 @@ class CheckboxWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: CircleAvatar(
                           radius: 6,
-                          backgroundColor: getColor(categoryColor),
+                          backgroundColor: colors[categoryColor],
                         ),
                       ),
                       Padding(

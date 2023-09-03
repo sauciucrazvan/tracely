@@ -40,36 +40,6 @@ void deleteChecklist(String id) async {
   await database.child("users/$userId/checklists/$id").remove();
 }
 
-Color getColor(String color) {
-  switch (color) {
-    case "red":
-      return Colors.red;
-    case "blue":
-      return Colors.blue;
-    case "green":
-      return Colors.green;
-    case "yellow":
-      return Colors.yellow;
-    case "purple":
-      return Colors.purple;
-    case "pink":
-      return Colors.pink;
-    case "orange":
-      return Colors.orange;
-    case "cyan":
-      return Colors.cyan;
-    case "lime":
-      return Colors.lime;
-    case "amber":
-      return Colors.amber;
-    case "lightgreen":
-      return Colors.lightGreen;
-    case "lightblue":
-      return Colors.lightBlue;
-  }
-  return Colors.white;
-}
-
 /*
 
   WIDGETS

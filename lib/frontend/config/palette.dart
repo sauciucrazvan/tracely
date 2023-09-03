@@ -19,3 +19,18 @@ ThemeData darkTheme = ThemeData(
     tertiary: Color(0xFFFFFFFF),
   ),
 );
+
+const Map<String, Color> colors = {
+  'red': Colors.red,
+  'cyan': Colors.cyan,
+  'lightblue': Colors.lightBlue,
+  'blue': Colors.blue,
+  'green': Colors.green,
+  'lightgreen': Colors.lightGreen,
+  'lime': Colors.lime,
+  'yellow': Colors.yellow,
+  'amber': Colors.amber,
+  'orange': Colors.orange,
+  'pink': Colors.pink,
+  'purple': Colors.purple,
+};

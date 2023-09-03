@@ -2,10 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 
+import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 import '../../../../backend/domains/checklists/checklist_manipulator.dart';
+
 import '../../../config/messages.dart';
+import '../../../config/palette.dart';
+
 import '../../../widgets/buttons/button.dart';
 
 class AddChecklist extends StatefulWidget {
@@ -17,7 +20,7 @@ class AddChecklist extends StatefulWidget {
 
 class _AddChecklistState extends State<AddChecklist> {
   String selectedColor =
-      colors[Random().nextInt(colors.length)]; // DEFAULT VALUE
+      colors.keys.elementAt(Random().nextInt(colors.length)); // DEFAULT VALUE
   TextEditingController titleController = TextEditingController();
 
   @override
@@ -54,12 +57,12 @@ class _AddChecklistState extends State<AddChecklist> {
             ),
             DropdownButton(
               value: selectedColor,
-              items: colors
+              items: colors.keys
                   .map<DropdownMenuItem<String>>(
                     (value) => DropdownMenuItem(
                       value: value,
                       child: CircleAvatar(
-                        backgroundColor: getColor(value),
+                        backgroundColor: colors[value],
                         radius: 8,
                       ),
                     ),
