@@ -14,30 +14,36 @@ final DatabaseReference database = FirebaseDatabase.instance.ref();
 
 */
 
-void insertChecklist(String name, String color) async {
+void insertExpense(
+    String expense, String currency, double value, String date) async {
   String userId = getUID();
 
   String id = DateTime.now().millisecondsSinceEpoch.toString();
 
-  await database.child("users/$userId/checklists/$id").set({
-    'title': name,
-    'color': color,
+  await database.child("users/$userId/expenses/$id").set({
+    'expense': expense,
+    'currency': currency,
+    'value': value,
+    'date': date,
   });
 }
 
-void editChecklist(String id, String name, String color) async {
+void editExpense(String id, String expense, String currency, double value,
+    String date) async {
   String userId = getUID();
 
-  await database.child("users/$userId/checklists/$id").update({
-    'title': name,
-    'color': color,
+  await database.child("users/$userId/expenses/$id").update({
+    'expense': expense,
+    'currency': currency,
+    'value': value,
+    'date': date,
   });
 }
 
-void deleteChecklist(String id) async {
+void deleteExpense(String id) async {
   String userId = getUID();
 
-  await database.child("users/$userId/checklists/$id").remove();
+  await database.child("users/$userId/expenses/$id").remove();
 }
 
 /*
@@ -46,23 +52,23 @@ void deleteChecklist(String id) async {
 
 */
 
-Widget numberOfChecklists(BuildContext context) {
+Widget numberOfExpenses(BuildContext context) {
   String userId = getUID();
 
   return StreamBuilder(
     stream:
-        database.child("users/$userId/checklists").onValue.asBroadcastStream(),
+        database.child("users/$userId/expenses").onValue.asBroadcastStream(),
     builder: (context, dataSnapshot) {
-      int numberOfChecklists = 0;
+      int numberOfExpenses = 0;
 
       if (dataSnapshot.hasData && dataSnapshot.data?.snapshot.value is Map) {
-        Map<dynamic, dynamic> checklistsMap =
+        Map<dynamic, dynamic> expensesMap =
             dataSnapshot.data?.snapshot.value as Map;
-        numberOfChecklists = checklistsMap.length;
+        numberOfExpenses = expensesMap.length;
       }
 
       return Text(
-        "$todoSaved $numberOfChecklists",
+        "$expensesSaved $numberOfExpenses",
         style: GoogleFonts.roboto(
           color: Theme.of(context).colorScheme.tertiary,
           fontSize: 16,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/expenses.dart';
 
 import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/home.dart';
 import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/agenda.dart';
@@ -22,6 +23,7 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
     const Home(),
     const NotesDashboard(),
     const AgendaDashboard(),
+    const ExpensesDashboard(),
   ];
 
   @override
@@ -60,11 +62,10 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
             icon: Icon(Icons.event),
             label: todo,
           ),
-          // Congrats! You've found an upcoming feature to Tracely!
-          // NavigationDestination(
-          //   icon: Icon(Icons.wallet),
-          //   label: "Expenses",
-          // ),
+          NavigationDestination(
+            icon: Icon(Icons.wallet),
+            label: expenses,
+          ),
         ],
         onDestinationSelected: (index) => setState(
           () => _selectedIndex = index,

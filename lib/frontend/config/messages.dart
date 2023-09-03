@@ -37,6 +37,7 @@ const usedData =
 const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
+const expenses = "Expenses";
 const checkboxes = "Checklist Board";
 
 // Widgets
@@ -47,6 +48,7 @@ const tips = "Tips & Secrets";
 // Stats content
 const notesSaved = "Notes synced:";
 const todoSaved = "Checklists synced:";
+const expensesSaved = "Expenses synced:";
 
 // Tips content
 const tipsList = {
@@ -109,6 +111,41 @@ const editTitleCheckbox = "Edit the title:";
 
 /*
 
+  EXPENSES
+
+*/
+
+const addExpense = "Adding an expense!";
+const chooseTitleExpense = "What product did you buy?";
+const chooseValueExpense = "How much did you pay?";
+const selectExpenseDate = "When did it happend?";
+
+List<String> currencies = [
+  "EUR",
+  "USD",
+  "JPY",
+  "GBP",
+  "AUD",
+  "CAD",
+  "CHF",
+  "CNY",
+  "SEK",
+  "NZD",
+  "KRW",
+  "SGD",
+  "HKD",
+  "NOK",
+  "MXN",
+  "INR",
+  "BRL",
+  "ZAR",
+  "RON",
+  "RUB",
+  "TRY",
+];
+
+/*
+
   ERRORS
 
 */
@@ -127,6 +164,9 @@ const noteWithoutContent = "Please add content to your note.";
 
 const checklistWithoutName = "The checklist does not have a name!";
 const checkboxWithoutName = "The checkbox is not named! :(";
+
+const expenseWithoutName = "Please name your expense.";
+const expenseWithoutValue = "Please enter the value of the product.";
 
 /*
 
