@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/expenses.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/expenses.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/home.dart';
-import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/agenda.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/agenda.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/mobile_pages/notes.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/notes.dart';
 
 import '../../../config/messages.dart';
 import '../../../widgets/header/header.dart';

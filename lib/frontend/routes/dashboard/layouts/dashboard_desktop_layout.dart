@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../../frontend/routes/notes/notes.dart';
-import '../../../../backend/handlers/routes/notes/notes_routes.dart';
+import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
 
-import '../../../config/messages.dart';
-
-import '../../../widgets/header/header.dart';
-
-import '../../checklists/add/add_checklist.dart';
-import '../../checklists/checklists.dart';
-
-import '../components/titlebar.dart';
-import '../components/topbar.dart';
-
-import '../components/trackers/about.dart';
-import '../components/trackers/statistics.dart';
+import 'sub_pages/agenda.dart';
+import 'sub_pages/expenses.dart';
+import 'sub_pages/home.dart';
+import 'sub_pages/notes.dart';
 
 class DashboardDesktopLayout extends StatefulWidget {
   const DashboardDesktopLayout({super.key});
@@ -24,124 +15,100 @@ class DashboardDesktopLayout extends StatefulWidget {
 }
 
 class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
+  int _selectedIndex = 0;
+
+  final pages = [
+    const Home(),
+    const NotesDashboard(),
+    const AgendaDashboard(),
+    const ExpensesDashboard(),
+  ];
+
   @override
   Widget build(BuildContext context) {
+    Color textColor = Theme.of(context).colorScheme.tertiary;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: header(
-        Image.asset(
+      appBar: AppBar(
+        title: Image.asset(
           "assets/logo.png",
           height: 32,
           width: 32,
         ),
-        secondaryColor,
-        true,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Displays the greetings message & sign out button
-            Container(
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.circular(24),
+        centerTitle: true,
+        backgroundColor: secondaryColor,
+        shadowColor: Colors.transparent,
+        actions: [
+          Row(
+            children: [
+              roundedButton(
+                Theme.of(context).colorScheme.background,
+                _selectedIndex == 0
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.background,
+                Icon(
+                  Icons.home,
+                  color: textColor,
                 ),
+                () {
+                  setState(() {
+                    _selectedIndex = 0;
+                  });
+                },
               ),
-              child: Column(
-                children: [
-                  topBar(context),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                ],
+              roundedButton(
+                Theme.of(context).colorScheme.background,
+                _selectedIndex == 1
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.background,
+                Icon(
+                  Icons.event_note,
+                  color: textColor,
+                ),
+                () {
+                  setState(() {
+                    _selectedIndex = 1;
+                  });
+                },
               ),
-            ),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Displays about
-                showAbout(context),
-
-                const SizedBox(
-                  width: 16,
+              roundedButton(
+                Theme.of(context).colorScheme.background,
+                _selectedIndex == 2
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.background,
+                Icon(
+                  Icons.event,
+                  color: textColor,
                 ),
-
-                // Displays statistics
-                SizedBox(
-                  width: 512,
-                  child: showStatistics(context),
+                () {
+                  setState(() {
+                    _selectedIndex = 2;
+                  });
+                },
+              ),
+              roundedButton(
+                Theme.of(context).colorScheme.background,
+                _selectedIndex == 3
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.background,
+                Icon(
+                  Icons.wallet,
+                  color: textColor,
                 ),
-              ],
-            ),
-
-            const SizedBox(
-              height: 16,
-            ),
-
-            // Agenda
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      titleBar(
-                        context,
-                        todo,
-                        () => showDialog(
-                          context: context,
-                          builder: (context) => const AddChecklist(),
-                        ),
-                      ),
-                      const BuildAgenda(),
-                    ],
-                  ),
-                ),
-
-                // Expenses !!! REQUIRES MORE WORK. TO DO LATER
-                // Expanded(
-                //   child: Column(
-                //     children: [
-                //       titleBar(
-                //         context,
-                //         expenses,
-                //         () => showDialog(
-                //           context: context,
-                //           builder: (context) => const AddExpense(),
-                //         ),
-                //       ),
-                //       const BuildExpenses(),
-                //     ],
-                //   ),
-                // ),
-
-                // Notes
-                Expanded(
-                  child: Column(
-                    children: [
-                      titleBar(
-                        context,
-                        notes,
-                        () => showAddNotesRoute(context),
-                      ),
-                      const BuildNotes(),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+                () {
+                  setState(() {
+                    _selectedIndex = 3;
+                  });
+                },
+              ),
+            ],
+          ),
+        ],
       ),
+      body: pages[_selectedIndex],
     );
   }
 }

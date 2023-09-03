@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
-
 import '../../../../config/messages.dart';
 
+import '../../../notes/add/add_notes.dart';
 import '../../../notes/notes.dart';
 import '../../components/titlebar.dart';
 
@@ -23,7 +22,12 @@ class NotesDashboard extends StatelessWidget {
           titleBar(
             context,
             notes,
-            () => showAddNotesRoute(context),
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AddNotes(),
+              ),
+            ),
           ),
 
           const Expanded(

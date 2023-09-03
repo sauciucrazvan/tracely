@@ -6,7 +6,7 @@
 
 const appName = "Tracely";
 const appDesc =
-    "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, notes - and everything you can think of.";
+    "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
 
 const loading = "Please wait while we do our magic";
 

@@ -7,7 +7,7 @@ import '../../../../backend/handlers/users/account_handler.dart';
 import '../../../config/messages.dart';
 import '../../../widgets/buttons/rounded_button.dart';
 
-Widget topBar(BuildContext context, {bool expanded = false}) {
+Widget topBar(BuildContext context) {
   Color textColor = Theme.of(context).colorScheme.tertiary;
 
   // Displays a different message everyday

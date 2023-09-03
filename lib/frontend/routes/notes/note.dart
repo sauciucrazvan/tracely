@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
-import 'package:tracely/backend/handlers/routes/notes/notes_routes.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import '../../../backend/functions/limit_string.dart';
 import '../../config/messages.dart';
+import 'edit/edit_notes.dart';
+import 'view/view_notes.dart';
 
 class NoteWidget extends StatefulWidget {
   final String id;
@@ -75,19 +76,29 @@ class _NoteWidgetState extends State<NoteWidget> {
                       ),
                     ],
                   ),
-                  if (opened) const SizedBox(height: 8),
-                  if (opened)
+                  if (opened) ...[
+                    const SizedBox(height: 8),
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () =>
-                              showViewNotesRoute(context, widget.data),
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewNotes(data: widget.data),
+                            ),
+                          ),
                           icon: const Icon(Icons.visibility,
                               color: Colors.lightGreen),
                         ),
                         IconButton(
-                          onPressed: () => showEditNotesRoute(
-                              context, widget.id, widget.data),
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  EditNotes(id: widget.id, data: widget.data),
+                            ),
+                          ),
                           icon: const Icon(Icons.edit, color: Colors.lightBlue),
                         ),
                         IconButton(
@@ -106,6 +117,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                         ),
                       ],
                     ),
+                  ],
                 ],
               ),
             ],

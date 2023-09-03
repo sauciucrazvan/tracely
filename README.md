@@ -14,6 +14,7 @@ Tracely is your ultimate management app with seamless cloud synchronization. Kee
 - fully fledged and lightweight notes, checklists app & expenses tracker app
 - markdown support for easy note formatting
 - fully responsive & accesible across multiple devices
+- cloud storing & fast synchronizing
 - light/dark mode support
 
 ## Technologies Used

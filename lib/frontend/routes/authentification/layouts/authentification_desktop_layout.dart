@@ -36,28 +36,29 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                         height: 8,
                       ),
                       Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                appName,
-                                style: GoogleFonts.arimo(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              appName,
+                              style: GoogleFonts.arimo(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(
-                                appDesc,
-                                style: TextStyle(
-                                  color: textColor,
-                                  fontSize: 16,
-                                ),
-                                textAlign: TextAlign.center,
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              appDesc,
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 16,
                               ),
-                            ],
-                          )),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -104,19 +105,6 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                         ),
                         () => AuthentificationService().signIn(context),
                       ),
-                      // const SizedBox(
-                      //   height: 8,
-                      // ),
-                      // Tile(
-                      //   context,
-                      //   facebook,
-                      //   Image.asset(
-                      //     "assets/images/facebook_logo.png",
-                      //     width: 32,
-                      //     height: 32,
-                      //   ),
-                      //   () {},
-                      // ),
                       const Divider(),
                       Text(
                         usedData,
