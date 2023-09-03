@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:tracely/backend/functions/convert_currencies.dart';
 import 'package:tracely/frontend/routes/expenses/expense.dart';
 
 import '../../../backend/domains/expenses/expenses_manipulator.dart';
@@ -40,8 +41,10 @@ class BuildExpenses extends StatelessWidget {
 
           // sort by price
           expensesList.sort((a, b) {
-            double valueA = double.parse(a.value['value'].toString());
-            double valueB = double.parse(b.value['value'].toString());
+            double valueA = convertToEuro(
+                double.parse(a.value['value'].toString()), a.value['currency']);
+            double valueB = convertToEuro(
+                double.parse(b.value['value'].toString()), b.value['currency']);
             return valueB.compareTo(valueA);
           });
 

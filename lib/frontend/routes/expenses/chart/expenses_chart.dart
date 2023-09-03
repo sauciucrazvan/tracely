@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_database/firebase_database.dart';
-import 'package:lottie/lottie.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 import 'package:tracely/backend/functions/limit_string.dart';
 
+import '../../../../backend/functions/convert_currencies.dart';
 import '../../../../backend/handlers/users/account_handler.dart';
 import '../../../config/messages.dart';
 
@@ -42,7 +43,10 @@ class ExpensesChart extends StatelessWidget {
           for (var element in expensesList) {
             if (indexes < 5) {
               chartValues[limitString(element.value['expense'], 24)] =
-                  double.parse(element.value['value'].toString());
+                  convertToEuro(
+                double.parse(element.value['value'].toString()),
+                element.value['currency'],
+              );
             }
             indexes++;
           }
@@ -76,13 +80,7 @@ class ExpensesChart extends StatelessWidget {
           );
         }
 
-        return Center(
-          child: Lottie.asset(
-            "assets/animations/magic.json",
-            width: 128,
-            height: 128,
-          ),
-        );
+        return Container();
       },
     );
   }

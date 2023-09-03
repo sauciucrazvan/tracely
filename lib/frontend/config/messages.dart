@@ -125,7 +125,7 @@ const selectExpenseDate = "When did it happend?";
 
 const modifyExpense = "You're editing a note!";
 
-List<String> currencies = [
+const List<String> currencies = [
   "EUR",
   "USD",
   "JPY",
