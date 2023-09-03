@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 
 import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
+import 'package:tracely/frontend/routes/expenses/edit/edit_expense.dart';
 
 import '../../config/messages.dart';
 import '../../widgets/dialogs/dialog.dart';
@@ -12,6 +14,7 @@ class ExpenseWidget extends StatelessWidget {
   final String expense;
   final String currency;
   final double value;
+  final String date;
 
   const ExpenseWidget({
     super.key,
@@ -19,6 +22,7 @@ class ExpenseWidget extends StatelessWidget {
     required this.expense,
     required this.currency,
     required this.value,
+    required this.date,
   });
 
   @override
@@ -31,6 +35,23 @@ class ExpenseWidget extends StatelessWidget {
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
         children: [
+          SlidableAction(
+            backgroundColor: Colors.lightGreen.shade800,
+            foregroundColor: Colors.white,
+            icon: Icons.edit,
+            onPressed: (context) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => EditExpense(
+                  id: id,
+                  expense: expense,
+                  currency: currency,
+                  value: value,
+                  date: date,
+                ),
+              ),
+            ),
+          ),
           SlidableAction(
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
@@ -72,12 +93,45 @@ class ExpenseWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                  "$currency $value",
-                  style: TextStyle(
-                    color: primaryColor,
-                    fontSize: 12,
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.attach_money,
+                      color: primaryColor,
+                      size: 16,
+                    ),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      "$currency $value",
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.timer,
+                      color: textColor,
+                      size: 16,
+                    ),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      DateFormat("MMM d, yyyy").format(
+                        DateTime.parse(date),
+                      ),
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

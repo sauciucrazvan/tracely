@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
 
 import '../../../../../backend/domains/checklists/checklist_manipulator.dart';
 import '../../../../../backend/domains/notes/notes_manipulator.dart';
@@ -39,6 +40,7 @@ Widget showStatistics(BuildContext context) {
               ),
               numberOfNotes(context),
               numberOfChecklists(context),
+              numberOfExpenses(context),
             ],
           ),
           Lottie.asset(

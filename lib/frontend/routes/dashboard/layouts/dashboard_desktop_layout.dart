@@ -107,6 +107,23 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
                   ),
                 ),
 
+                // Expenses !!! REQUIRES MORE WORK. TO DO LATER
+                // Expanded(
+                //   child: Column(
+                //     children: [
+                //       titleBar(
+                //         context,
+                //         expenses,
+                //         () => showDialog(
+                //           context: context,
+                //           builder: (context) => const AddExpense(),
+                //         ),
+                //       ),
+                //       const BuildExpenses(),
+                //     ],
+                //   ),
+                // ),
+
                 // Notes
                 Expanded(
                   child: Column(

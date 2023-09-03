@@ -55,6 +55,7 @@ const tipsList = {
   "• Long press the checkbox to mark it as complete.",
   "• Every now and then some checklists might have a special icon.",
   "• If you use markdown, consider leaving a space between every message.",
+  "• Expenses older than 60 days are automatically removed.",
 };
 
 // Routes
@@ -119,6 +120,8 @@ const addExpense = "Adding an expense!";
 const chooseTitleExpense = "What product did you buy?";
 const chooseValueExpense = "How much did you pay?";
 const selectExpenseDate = "When did it happend?";
+
+const modifyExpense = "You're editing a note!";
 
 List<String> currencies = [
   "EUR",

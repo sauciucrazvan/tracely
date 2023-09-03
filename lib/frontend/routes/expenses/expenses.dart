@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:tracely/frontend/routes/expenses/expense.dart';
 
+import '../../../backend/domains/expenses/expenses_manipulator.dart';
 import '../../../backend/handlers/users/account_handler.dart';
 import '../../config/messages.dart';
 
@@ -38,19 +39,27 @@ class BuildExpenses extends StatelessWidget {
           final expensesList = expenses.entries.toList();
 
           return Column(
-            children: expensesList
-                .map(
-                  (entry) => Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: ExpenseWidget(
-                      id: entry.key,
-                      expense: entry.value['expense'],
-                      value: double.parse(entry.value['value'].toString()),
-                      currency: entry.value['currency'],
-                    ),
-                  ),
-                )
-                .toList(),
+            children: expensesList.map((entry) {
+              // Deleting expenses older than 60 days
+              if (DateTime.parse(entry.value['date']).isBefore(
+                DateTime.now().subtract(
+                  const Duration(days: 60),
+                ),
+              )) {
+                deleteExpense(entry.key);
+              }
+
+              return Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ExpenseWidget(
+                  id: entry.key,
+                  expense: entry.value['expense'],
+                  value: double.parse(entry.value['value'].toString()),
+                  currency: entry.value['currency'],
+                  date: entry.value['date'],
+                ),
+              );
+            }).toList(),
           );
         }
 
