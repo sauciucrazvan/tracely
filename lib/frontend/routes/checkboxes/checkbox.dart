@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:tracely/backend/functions/limit_string.dart';
+import 'package:tracely/frontend/routes/checkboxes/edit/edit_checkbox.dart';
 
 import '../../../backend/domains/checkboxes/checkbox_manipulator.dart';
 import '../../../backend/domains/checklists/checklist_manipulator.dart';
@@ -38,12 +39,29 @@ class CheckboxWidget extends StatelessWidget {
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
-            backgroundColor: Colors.lightGreen.shade800,
+            backgroundColor: Colors.lightBlue,
             foregroundColor: Colors.white,
             borderRadius: BorderRadius.circular(12),
             icon: checked ? Icons.check_box : Icons.check_box_outline_blank,
             onPressed: (context) =>
                 markCheckbox(categoryID, checkboxID, !checked),
+          ),
+          SlidableAction(
+            backgroundColor: Colors.lightGreen.shade800,
+            foregroundColor: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            icon: Icons.edit,
+            onPressed: (context) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => EditCheckbox(
+                  categoryID: categoryID,
+                  checkboxID: checkboxID,
+                  name: title,
+                  date: date,
+                ),
+              ),
+            ),
           ),
           SlidableAction(
             backgroundColor: Colors.red,

@@ -111,6 +111,9 @@ const colors = [
   'purple',
 ];
 
+const editCheckbox = "Editing a checkbox";
+const editTitleCheckbox = "Edit the title:";
+
 /*
 
   ERRORS
