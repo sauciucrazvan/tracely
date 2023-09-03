@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../config/messages.dart';
 import '../../../expenses/add/add_expense.dart';
+import '../../../expenses/expenses.dart';
 import '../../components/titlebar.dart';
 
 class ExpensesDashboard extends StatefulWidget {
@@ -33,7 +34,7 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
 
           const Expanded(
             child: SingleChildScrollView(
-              child: Placeholder(),
+              child: BuildExpenses(),
             ),
           ),
         ],

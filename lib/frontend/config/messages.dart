@@ -158,6 +158,7 @@ const restartNeeded = "Please restart or refresh the app in order to use it.";
 const noNotesSaved = "You don't have any notes stored yet! :(";
 const noChecklistsSaved = "No checklists saved.";
 const noCheckboxesSaved = "No checkboxes here!";
+const noExpensesSaved = "No expenses saved!";
 
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
@@ -179,3 +180,5 @@ const removeNote =
 const removeChecklist =
     "Are you sure you want to delete this checklist?\nEvery entry will be deleted and this action can not be reverted!";
 const removeCheckbox = "Are you sure you want to delete this checkbox?";
+const removeExpense =
+    "Are you sure you want to remove this expense?\nThis action cannot be undone!";
