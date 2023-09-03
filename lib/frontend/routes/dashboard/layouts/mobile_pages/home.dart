@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:tracely/frontend/routes/dashboard/components/trackers/statistics.dart';
-import 'package:tracely/frontend/routes/dashboard/components/topbar.dart';
-
+import '../../components/topbar.dart';
 import '../../components/trackers/about.dart';
+import '../../components/trackers/statistics.dart';
+import '../../components/trackers/tips.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -39,30 +39,42 @@ class _HomeState extends State<Home> {
           ),
 
           // content
-          SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // STATS
-                const SizedBox(
-                  height: 25,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: showStatistics(context),
-                ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // STATS
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: showStatistics(context),
+                  ),
 
-                // ABOUT
-                const SizedBox(
-                  height: 16,
-                ),
+                  // ABOUT
+                  const SizedBox(
+                    height: 16,
+                  ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: showAbout(context),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: showAbout(context),
+                  ),
+
+                  // TIPS
+                  const SizedBox(
+                    height: 16,
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: showTips(context),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

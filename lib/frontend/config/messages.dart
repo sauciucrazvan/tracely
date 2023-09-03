@@ -42,10 +42,18 @@ const checkboxes = "Checklist Board";
 // Widgets
 const about = "About";
 const stats = "Statistics";
+const tips = "Tips & Secrets";
 
 // Stats content
 const notesSaved = "Notes synced:";
 const todoSaved = "Checklists synced:";
+
+// Tips content
+const tipsList = {
+  "• Long press the checkbox to mark it as complete.",
+  "• Every now and then some checklists might have a special icon.",
+  "• If you use markdown, consider leaving a space between every message.",
+};
 
 // Routes
 const addEntries = "Add";
