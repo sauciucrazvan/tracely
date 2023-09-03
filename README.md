@@ -41,7 +41,7 @@ Remember that these technologies and dependencies are pivotal to Tracely's funct
 
 Explore some snapshots from the Tracely app:
 
-![user-interface](https://i.imgur.com/LEDwuZa.png)
-> ###### Android version w/ dark mode enabled
+### Quick previews of Tracely 1.1.0
+#### Android [Light](https://i.imgur.com/rteuTd2.mp4) & [Dark](https://i.imgur.com/kiB0z63.mp4) | Web [Light](https://i.imgur.com/lqY3GG5.mp4) & [Dark](https://i.imgur.com/z0JhnE0.mp4)
 
 Experience the power of Tracely in these vibrant snapshots! 📸✨
