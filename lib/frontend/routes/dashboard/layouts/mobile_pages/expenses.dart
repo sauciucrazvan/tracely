@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../config/messages.dart';
 import '../../../expenses/add/add_expense.dart';
+import '../../../expenses/chart/expenses_chart.dart';
 import '../../../expenses/expenses.dart';
 import '../../components/titlebar.dart';
 
@@ -31,6 +32,8 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
               builder: (context) => const AddExpense(),
             ),
           ),
+
+          const ExpensesChart(),
 
           const Expanded(
             child: SingleChildScrollView(

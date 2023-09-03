@@ -40,6 +40,9 @@ dependencies:
   # Slidables ~ used for Checklists & checkboxes
   flutter_slidable: ^3.0.0
 
+  # Pie Chart ~ used for Expenses
+  pie_chart: ^5.3.2
+
   flutter_native_splash: ^2.3.2
   
 

@@ -116,6 +116,8 @@ const editTitleCheckbox = "Edit the title:";
 
 */
 
+const expensesChartTitle = "Summary";
+
 const addExpense = "Adding an expense!";
 const chooseTitleExpense = "What product did you buy?";
 const chooseValueExpense = "How much did you pay?";

@@ -38,6 +38,13 @@ class BuildExpenses extends StatelessWidget {
 
           final expensesList = expenses.entries.toList();
 
+          // sort by price
+          expensesList.sort((a, b) {
+            double valueA = double.parse(a.value['value'].toString());
+            double valueB = double.parse(b.value['value'].toString());
+            return valueB.compareTo(valueA);
+          });
+
           return Column(
             children: expensesList.map((entry) {
               // Deleting expenses older than 60 days
