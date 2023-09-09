@@ -36,7 +36,7 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
       initialDate: selectedDate,
       firstDate: DateTime.now().subtract(
         const Duration(
-          days: 60,
+          days: 59,
         ),
       ),
       lastDate: DateTime.now(),

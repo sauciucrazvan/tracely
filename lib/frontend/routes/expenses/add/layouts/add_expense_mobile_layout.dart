@@ -35,7 +35,7 @@ class _AddExpenseMobileLayoutState extends State<AddExpenseMobileLayout> {
       initialDate: selectedDate,
       firstDate: DateTime.now().subtract(
         const Duration(
-          days: 60,
+          days: 59,
         ),
       ),
       lastDate: DateTime.now(),
