@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/g2M2JbC.png" alt="Tracely Logo" width="128" height="128">
+<img src="https://i.imgur.com/o4Wbmnf.png" alt="Tracely Logo" width="128" height="128">
 
 
 # Tracely
