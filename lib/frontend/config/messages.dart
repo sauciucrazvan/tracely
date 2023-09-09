@@ -46,9 +46,9 @@ const stats = "Statistics";
 const tips = "Tips & Secrets";
 
 // Stats content
-const notesSaved = "Notes synced:";
-const todoSaved = "Checklists synced:";
-const expensesSaved = "Expenses synced:";
+const notesSaved = "Notes synced";
+const todoSaved = "Checklists synced";
+const expensesSaved = "Expenses synced";
 
 // Tips content
 const tipsList = {

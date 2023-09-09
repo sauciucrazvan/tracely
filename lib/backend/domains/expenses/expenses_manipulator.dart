@@ -67,14 +67,38 @@ Widget numberOfExpenses(BuildContext context) {
         numberOfExpenses = expensesMap.length;
       }
 
-      return Text(
-        "$expensesSaved $numberOfExpenses",
-        style: GoogleFonts.roboto(
-          color: Theme.of(context).colorScheme.tertiary,
-          fontSize: 16,
-          fontWeight: FontWeight.w100,
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              expensesSaved,
+              style: GoogleFonts.roboto(
+                color: Theme.of(context).colorScheme.tertiary,
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.start,
+            ),
+            Row(
+              children: [
+                Text(
+                  numberOfExpenses.toString(),
+                  style: GoogleFonts.roboto(
+                    color: Theme.of(context).colorScheme.tertiary,
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 4),
+                Icon(
+                  Icons.wallet,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+              ],
+            ),
+          ],
         ),
-        textAlign: TextAlign.start,
       );
     },
   );

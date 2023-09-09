@@ -19,12 +19,12 @@ Widget showStatistics(BuildContext context) {
       color: secondaryColor,
     ),
     child: Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 stats,
@@ -35,19 +35,18 @@ Widget showStatistics(BuildContext context) {
                 ),
                 textAlign: TextAlign.start,
               ),
-              const SizedBox(
-                height: 4,
+              Lottie.asset(
+                "assets/animations/chart.json",
+                width: 64,
+                height: 64,
               ),
-              numberOfNotes(context),
-              numberOfChecklists(context),
-              numberOfExpenses(context),
             ],
           ),
-          Lottie.asset(
-            "assets/animations/chart.json",
-            width: 64,
-            height: 64,
-          ),
+          numberOfNotes(context),
+          numberOfChecklists(context),
+          numberOfExpenses(context),
+          const Divider(),
+          const SizedBox(height: 8),
         ],
       ),
     ),

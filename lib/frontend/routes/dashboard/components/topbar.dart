@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:tracely/frontend/widgets/buttons/button.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import '../../../../backend/handlers/users/account_handler.dart';
 import '../../../config/messages.dart';
-import '../../../widgets/buttons/rounded_button.dart';
 
 Widget topBar(BuildContext context) {
   Color textColor = Theme.of(context).colorScheme.tertiary;
@@ -15,8 +16,8 @@ Widget topBar(BuildContext context) {
 
   return Padding(
     padding: const EdgeInsets.symmetric(
-      horizontal: 16,
-      vertical: 8,
+      horizontal: 16.0,
+      vertical: 8.0,
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,14 +55,10 @@ Widget topBar(BuildContext context) {
           ],
         ),
         const Spacer(),
-        roundedButton(
-          Theme.of(context).colorScheme.background,
-          Theme.of(context).colorScheme.primary,
-          Icon(
-            Icons.logout,
-            color: textColor,
-          ),
-          () => showDialog(
+        SmallButton(
+          icon: Icons.logout,
+          color: Theme.of(context).colorScheme.primary,
+          pressed: () => showDialog(
             context: context,
             builder: (context) => ConfirmDialog(
               title: logout,

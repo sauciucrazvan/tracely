@@ -61,14 +61,38 @@ Widget numberOfChecklists(BuildContext context) {
         numberOfChecklists = checklistsMap.length;
       }
 
-      return Text(
-        "$todoSaved $numberOfChecklists",
-        style: GoogleFonts.roboto(
-          color: Theme.of(context).colorScheme.tertiary,
-          fontSize: 16,
-          fontWeight: FontWeight.w100,
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              todoSaved,
+              style: GoogleFonts.roboto(
+                color: Theme.of(context).colorScheme.tertiary,
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.start,
+            ),
+            Row(
+              children: [
+                Text(
+                  numberOfChecklists.toString(),
+                  style: GoogleFonts.roboto(
+                    color: Theme.of(context).colorScheme.tertiary,
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 4),
+                Icon(
+                  Icons.event,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+              ],
+            ),
+          ],
         ),
-        textAlign: TextAlign.start,
       );
     },
   );

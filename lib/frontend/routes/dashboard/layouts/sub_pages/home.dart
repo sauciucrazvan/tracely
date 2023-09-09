@@ -20,24 +20,6 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Column(
         children: [
-          // TOP BAR
-          Container(
-            decoration: BoxDecoration(
-              color: secondaryColor,
-              borderRadius: const BorderRadius.vertical(
-                bottom: Radius.circular(24),
-              ),
-            ),
-            child: Column(
-              children: [
-                topBar(context),
-                const SizedBox(
-                  height: 8,
-                ),
-              ],
-            ),
-          ),
-
           // content
           Expanded(
             child: SingleChildScrollView(
@@ -45,10 +27,22 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // STATS
-                  const SizedBox(
-                    height: 25,
+                  const SizedBox(height: 16),
+
+                  // TOP BAR
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: topBar(context),
+                    ),
                   ),
+
+                  // STATS
+                  const SizedBox(height: 16),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: showStatistics(context),

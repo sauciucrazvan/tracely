@@ -15,12 +15,12 @@ Widget showAbout(BuildContext context) {
       color: secondaryColor,
     ),
     child: Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 about,
@@ -31,28 +31,26 @@ Widget showAbout(BuildContext context) {
                 ),
                 textAlign: TextAlign.start,
               ),
-              const SizedBox(
-                height: 4,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 2.5,
-                child: Text(
-                  "$appName $appDesc",
-                  style: GoogleFonts.roboto(
-                    color: textColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w100,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
+              Lottie.asset(
+                "assets/animations/about.json",
+                width: 64,
+                height: 64,
               ),
             ],
           ),
-          Lottie.asset(
-            "assets/animations/about.json",
-            width: 64,
-            height: 64,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            child: Text(
+              "$appName $appDesc",
+              style: GoogleFonts.roboto(
+                color: textColor,
+                fontSize: 15,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
+          const Divider(),
+          const SizedBox(height: 8),
         ],
       ),
     ),
