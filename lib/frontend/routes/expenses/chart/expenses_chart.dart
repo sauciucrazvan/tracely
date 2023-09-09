@@ -7,7 +7,6 @@ import 'package:tracely/backend/functions/limit_string.dart';
 
 import '../../../../backend/functions/convert_currencies.dart';
 import '../../../../backend/handlers/users/account_handler.dart';
-import '../../../config/messages.dart';
 
 class ExpensesChart extends StatelessWidget {
   const ExpensesChart({super.key});
@@ -53,13 +52,6 @@ class ExpensesChart extends StatelessWidget {
 
           return Column(
             children: [
-              Text(
-                expensesChartTitle,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.25,
                 height: MediaQuery.of(context).size.height / 4,

@@ -14,8 +14,12 @@ class ExpensesDashboard extends StatefulWidget {
 }
 
 class _ExpensesDashboardState extends State<ExpensesDashboard> {
+  bool openedChart = false;
+
   @override
   Widget build(BuildContext context) {
+    Color textColor = Theme.of(context).colorScheme.tertiary;
+
     return SafeArea(
       child: Column(
         children: [
@@ -33,7 +37,53 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
             ),
           ),
 
-          const ExpensesChart(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text(
+                          expensesChartTitle,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.tertiary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).colorScheme.secondary),
+                        ),
+                        onPressed: () =>
+                            setState(() => openedChart = !openedChart),
+                        child: openedChart
+                            ? Icon(
+                                Icons.keyboard_arrow_left,
+                                color: textColor,
+                              )
+                            : Icon(
+                                Icons.keyboard_arrow_down,
+                                color: textColor,
+                              ),
+                      ),
+                    ],
+                  ),
+                  if (openedChart) const ExpensesChart(),
+                ],
+              ),
+            ),
+          ),
 
           const Expanded(
             child: SingleChildScrollView(
