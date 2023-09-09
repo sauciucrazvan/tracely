@@ -11,7 +11,7 @@ import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/button.dart';
 
-import 'package:tracely/frontend/widgets/header/header.dart';
+import 'package:tracely/frontend/widgets/marginals/header.dart';
 import 'package:tracely/frontend/widgets/buttons/back_button.dart';
 import 'package:tracely/frontend/widgets/notifications/elevated_notification.dart';
 
@@ -186,11 +186,10 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    actionButton(
-                      context,
-                      backgroundColor: primaryColor,
+                    SmallButton(
+                      color: primaryColor,
                       icon: Icons.done,
-                      onPressed: () {
+                      pressed: () {
                         String title = _titleController.text;
                         String content = _contentController.text;
                         if (title.isEmpty) {
@@ -211,11 +210,10 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                     const SizedBox(
                       width: 8,
                     ),
-                    actionButton(
-                      context,
-                      backgroundColor: Colors.red,
+                    SmallButton(
+                      color: Colors.red,
                       icon: Icons.close,
-                      onPressed: () => Navigator.pop(context),
+                      pressed: () => Navigator.pop(context),
                     ),
                   ],
                 ),

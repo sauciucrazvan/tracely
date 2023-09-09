@@ -10,7 +10,7 @@ import 'package:tracely/backend/domains/checkboxes/checkbox_manipulator.dart';
 
 import '../../../../widgets/buttons/back_button.dart';
 import '../../../../widgets/buttons/button.dart';
-import '../../../../widgets/header/header.dart';
+import '../../../../widgets/marginals/header.dart';
 import '../../../../widgets/notifications/elevated_notification.dart';
 
 class AddCheckboxDesktopLayout extends StatefulWidget {
@@ -155,11 +155,10 @@ class _AddCheckboxDesktopLayoutState extends State<AddCheckboxDesktopLayout> {
                         const SizedBox(
                           width: 8,
                         ),
-                        actionButton(
-                          context,
-                          backgroundColor: secondaryColor,
+                        SmallButton(
+                          color: secondaryColor,
                           icon: Icons.calendar_today,
-                          onPressed: () => selectDate(context),
+                          pressed: () => selectDate(context),
                         ),
                       ],
                     ),
@@ -173,11 +172,10 @@ class _AddCheckboxDesktopLayoutState extends State<AddCheckboxDesktopLayout> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    actionButton(
-                      context,
-                      backgroundColor: primaryColor,
+                    SmallButton(
+                      color: primaryColor,
                       icon: Icons.done,
-                      onPressed: () {
+                      pressed: () {
                         String text = _titleController.text;
                         if (text.isEmpty) {
                           return showElevatedNotification(
@@ -196,11 +194,10 @@ class _AddCheckboxDesktopLayoutState extends State<AddCheckboxDesktopLayout> {
                     const SizedBox(
                       width: 8,
                     ),
-                    actionButton(
-                      context,
-                      backgroundColor: Colors.red,
+                    SmallButton(
+                      color: Colors.red,
                       icon: Icons.close,
-                      onPressed: () => Navigator.pop(context),
+                      pressed: () => Navigator.pop(context),
                     ),
                   ],
                 ),

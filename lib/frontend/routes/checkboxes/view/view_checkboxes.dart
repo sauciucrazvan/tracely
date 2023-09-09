@@ -6,7 +6,7 @@ import 'package:tracely/frontend/routes/dashboard/components/titlebar.dart';
 
 import '../../../config/messages.dart';
 import '../../../widgets/buttons/back_button.dart';
-import '../../../widgets/header/header.dart';
+import '../../../widgets/marginals/header.dart';
 
 class ViewCheckboxes extends StatelessWidget {
   final String id;

@@ -90,10 +90,9 @@ class ChecklistWidget extends StatelessWidget {
             icon: Icons.delete,
             onPressed: (context) => showDialog(
               context: context,
-              builder: (context) => alertDialog(
-                context,
-                removeChecklist,
-                () {
+              builder: (context) => ConfirmDialog(
+                title: removeChecklist,
+                confirm: () {
                   deleteChecklist(id);
                   Navigator.pop(context);
                 },

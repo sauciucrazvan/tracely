@@ -1,45 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:tracely/frontend/widgets/buttons/button.dart';
 
-AlertDialog alertDialog(
-  BuildContext context,
-  String title,
-  Function()? confirmFunction,
-) {
-  Color textColor = Theme.of(context).colorScheme.tertiary;
-  return AlertDialog(
-    title: Center(
-      child: Image.asset(
-        "assets/logo.png",
-        width: 32,
-        height: 32,
+// Imported from Tracely (https://github.com/sauciucrazvan/tracely)
+
+class ConfirmDialog extends StatelessWidget {
+  final String title;
+  final Function? confirm;
+
+  const ConfirmDialog({super.key, required this.title, this.confirm});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Center(
+        child: Image.asset(
+          "assets/logo.png",
+          width: 32,
+          height: 32,
+        ),
       ),
-    ),
-    content: Text(
-      title,
-      style: GoogleFonts.arimo(
-        color: textColor,
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
+      content: Text(
+        title,
+        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        textAlign: TextAlign.center,
       ),
-      textAlign: TextAlign.center,
-    ),
-    backgroundColor: Theme.of(context).colorScheme.background,
-    actionsAlignment: MainAxisAlignment.center,
-    actions: [
-      actionButton(
-        context,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        icon: Icons.done,
-        onPressed: confirmFunction,
-      ),
-      actionButton(
-        context,
-        backgroundColor: Colors.red,
-        icon: Icons.close,
-        onPressed: () => Navigator.pop(context),
-      ),
-    ],
-  );
+      backgroundColor: Theme.of(context).colorScheme.background,
+      actionsAlignment: MainAxisAlignment.center,
+      actions: [
+        SmallButton(
+          icon: Icons.done,
+          pressed: confirm,
+          color: Colors.lightGreen.shade800,
+        ),
+        SmallButton(
+          icon: Icons.close,
+          pressed: () => Navigator.pop(context),
+          color: Colors.red.shade800,
+        ),
+      ],
+    );
+  }
 }

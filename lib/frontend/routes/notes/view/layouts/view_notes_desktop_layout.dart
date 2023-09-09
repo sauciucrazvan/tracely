@@ -5,7 +5,7 @@ import 'package:tracely/frontend/config/messages.dart';
 
 import 'package:tracely/frontend/widgets/buttons/button.dart';
 
-import 'package:tracely/frontend/widgets/header/header.dart';
+import 'package:tracely/frontend/widgets/marginals/header.dart';
 import 'package:tracely/frontend/widgets/buttons/back_button.dart';
 
 class ViewNotesDesktopLayout extends StatefulWidget {
@@ -127,11 +127,10 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    actionButton(
-                      context,
-                      backgroundColor: Theme.of(context).colorScheme.primary,
+                    SmallButton(
+                      color: Theme.of(context).colorScheme.primary,
                       icon: Icons.arrow_back,
-                      onPressed: () => Navigator.pop(context),
+                      pressed: () => Navigator.pop(context),
                     ),
                   ],
                 ),

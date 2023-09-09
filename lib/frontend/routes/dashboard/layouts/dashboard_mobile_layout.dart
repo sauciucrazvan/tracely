@@ -7,7 +7,7 @@ import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/agenda.dart'
 import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/notes.dart';
 
 import '../../../config/messages.dart';
-import '../../../widgets/header/header.dart';
+import '../../../widgets/marginals/header.dart';
 
 class DashboardMobileLayout extends StatefulWidget {
   const DashboardMobileLayout({super.key});

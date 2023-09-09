@@ -104,10 +104,9 @@ class _NoteWidgetState extends State<NoteWidget> {
                         IconButton(
                           onPressed: () => showDialog(
                             context: context,
-                            builder: (context) => alertDialog(
-                              context,
-                              removeNote,
-                              () {
+                            builder: (context) => ConfirmDialog(
+                              title: removeNote,
+                              confirm: () {
                                 deleteNote(widget.id);
                                 Navigator.pop(context);
                               },

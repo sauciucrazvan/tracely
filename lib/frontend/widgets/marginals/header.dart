@@ -9,6 +9,5 @@ AppBar header(Widget title, Color backgroundColor, bool centered,
     leading: leading,
     leadingWidth: leadingWidth,
     actions: trailing,
-    shadowColor: Colors.transparent,
   );
 }

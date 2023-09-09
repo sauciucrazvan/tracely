@@ -63,10 +63,9 @@ Widget topBar(BuildContext context) {
           ),
           () => showDialog(
             context: context,
-            builder: (context) => alertDialog(
-              context,
-              logout,
-              () {
+            builder: (context) => ConfirmDialog(
+              title: logout,
+              confirm: () {
                 signOutUser();
                 Navigator.pop(context);
               },

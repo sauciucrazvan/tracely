@@ -11,7 +11,7 @@ import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
 
 import '../../../../widgets/buttons/back_button.dart';
 import '../../../../widgets/buttons/button.dart';
-import '../../../../widgets/header/header.dart';
+import '../../../../widgets/marginals/header.dart';
 import '../../../../widgets/notifications/elevated_notification.dart';
 
 class EditExpenseMobileLayout extends StatefulWidget {
@@ -272,11 +272,10 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                         const SizedBox(
                           width: 8,
                         ),
-                        actionButton(
-                          context,
-                          backgroundColor: secondaryColor,
+                        SmallButton(
+                          color: secondaryColor,
                           icon: Icons.calendar_today,
-                          onPressed: () => selectDate(context),
+                          pressed: () => selectDate(context),
                         ),
                       ],
                     ),
@@ -290,11 +289,10 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    actionButton(
-                      context,
-                      backgroundColor: primaryColor,
+                    SmallButton(
+                      color: primaryColor,
                       icon: Icons.done,
-                      onPressed: () {
+                      pressed: () {
                         String text = _titleController.text;
                         if (text.isEmpty) {
                           return showElevatedNotification(
@@ -323,11 +321,10 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                     const SizedBox(
                       width: 8,
                     ),
-                    actionButton(
-                      context,
-                      backgroundColor: Colors.red,
+                    SmallButton(
+                      color: Colors.red,
                       icon: Icons.close,
-                      onPressed: () => Navigator.pop(context),
+                      pressed: () => Navigator.pop(context),
                     ),
                   ],
                 ),

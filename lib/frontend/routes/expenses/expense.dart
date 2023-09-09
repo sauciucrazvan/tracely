@@ -58,10 +58,9 @@ class ExpenseWidget extends StatelessWidget {
             icon: Icons.delete,
             onPressed: (context) => showDialog(
               context: context,
-              builder: (context) => alertDialog(
-                context,
-                removeExpense,
-                () {
+              builder: (context) => ConfirmDialog(
+                title: removeExpense,
+                confirm: () {
                   deleteExpense(id);
                   Navigator.pop(context);
                 },

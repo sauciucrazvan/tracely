@@ -6,7 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:tracely/backend/domains/authentification/authentification_service.dart';
 
 import '../../../config/messages.dart';
-import '../../../widgets/header/header.dart';
+import '../../../widgets/marginals/header.dart';
 import '../../../widgets/buttons/tile.dart';
 
 class AuthentificationMobileLayout extends StatelessWidget {

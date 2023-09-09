@@ -112,11 +112,10 @@ class _ModifyChecklistState extends State<ModifyChecklist> {
       backgroundColor: backgroundColor,
       actionsAlignment: MainAxisAlignment.center,
       actions: [
-        actionButton(
-          context,
-          backgroundColor: Theme.of(context).colorScheme.primary,
+        SmallButton(
+          color: Theme.of(context).colorScheme.primary,
           icon: Icons.done,
-          onPressed: () {
+          pressed: () {
             if (titleController.text.isNotEmpty) {
               editChecklist(widget.id, titleController.text, selectedColor);
             } else {
@@ -126,11 +125,10 @@ class _ModifyChecklistState extends State<ModifyChecklist> {
             Navigator.pop(context);
           },
         ),
-        actionButton(
-          context,
-          backgroundColor: Colors.red,
+        SmallButton(
+          color: Colors.red,
           icon: Icons.close,
-          onPressed: () {
+          pressed: () {
             titleController.clear();
             Navigator.pop(context);
           },

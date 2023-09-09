@@ -103,11 +103,10 @@ class _AddChecklistState extends State<AddChecklist> {
       backgroundColor: backgroundColor,
       actionsAlignment: MainAxisAlignment.center,
       actions: [
-        actionButton(
-          context,
-          backgroundColor: Theme.of(context).colorScheme.primary,
+        SmallButton(
+          color: Theme.of(context).colorScheme.primary,
           icon: Icons.done,
-          onPressed: () {
+          pressed: () {
             if (titleController.text.isNotEmpty) {
               insertChecklist(titleController.text, selectedColor);
             } else {
@@ -117,11 +116,10 @@ class _AddChecklistState extends State<AddChecklist> {
             Navigator.pop(context);
           },
         ),
-        actionButton(
-          context,
-          backgroundColor: Colors.red,
+        SmallButton(
+          color: Colors.red,
           icon: Icons.close,
-          onPressed: () {
+          pressed: () {
             titleController.clear();
             Navigator.pop(context);
           },

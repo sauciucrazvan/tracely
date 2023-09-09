@@ -72,10 +72,9 @@ class CheckboxWidget extends StatelessWidget {
             icon: Icons.delete,
             onPressed: (context) => showDialog(
               context: context,
-              builder: (context) => alertDialog(
-                context,
-                removeCheckbox,
-                () {
+              builder: (context) => ConfirmDialog(
+                title: removeCheckbox,
+                confirm: () {
                   deleteCheckbox(categoryID, checkboxID);
                   Navigator.pop(context);
                 },
