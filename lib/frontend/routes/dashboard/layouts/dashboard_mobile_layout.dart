@@ -19,6 +19,8 @@ class DashboardMobileLayout extends StatefulWidget {
 class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
   int _selectedIndex = 0;
 
+  PageController pageController = PageController(initialPage: 0);
+
   final pages = [
     const Home(),
     const NotesDashboard(),
@@ -67,11 +69,20 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
             label: expenses,
           ),
         ],
-        onDestinationSelected: (index) => setState(
-          () => _selectedIndex = index,
-        ),
+        onDestinationSelected: (index) => setState(() {
+          _selectedIndex = index;
+          pageController.animateToPage(
+            _selectedIndex,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.decelerate,
+          );
+        }),
       ),
-      body: pages[_selectedIndex],
+      body: PageView(
+        controller: pageController,
+        children: pages,
+        onPageChanged: (index) => setState(() => _selectedIndex = index),
+      ),
     );
   }
 }
