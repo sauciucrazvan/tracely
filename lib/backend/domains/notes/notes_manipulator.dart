@@ -89,7 +89,7 @@ Widget numberOfNotes(BuildContext context) {
                 const SizedBox(width: 4),
                 Icon(
                   Icons.event_note,
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),

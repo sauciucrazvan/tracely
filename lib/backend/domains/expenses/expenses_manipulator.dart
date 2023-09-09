@@ -93,7 +93,7 @@ Widget numberOfExpenses(BuildContext context) {
                 const SizedBox(width: 4),
                 Icon(
                   Icons.wallet,
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),

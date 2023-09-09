@@ -87,7 +87,7 @@ Widget numberOfChecklists(BuildContext context) {
                 const SizedBox(width: 4),
                 Icon(
                   Icons.event,
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
