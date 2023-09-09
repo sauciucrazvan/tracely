@@ -30,16 +30,16 @@ Widget titleBar(
           textAlign: TextAlign.left,
         ),
         const Spacer(),
-        roundedButton(
-          textColor,
-          primaryColor,
-          Icon(
+        RoundedButton(
+          foregroundColor: Colors.white,
+          backgroundColor: primaryColor,
+          onPressed: onPressed,
+          size: size,
+          child: Icon(
             Icons.add,
             color: textColor,
             size: size * 2,
           ),
-          onPressed,
-          size: size,
         ),
         const Divider(),
       ],

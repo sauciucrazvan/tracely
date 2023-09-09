@@ -44,61 +44,61 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
         actions: [
           Row(
             children: [
-              roundedButton(
-                Theme.of(context).colorScheme.background,
-                _selectedIndex == 0
+              RoundedButton(
+                foregroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: _selectedIndex == 0
                     ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).colorScheme.background,
-                Icon(
+                child: Icon(
                   Icons.home,
                   color: textColor,
                 ),
-                () {
+                onPressed: () {
                   setState(() {
                     _selectedIndex = 0;
                   });
                 },
               ),
-              roundedButton(
-                Theme.of(context).colorScheme.background,
-                _selectedIndex == 1
+              RoundedButton(
+                foregroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: _selectedIndex == 1
                     ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).colorScheme.background,
-                Icon(
+                child: Icon(
                   Icons.event_note,
                   color: textColor,
                 ),
-                () {
+                onPressed: () {
                   setState(() {
                     _selectedIndex = 1;
                   });
                 },
               ),
-              roundedButton(
-                Theme.of(context).colorScheme.background,
-                _selectedIndex == 2
+              RoundedButton(
+                foregroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: _selectedIndex == 2
                     ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).colorScheme.background,
-                Icon(
+                child: Icon(
                   Icons.event,
                   color: textColor,
                 ),
-                () {
+                onPressed: () {
                   setState(() {
                     _selectedIndex = 2;
                   });
                 },
               ),
-              roundedButton(
-                Theme.of(context).colorScheme.background,
-                _selectedIndex == 3
+              RoundedButton(
+                foregroundColor: Theme.of(context).colorScheme.background,
+                backgroundColor: _selectedIndex == 3
                     ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).colorScheme.background,
-                Icon(
+                child: Icon(
                   Icons.wallet,
                   color: textColor,
                 ),
-                () {
+                onPressed: () {
                   setState(() {
                     _selectedIndex = 3;
                   });

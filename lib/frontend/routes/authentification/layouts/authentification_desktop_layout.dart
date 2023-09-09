@@ -95,15 +95,14 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                         ),
                       ),
                       const Divider(),
-                      tile(
-                        context,
-                        google,
-                        Image.asset(
+                      Tile(
+                        title: google,
+                        leading: Image.asset(
                           "assets/images/google_logo.png",
                           width: 32,
                           height: 32,
                         ),
-                        () => AuthentificationService().signIn(context),
+                        onTap: () => AuthentificationService().signIn(context),
                       ),
                       const Divider(),
                       Text(

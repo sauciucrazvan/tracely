@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:tracely/frontend/widgets/buttons/button.dart';
 
-// Imported from Tracely (https://github.com/sauciucrazvan/tracely)
-
 class ConfirmDialog extends StatelessWidget {
   final String title;
   final Function? confirm;
