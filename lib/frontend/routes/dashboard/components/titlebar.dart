@@ -37,7 +37,7 @@ Widget titleBar(
           size: size,
           child: Icon(
             Icons.add,
-            color: textColor,
+            color: Colors.white,
             size: size * 2,
           ),
         ),

@@ -60,11 +60,7 @@ class BuildAgenda extends StatelessWidget {
                       id: entry.key,
                       name: entry.value['title'],
                       color: entry.value['color'] ?? "red",
-                      count: (entry.value['checkboxes'] != null
-                          ? (entry.value['checkboxes']!
-                                  as Map<dynamic, dynamic>)
-                              .length
-                          : 0),
+                      count: (entry.value['checkboxes'] as Map?)?.length ?? 0,
                       pinned: entry.value['pinned'] ?? false,
                     ),
                   ),
