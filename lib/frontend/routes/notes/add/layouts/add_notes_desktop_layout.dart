@@ -25,6 +25,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
   final TextEditingController _contentController = TextEditingController();
 
   bool useMarkdown = true;
+  bool useEncryption = true;
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +159,26 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
+                      shouldEncryptNote,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: primaryColor,
+                      value: useEncryption,
+                      onChanged: (value) {
+                        setState(() => useEncryption = value);
+                      },
+                    ),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
                       shouldUseMarkdown,
                       style: TextStyle(
                         color: textColor,
@@ -196,7 +217,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        insertNote(title, content, useMarkdown);
+                        insertNote(title, content, useMarkdown, useEncryption);
                         Navigator.pop(context);
                       },
                     ),

@@ -35,7 +35,15 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
 
-    _titleController.text = widget.data['title'];
+    String title = (widget.data['useEncryption']
+        ? decryptNoteText(widget.data['title'])
+        : widget.data['title']);
+
+    String content = (widget.data['useEncryption']
+        ? decryptNoteText(widget.data['content'])
+        : widget.data['content']);
+
+    _titleController.text = title;
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -137,7 +145,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
 
                 MarkdownTextInput(
                   (String value) {},
-                  widget.data['content'],
+                  content,
                   label: 'Description',
                   actions: const [
                     MarkdownType.bold,
@@ -200,8 +208,13 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        editNote(widget.id, title, content,
-                            widget.data['useMarkdown']);
+                        editNote(
+                          widget.id,
+                          title,
+                          content,
+                          widget.data['useMarkdown'],
+                          widget.data['useEncryption'] ?? false,
+                        );
                         Navigator.pop(context);
                       },
                     ),

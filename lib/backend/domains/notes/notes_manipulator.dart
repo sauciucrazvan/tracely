@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:encrypt/encrypt.dart' as encrypt;
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_database/firebase_database.dart';
+
+import 'package:tracely/backend/keys/encryption_key.dart';
 
 import '../../../frontend/config/messages.dart';
 import '../../handlers/users/account_handler.dart';
@@ -14,20 +18,47 @@ final DatabaseReference database = FirebaseDatabase.instance.ref();
 
 */
 
-void insertNote(String title, String content, bool useMarkdown) async {
+void insertNote(
+    String title, String content, bool useMarkdown, bool useEncryption) async {
   String userId = getUID();
   String id = DateTime.now().millisecondsSinceEpoch.toString();
+
+  // ENCRYPT CONTENT
+  if (useEncryption) {
+    final encrypter = encrypt.Encrypter(encrypt.AES(getEncryptionKey()));
+    final encryptedTitle =
+        encrypter.encrypt(title, iv: encrypt.IV.fromLength(8));
+    final encryptedContent =
+        encrypter.encrypt(content, iv: encrypt.IV.fromLength(8));
+
+    title = encryptedTitle.base64;
+    content = encryptedContent.base64;
+  }
 
   await database.child("users/$userId/notes/$id").set({
     'title': title,
     'content': content,
     'useMarkdown': useMarkdown,
+    'useEncryption': useEncryption,
     'last_edit': DateTime.now().toString(),
   });
 }
 
-void editNote(String id, String title, String content, bool useMarkdown) async {
+void editNote(String id, String title, String content, bool useMarkdown,
+    bool useEncryption) async {
   String userId = getUID();
+
+  // ENCRYPT CONTENT
+  if (useEncryption) {
+    final encrypter = encrypt.Encrypter(encrypt.AES(getEncryptionKey()));
+    final encryptedTitle =
+        encrypter.encrypt(title, iv: encrypt.IV.fromLength(8));
+    final encryptedContent =
+        encrypter.encrypt(content, iv: encrypt.IV.fromLength(8));
+
+    title = encryptedTitle.base64;
+    content = encryptedContent.base64;
+  }
 
   await database.child("users/$userId/notes/$id").update({
     'title': title,
@@ -41,6 +72,12 @@ void deleteNote(String id) async {
   String userId = getUID();
 
   await database.child("users/$userId/notes/$id").remove();
+}
+
+String decryptNoteText(String encryptedMessage) {
+  final encrypter = encrypt.Encrypter(encrypt.AES(getEncryptionKey()));
+  return encrypter.decrypt(encrypt.Encrypted.fromBase64(encryptedMessage),
+      iv: encrypt.IV.fromLength(8));
 }
 
 /*

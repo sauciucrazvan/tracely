@@ -27,6 +27,10 @@ class _NoteWidgetState extends State<NoteWidget> {
     Color textColor = Theme.of(context).colorScheme.tertiary;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
+    String title = (widget.data['useEncryption']
+        ? decryptNoteText(widget.data['title'])
+        : widget.data['title']);
+
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 16,
@@ -45,7 +49,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    limitString(widget.data['title'], 40),
+                    limitString(title, 40),
                     style: TextStyle(
                       color: textColor,
                     ),

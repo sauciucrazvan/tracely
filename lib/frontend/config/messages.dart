@@ -85,6 +85,7 @@ const chooseNoteTitle = "We should start by naming your note:";
 const enterNoteContent =
     "Fill in your note content down below.\nYou can use the markup language called Markdown.";
 const shouldUseMarkdown = "Should we use Markdown formatting?";
+const shouldEncryptNote = "Encrypt your note with AES";
 
 const modifyNote = "You're editing a note!";
 const editNoteTitle = "Edit your title:";

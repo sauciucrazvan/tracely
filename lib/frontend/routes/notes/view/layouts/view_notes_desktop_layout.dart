@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:intl/intl.dart';
+import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
 
 import 'package:tracely/frontend/widgets/buttons/button.dart';
@@ -22,6 +23,14 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
   Widget build(BuildContext context) {
     Color textColor = Theme.of(context).colorScheme.tertiary;
     Color backgroundColor = Theme.of(context).colorScheme.background;
+
+    String title = (widget.data['useEncryption']
+        ? decryptNoteText(widget.data['title'])
+        : widget.data['title']);
+
+    String content = (widget.data['useEncryption']
+        ? decryptNoteText(widget.data['content'])
+        : widget.data['content']);
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -48,7 +57,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                 // note title
                 Center(
                   child: Text(
-                    widget.data['title'],
+                    title,
                     style: TextStyle(
                       color: textColor,
                       fontSize: 24,
@@ -69,11 +78,11 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                   ),
                   child: widget.data['useMarkdown']
                       ? MarkdownBody(
-                          data: widget.data['content'],
+                          data: content,
                           styleSheet: MarkdownStyleSheet(textScaleFactor: 1.15),
                         )
                       : Text(
-                          widget.data['content'],
+                          content,
                           style: TextStyle(
                             color: textColor,
                             fontSize: 16,
@@ -88,7 +97,6 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                 ),
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "$lastEdit: ${DateFormat("MMM d, yyyy | HH:mm").format(
@@ -101,6 +109,24 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                         fontSize: 16,
                       ),
                     ),
+                    const Spacer(),
+                    if (widget.data['useEncryption']) ...[
+                      Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.blue,
+                        ),
+                        child: const Text(
+                          "AES Encrypted",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                    ],
                     Container(
                       padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
@@ -110,7 +136,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                             : Colors.red,
                       ),
                       child: const Text(
-                        "MD",
+                        "Markdown",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,

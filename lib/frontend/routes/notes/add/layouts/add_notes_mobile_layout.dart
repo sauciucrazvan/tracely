@@ -25,6 +25,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
   final TextEditingController _contentController = TextEditingController();
 
   bool useMarkdown = true;
+  bool useEncryption = true;
 
   @override
   Widget build(BuildContext context) {
@@ -155,6 +156,26 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
+                      shouldEncryptNote,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: primaryColor,
+                      value: useEncryption,
+                      onChanged: (value) {
+                        setState(() => useEncryption = value);
+                      },
+                    ),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
                       shouldUseMarkdown,
                       style: TextStyle(
                         color: textColor,
@@ -193,7 +214,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                               context, noteWithoutContent, Colors.red);
                         }
 
-                        insertNote(title, content, useMarkdown);
+                        insertNote(title, content, useMarkdown, useEncryption);
                         Navigator.pop(context);
                       },
                     ),
