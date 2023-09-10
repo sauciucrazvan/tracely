@@ -38,16 +38,19 @@ class CheckboxWidget extends StatelessWidget {
 
     return Slidable(
       endActionPane: ActionPane(
+        extentRatio: 0.5,
         motion: const ScrollMotion(),
         children: [
+          const SizedBox(width: 4),
           SlidableAction(
             backgroundColor: Colors.lightBlue,
             foregroundColor: Colors.white,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(8),
             icon: checked ? Icons.check_box : Icons.check_box_outline_blank,
             onPressed: (context) =>
                 markCheckbox(categoryID, checkboxID, !checked),
           ),
+          const SizedBox(width: 4),
           SlidableAction(
             backgroundColor: Colors.lightGreen.shade800,
             foregroundColor: Colors.white,
@@ -65,10 +68,11 @@ class CheckboxWidget extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 4),
           SlidableAction(
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(8),
             icon: Icons.delete,
             onPressed: (context) => showDialog(
               context: context,
@@ -81,6 +85,7 @@ class CheckboxWidget extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 4),
         ],
       ),
       child: GestureDetector(

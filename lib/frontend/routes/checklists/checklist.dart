@@ -69,9 +69,12 @@ class ChecklistWidget extends StatelessWidget {
 
     return Slidable(
       endActionPane: ActionPane(
+        extentRatio: 0.35,
         motion: const ScrollMotion(),
         children: [
+          const SizedBox(width: 4),
           SlidableAction(
+            borderRadius: BorderRadius.circular(8),
             backgroundColor: Colors.lightGreen.shade800,
             foregroundColor: Colors.white,
             icon: Icons.edit,
@@ -84,7 +87,9 @@ class ChecklistWidget extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 4),
           SlidableAction(
+            borderRadius: BorderRadius.circular(8),
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -99,6 +104,7 @@ class ChecklistWidget extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 4),
         ],
       ),
       child: MouseRegion(
