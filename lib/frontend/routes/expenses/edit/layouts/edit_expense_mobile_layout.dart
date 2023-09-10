@@ -246,11 +246,8 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                 const Divider(),
 
                 // date selector
-                const SizedBox(
-                  height: 25,
-                ),
-
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -260,22 +257,21 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                         fontSize: 16,
                       ),
                     ),
-                    Row(
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        SmallButton(
+                          color: secondaryColor,
+                          icon: Icons.calendar_today,
+                          pressed: () => selectDate(context),
+                        ),
+                        const SizedBox(height: 8),
                         Text(
                           DateFormat("MMM dd, yyyy").format(selectedDate),
                           style: TextStyle(
                             color: textColor,
                             fontSize: 16,
                           ),
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        SmallButton(
-                          color: secondaryColor,
-                          icon: Icons.calendar_today,
-                          pressed: () => selectDate(context),
                         ),
                       ],
                     ),
