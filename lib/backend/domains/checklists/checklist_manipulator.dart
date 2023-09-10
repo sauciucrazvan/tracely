@@ -34,6 +34,14 @@ void editChecklist(String id, String name, String color) async {
   });
 }
 
+void markChecklistPinned(String id, bool pinned) async {
+  String userId = getUID();
+
+  await database.child("users/$userId/checklists/$id").update({
+    'pinned': !pinned,
+  });
+}
+
 void deleteChecklist(String id) async {
   String userId = getUID();
 

@@ -37,6 +37,20 @@ class BuildAgenda extends StatelessWidget {
 
           final checklistsList = checklists.entries.toList();
 
+          // Sorting checkboxes by entries
+          checklistsList.sort((a, b) {
+            final int lastEditA = (a.value['checkboxes'] as Map?)?.length ?? 0;
+            final int lastEditB = (b.value['checkboxes'] as Map?)?.length ?? 0;
+            return lastEditB.compareTo(lastEditA);
+          });
+
+          // Sorting checkboxes by value
+          checklistsList.sort((a, b) {
+            final bool lastEditA = a.value['pinned'] ?? false;
+            final bool lastEditB = b.value['pinned'] ?? false;
+            return lastEditB.toString().compareTo(lastEditA.toString());
+          });
+
           return Column(
             children: checklistsList
                 .map(
@@ -51,6 +65,7 @@ class BuildAgenda extends StatelessWidget {
                                   as Map<dynamic, dynamic>)
                               .length
                           : 0),
+                      pinned: entry.value['pinned'] ?? false,
                     ),
                   ),
                 )

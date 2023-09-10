@@ -13,6 +13,7 @@ class ChecklistWidget extends StatelessWidget {
   final String name;
   final String color;
   final int count;
+  final bool pinned;
 
   const ChecklistWidget({
     super.key,
@@ -20,6 +21,7 @@ class ChecklistWidget extends StatelessWidget {
     required this.name,
     required this.color,
     required this.count,
+    required this.pinned,
   });
 
   @override
@@ -69,9 +71,17 @@ class ChecklistWidget extends StatelessWidget {
 
     return Slidable(
       endActionPane: ActionPane(
-        extentRatio: 0.35,
+        extentRatio: 0.5,
         motion: const ScrollMotion(),
         children: [
+          const SizedBox(width: 4),
+          SlidableAction(
+            borderRadius: BorderRadius.circular(8),
+            backgroundColor: Colors.amber,
+            foregroundColor: Colors.white,
+            icon: pinned ? Icons.star : Icons.star_border,
+            onPressed: (context) => markChecklistPinned(id, pinned),
+          ),
           const SizedBox(width: 4),
           SlidableAction(
             borderRadius: BorderRadius.circular(8),
@@ -130,7 +140,7 @@ class ChecklistWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: CircleAvatar(
                     radius: 12,
                     backgroundColor: colors[color],
@@ -162,10 +172,15 @@ class ChecklistWidget extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 64,
-                  child: Icon(
-                    Icons.keyboard_tab,
-                    color: textColor,
-                  ),
+                  child: (pinned)
+                      ? const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        )
+                      : Icon(
+                          Icons.keyboard_tab,
+                          color: textColor,
+                        ),
                 ),
               ],
             ),
