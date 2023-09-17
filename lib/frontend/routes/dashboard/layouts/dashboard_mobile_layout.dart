@@ -31,7 +31,6 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
   @override
   Widget build(BuildContext context) {
     Color backgroundColor = Theme.of(context).colorScheme.background;
-    Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -41,7 +40,7 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
           height: 32,
           width: 32,
         ),
-        secondaryColor,
+        backgroundColor,
         true,
       ),
       bottomNavigationBar: NavigationBar(

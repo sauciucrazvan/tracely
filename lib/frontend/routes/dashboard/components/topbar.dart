@@ -16,7 +16,7 @@ Widget topBar(BuildContext context) {
 
   return Padding(
     padding: const EdgeInsets.symmetric(
-      horizontal: 32.0,
+      horizontal: 8.0,
       vertical: 16.0,
     ),
     child: Row(
@@ -33,7 +33,7 @@ Widget topBar(BuildContext context) {
                   ),
                   style: GoogleFonts.arimo(
                     color: textColor,
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.left,
