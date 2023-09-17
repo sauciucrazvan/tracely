@@ -1,6 +1,6 @@
 name: tracely
 description: Fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.
-version: 1.2.0
+version: 1.3.0
 
 publish_to: 'none'
 
@@ -23,19 +23,19 @@ dependencies:
 
   # Sign in platforms
   google_sign_in: ^6.1.5
-
+ 
   # Connectivity checker
   connectivity_plus: ^4.0.2
 
   # Markdown Editable Text Input for notes
-  markdown_editable_textinput: ^2.1.0
-  flutter_markdown: ^0.6.17+2
+  markdown_editable_textinput: ^2.1.0 # Never to be updated. It does not work
+  flutter_markdown: ^0.6.17+3
 
   # Lottie for animations
   lottie: ^2.6.0
 
   # Google Fonts! A library of fonts used across the app
-  google_fonts: ^5.1.0
+  google_fonts: ^6.0.0
 
   # Slidables ~ used for Checklists & checkboxes
   flutter_slidable: ^3.0.0
@@ -44,7 +44,7 @@ dependencies:
   pie_chart: ^5.3.2
 
   # Encrypt ~ used to encrypt notes with AES
-  encrypt: ^5.0.1
+  encrypt: ^5.0.2
 
   flutter_native_splash: ^2.3.2
   
