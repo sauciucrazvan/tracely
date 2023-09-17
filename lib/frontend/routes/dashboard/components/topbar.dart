@@ -16,8 +16,8 @@ Widget topBar(BuildContext context) {
 
   return Padding(
     padding: const EdgeInsets.symmetric(
-      horizontal: 16.0,
-      vertical: 8.0,
+      horizontal: 32.0,
+      vertical: 16.0,
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
