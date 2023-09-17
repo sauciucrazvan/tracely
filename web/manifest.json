@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Tracely is your ultimate management app with seamless cloud synchronization. Keep an organized track of all your projects, ideas, notes, expenses, and everything else you can imagine – all in one place, across multiple devices.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

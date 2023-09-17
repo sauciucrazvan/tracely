@@ -13,6 +13,7 @@ class Tracely extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,
+      title: 'Tracely',
       home: connectionGateway(),
     );
   }
