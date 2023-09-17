@@ -25,11 +25,11 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
     Color backgroundColor = Theme.of(context).colorScheme.background;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'])
+        ? decryptNoteText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     String content = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['content'])
+        ? decryptNoteText(widget.data['content'], widget.data['iv'])
         : widget.data['content']);
 
     return Scaffold(

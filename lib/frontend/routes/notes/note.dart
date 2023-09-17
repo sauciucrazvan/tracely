@@ -28,7 +28,7 @@ class _NoteWidgetState extends State<NoteWidget> {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'])
+        ? decryptNoteText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     return Container(

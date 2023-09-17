@@ -1,3 +1,4 @@
+import 'package:encrypt/encrypt.dart';
 import 'package:flutter/material.dart';
 
 import 'package:encrypt/encrypt.dart' as encrypt;
@@ -22,14 +23,13 @@ void insertNote(
     String title, String content, bool useMarkdown, bool useEncryption) async {
   String userId = getUID();
   String id = DateTime.now().millisecondsSinceEpoch.toString();
+  IV iv = encrypt.IV.fromLength(8);
 
   // ENCRYPT CONTENT
   if (useEncryption) {
     final encrypter = encrypt.Encrypter(encrypt.AES(getEncryptionKey()));
-    final encryptedTitle =
-        encrypter.encrypt(title, iv: encrypt.IV.fromLength(8));
-    final encryptedContent =
-        encrypter.encrypt(content, iv: encrypt.IV.fromLength(8));
+    final encryptedTitle = encrypter.encrypt(title, iv: iv);
+    final encryptedContent = encrypter.encrypt(content, iv: iv);
 
     title = encryptedTitle.base64;
     content = encryptedContent.base64;
@@ -38,6 +38,7 @@ void insertNote(
   await database.child("users/$userId/notes/$id").set({
     'title': title,
     'content': content,
+    'iv': iv.base64,
     'useMarkdown': useMarkdown,
     'useEncryption': useEncryption,
     'last_edit': DateTime.now().toString(),
@@ -74,10 +75,10 @@ void deleteNote(String id) async {
   await database.child("users/$userId/notes/$id").remove();
 }
 
-String decryptNoteText(String encryptedMessage) {
+String decryptNoteText(String encryptedMessage, String iv) {
   final encrypter = encrypt.Encrypter(encrypt.AES(getEncryptionKey()));
   return encrypter.decrypt(encrypt.Encrypted.fromBase64(encryptedMessage),
-      iv: encrypt.IV.fromLength(8));
+      iv: encrypt.IV.fromBase64(iv));
 }
 
 /*

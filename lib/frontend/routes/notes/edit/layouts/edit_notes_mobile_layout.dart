@@ -38,11 +38,11 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
     Color primaryColor = Theme.of(context).colorScheme.primary;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'])
+        ? decryptNoteText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     String content = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['content'])
+        ? decryptNoteText(widget.data['content'], widget.data['iv'])
         : widget.data['content']);
 
     _titleController.text = title;
