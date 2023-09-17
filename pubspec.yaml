@@ -47,6 +47,8 @@ dependencies:
   encrypt: ^5.0.2
 
   flutter_native_splash: ^2.3.2
+
+  url_launcher: ^6.1.14
   
 
 dev_dependencies:

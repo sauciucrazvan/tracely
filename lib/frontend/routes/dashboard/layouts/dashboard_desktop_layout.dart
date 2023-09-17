@@ -4,6 +4,7 @@ import 'package:tracely/frontend/config/messages.dart';
 
 import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'sub_pages/agenda.dart';
 import 'sub_pages/expenses.dart';
@@ -131,6 +132,40 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
         ],
       ),
       body: pages[_selectedIndex],
+      bottomSheet: (_selectedIndex == 0)
+          ? Container(
+              color: secondaryColor,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hey! What do you think about trying Tracely on Android?",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.tertiary,
+                      ),
+                    ),
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () async {
+                          await launchUrl(Uri.parse(
+                              "https://github.com/sauciucrazvan/tracely/releases"));
+                        },
+                        child: Text(
+                          "Download Tracely for Android",
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : null,
     );
   }
 }
