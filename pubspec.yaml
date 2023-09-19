@@ -49,6 +49,7 @@ dependencies:
   flutter_native_splash: ^2.3.2
 
   url_launcher: ^6.1.14
+  url_launcher_web: ^2.0.20
   
 
 dev_dependencies:
