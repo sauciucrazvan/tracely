@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -5,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/tile.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/statistic_widget.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/full_statistic_widget.dart';
 
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 
@@ -13,14 +14,14 @@ import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
 
-class HomepageDesktopLayout extends StatefulWidget {
-  const HomepageDesktopLayout({super.key});
+class HomepageMobileLayout extends StatefulWidget {
+  const HomepageMobileLayout({super.key});
 
   @override
-  State<HomepageDesktopLayout> createState() => _HomepageDesktopLayoutState();
+  State<HomepageMobileLayout> createState() => _HomepageMobileLayoutState();
 }
 
-class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
+class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
   @override
   Widget build(BuildContext context) {
     Color textColor = Theme.of(context).colorScheme.tertiary;
@@ -81,69 +82,20 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
 
             const SizedBox(height: 8),
 
-            Row(
-              children: [
-                StreamBuilder(
-                  stream: getNotesStream(),
-                  builder: (context, snapshot) {
-                    int notes = 0;
-
-                    if (snapshot.hasData &&
-                        snapshot.data?.snapshot.value is Map) {
-                      Map<dynamic, dynamic> map =
-                          snapshot.data?.snapshot.value as Map;
-                      notes = map.length;
-                    }
-
-                    return StatisticWidget(
-                      title: notesSaved,
-                      count: notes,
-                      icon: Icons.event_note,
-                    );
-                  },
-                ),
-                const SizedBox(width: 16),
-                StreamBuilder(
-                  stream: getExpensesStream(),
-                  builder: (context, snapshot) {
-                    int expenses = 0;
-
-                    if (snapshot.hasData &&
-                        snapshot.data?.snapshot.value is Map) {
-                      Map<dynamic, dynamic> map =
-                          snapshot.data?.snapshot.value as Map;
-                      expenses = map.length;
-                    }
-
-                    return StatisticWidget(
-                      title: expensesSaved,
-                      count: expenses,
-                      icon: Icons.wallet,
-                    );
-                  },
-                ),
-                const SizedBox(width: 16),
-                StreamBuilder(
-                  stream: getChecklistsStream(),
-                  builder: (context, snapshot) {
-                    int checklists = 0;
-
-                    if (snapshot.hasData &&
-                        snapshot.data?.snapshot.value is Map) {
-                      Map<dynamic, dynamic> map =
-                          snapshot.data?.snapshot.value as Map;
-                      checklists = map.length;
-                    }
-
-                    return StatisticWidget(
-                      title: todoSaved,
-                      count: checklists,
-                      icon: Icons.event,
-                    );
-                  },
-                ),
-              ],
-            ),
+            FullStatisticWidget(entries: {
+              notesSaved: {
+                "icon": Icons.event_note,
+                "stream": getNotesStream(),
+              },
+              expensesSaved: {
+                "icon": Icons.wallet,
+                "stream": getExpensesStream(),
+              },
+              todoSaved: {
+                "icon": Icons.event,
+                "stream": getChecklistsStream(),
+              },
+            }),
 
             const SizedBox(height: 50),
 
@@ -223,38 +175,39 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     fontSize: 14,
                   ),
                 ),
-                const SizedBox(height: 25),
-                Text(
-                  downloadAndroidDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  width: 250,
-                  child: Tile(
-                    title: "Download for Android",
-                    leading: Icon(
-                      Icons.android,
-                      color: Theme.of(context).colorScheme.primary,
+                if (!kIsWeb) ...[
+                  const SizedBox(height: 25),
+                  Text(
+                    tryWebDesc,
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: 14,
                     ),
-                    onTap: () async {
-                      final Uri uri = Uri(
-                        scheme: 'https',
-                        host: "github.com",
-                        path: "/sauciucrazvan/tracely/releases",
-                      );
-                      if (await canLaunchUrl(uri)) {
-                        await launchUrl(
-                          uri,
-                          mode: LaunchMode.inAppWebView,
-                        );
-                      }
-                    },
                   ),
-                ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: 250,
+                    child: Tile(
+                      title: "Try the web version",
+                      leading: Icon(
+                        Icons.web,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      onTap: () async {
+                        final Uri uri = Uri(
+                          scheme: 'https',
+                          host: "tracely.lol",
+                        );
+                        if (await canLaunchUrl(uri)) {
+                          await launchUrl(
+                            uri,
+                            mode: LaunchMode.inAppWebView,
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ],
             ),
 
@@ -281,32 +234,9 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: 200,
-                      child: Tile(
-                        title: "Source code",
-                        leading: Icon(
-                          Icons.code,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                        onTap: () async {
-                          final Uri uri = Uri(
-                            scheme: 'https',
-                            host: "github.com",
-                            path: "/sauciucrazvan/tracely",
-                          );
-                          if (await canLaunchUrl(uri)) {
-                            await launchUrl(
-                              uri,
-                              mode: LaunchMode.inAppWebView,
-                            );
-                          }
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 8),
                     SizedBox(
                       width: 150,
                       child: Tile(
@@ -320,6 +250,30 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                             scheme: 'https',
                             host: "paypal.me",
                             path: "/sauciucrazvan",
+                          );
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(
+                              uri,
+                              mode: LaunchMode.inAppWebView,
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      width: 200,
+                      child: Tile(
+                        title: "Source code",
+                        leading: Icon(
+                          Icons.code,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        onTap: () async {
+                          final Uri uri = Uri(
+                            scheme: 'https',
+                            host: "github.com",
+                            path: "/sauciucrazvan/tracely",
                           );
                           if (await canLaunchUrl(uri)) {
                             await launchUrl(

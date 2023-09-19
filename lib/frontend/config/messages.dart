@@ -82,6 +82,7 @@ const downloadAndroidDesc =
     "Download Tracely for Android from the GitHub releases page by clicking on the button below!";
 const contributeDesc =
     "Contribute to Tracely by donating or improving the app yourself.";
+const tryWebDesc = "Try Tracely on the web. Same application, everywhere.";
 
 /*
 

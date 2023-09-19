@@ -36,7 +36,7 @@ class _StatisticWidgetState extends State<StatisticWidget> {
         child: Container(
           decoration: BoxDecoration(
             color: onHover
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.8)
+                ? Theme.of(context).colorScheme.primary.withOpacity(0.7)
                 : Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(6),
           ),

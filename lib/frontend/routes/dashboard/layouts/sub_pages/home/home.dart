@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/layouts/home_desktop_layout.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/layouts/home_mobile_layout.dart';
 
 import 'package:tracely/frontend/routes/responsive_layout.dart';
 
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return const ResponsiveLayout(
-      mobileBody: HomepageDesktopLayout(),
+      mobileBody: HomepageMobileLayout(),
       desktopBody: HomepageDesktopLayout(),
     );
   }
