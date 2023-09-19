@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/expenses.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home.dart';
 import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/agenda.dart';
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/home.dart';
 
 import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/notes.dart';
 
@@ -22,7 +22,7 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
   PageController pageController = PageController(initialPage: 0);
 
   final pages = [
-    const oldHome(),
+    const Home(),
     const NotesDashboard(),
     const AgendaDashboard(),
     const ExpensesDashboard(),

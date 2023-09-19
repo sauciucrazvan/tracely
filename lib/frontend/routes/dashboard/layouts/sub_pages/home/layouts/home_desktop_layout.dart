@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
-import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
-import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
-import 'package:tracely/backend/handlers/users/account_handler.dart';
-import 'package:tracely/frontend/config/messages.dart';
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/statistic_widget.dart';
-import 'package:tracely/frontend/widgets/buttons/tile.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/widgets/buttons/tile.dart';
+
+import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/statistic_widget.dart';
+
+import 'package:tracely/backend/handlers/users/account_handler.dart';
+
+import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
+import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
 
 class HomepageDesktopLayout extends StatefulWidget {
   const HomepageDesktopLayout({super.key});

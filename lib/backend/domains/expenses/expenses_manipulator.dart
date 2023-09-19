@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-
-import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-import '../../../frontend/config/messages.dart';
 import '../../handlers/users/account_handler.dart';
 
 final DatabaseReference database = FirebaseDatabase.instance.ref();
@@ -50,62 +46,4 @@ Stream getExpensesStream() {
   String userId = getUID();
 
   return database.child("users/$userId/expenses").onValue.asBroadcastStream();
-}
-
-/*
-
-  WIDGETS
-
-*/
-
-Widget numberOfExpenses(BuildContext context) {
-  String userId = getUID();
-
-  return StreamBuilder(
-    stream:
-        database.child("users/$userId/expenses").onValue.asBroadcastStream(),
-    builder: (context, dataSnapshot) {
-      int numberOfExpenses = 0;
-
-      if (dataSnapshot.hasData && dataSnapshot.data?.snapshot.value is Map) {
-        Map<dynamic, dynamic> expensesMap =
-            dataSnapshot.data?.snapshot.value as Map;
-        numberOfExpenses = expensesMap.length;
-      }
-
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              expensesSaved,
-              style: GoogleFonts.roboto(
-                color: Theme.of(context).colorScheme.tertiary,
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.start,
-            ),
-            Row(
-              children: [
-                Text(
-                  numberOfExpenses.toString(),
-                  style: GoogleFonts.roboto(
-                    color: Theme.of(context).colorScheme.tertiary,
-                    fontSize: 16,
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                const SizedBox(width: 4),
-                Icon(
-                  Icons.wallet,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
-    },
-  );
 }
