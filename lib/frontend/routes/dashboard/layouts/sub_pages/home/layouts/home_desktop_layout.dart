@@ -165,7 +165,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 SizedBox(
                   width: 250,
                   child: Tile(
-                    title: "Learn about Markdown",
+                    title: learnMarkdown,
                     leading: Icon(
                       Icons.format_color_text_rounded,
                       color: Theme.of(context).colorScheme.primary,
@@ -220,7 +220,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 SizedBox(
                   width: 250,
                   child: Tile(
-                    title: "Download for Android",
+                    title: downloadAndroid,
                     leading: Icon(
                       Icons.android,
                       color: Theme.of(context).colorScheme.primary,
@@ -268,7 +268,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     SizedBox(
                       width: 200,
                       child: Tile(
-                        title: "Source code",
+                        title: sourceCode,
                         leading: Icon(
                           Icons.code,
                           color: Theme.of(context).colorScheme.primary,
@@ -292,7 +292,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     SizedBox(
                       width: 150,
                       child: Tile(
-                        title: "Donate",
+                        title: supportUs,
                         leading: Icon(
                           Icons.paypal,
                           color: Theme.of(context).colorScheme.primary,

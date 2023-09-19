@@ -78,11 +78,17 @@ const appDesc =
     "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
 const githubDesc =
     "Built from the ground up with Flutter & Firebase, Tracely is fully open-source over on GitHub and features an Android version too.";
+const downloadAndroid = "Download for Android";
 const downloadAndroidDesc =
     "Download Tracely for Android from the GitHub releases page by clicking on the button below!";
 const contributeDesc =
     "Contribute to Tracely by donating or improving the app yourself.";
+const tryWeb = "Try the web version";
 const tryWebDesc = "Try Tracely on the web. Same application, everywhere.";
+
+const learnMarkdown = "Learn about Markdown";
+const sourceCode = "Source code";
+const supportUs = "Donate";
 
 /*
 
