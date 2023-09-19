@@ -5,8 +5,6 @@
 */
 
 const appName = "Tracely";
-const appDesc =
-    "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
 
 const loading = "Please wait while we do our magic";
 
@@ -42,13 +40,14 @@ const checkboxes = "Checklist Board";
 
 // Widgets
 const about = "About";
-const stats = "Statistics";
-const tips = "Tips & Secrets";
+const stats = "Metrics";
+const tips = "Quick tips";
+const contribute = "Contribute";
 
 // Stats content
-const notesSaved = "Notes synced";
+const notesSaved = "Notes stored";
 const todoSaved = "Checklists synced";
-const expensesSaved = "Expenses synced";
+const expensesSaved = "Expenses saved";
 
 // Tips content
 const tipsList = {
@@ -71,7 +70,18 @@ const welcome = {
   "Greetings,",
   "We are here for you,",
   "Everything for you,",
+  "Track wisely,",
+  "Stay safe,",
 };
+
+const appDesc =
+    "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
+const githubDesc =
+    "Built from the ground up with Flutter & Firebase, Tracely is fully open-source over on GitHub and features an Android version too.";
+const downloadAndroidDesc =
+    "Download Tracely for Android from the GitHub releases page by clicking on the button below!";
+const contributeDesc =
+    "Contribute to Tracely by donating or improving the app yourself.";
 
 /*
 

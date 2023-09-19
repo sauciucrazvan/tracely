@@ -46,6 +46,12 @@ void deleteExpense(String id) async {
   await database.child("users/$userId/expenses/$id").remove();
 }
 
+Stream getExpensesStream() {
+  String userId = getUID();
+
+  return database.child("users/$userId/expenses").onValue.asBroadcastStream();
+}
+
 /*
 
   WIDGETS

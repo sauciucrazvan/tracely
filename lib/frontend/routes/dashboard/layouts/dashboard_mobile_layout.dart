@@ -22,7 +22,7 @@ class _DashboardMobileLayoutState extends State<DashboardMobileLayout> {
   PageController pageController = PageController(initialPage: 0);
 
   final pages = [
-    const Home(),
+    const oldHome(),
     const NotesDashboard(),
     const AgendaDashboard(),
     const ExpensesDashboard(),

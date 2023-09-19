@@ -5,14 +5,14 @@ import '../../components/trackers/about.dart';
 import '../../components/trackers/statistics.dart';
 import '../../components/trackers/tips.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class oldHome extends StatefulWidget {
+  const oldHome({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<oldHome> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<oldHome> {
   @override
   Widget build(BuildContext context) {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;

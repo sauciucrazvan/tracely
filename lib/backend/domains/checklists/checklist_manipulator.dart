@@ -48,6 +48,12 @@ void deleteChecklist(String id) async {
   await database.child("users/$userId/checklists/$id").remove();
 }
 
+Stream getChecklistsStream() {
+  String userId = getUID();
+
+  return database.child("users/$userId/checklists").onValue.asBroadcastStream();
+}
+
 /*
 
   WIDGETS

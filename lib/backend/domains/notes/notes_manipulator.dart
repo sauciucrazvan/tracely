@@ -81,6 +81,12 @@ String decryptNoteText(String encryptedMessage, String iv) {
       iv: encrypt.IV.fromBase64(iv));
 }
 
+Stream getNotesStream() {
+  String userId = getUID();
+
+  return database.child("users/$userId/notes").onValue.asBroadcastStream();
+}
+
 /*
 
   WIDGETS
