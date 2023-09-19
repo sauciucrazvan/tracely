@@ -41,7 +41,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 25),
 
             // Title bar
             Column(
@@ -68,7 +68,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
               ],
             ),
 
-            const SizedBox(height: 50),
+            const SizedBox(height: 25),
 
             // Statistics meter
             Text(

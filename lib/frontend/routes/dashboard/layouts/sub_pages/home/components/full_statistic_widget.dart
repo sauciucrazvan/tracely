@@ -41,8 +41,8 @@ class _FullStatisticWidgetState extends State<FullStatisticWidget> {
                   children: [
                     Text(
                       widget.entries.entries.elementAt(index).key,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.tertiary,
+                      style: const TextStyle(
+                        color: Colors.white,
                         fontSize: 16,
                       ),
                     ),
@@ -50,8 +50,8 @@ class _FullStatisticWidgetState extends State<FullStatisticWidget> {
                       children: [
                         Text(
                           "$value",
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.tertiary,
+                          style: const TextStyle(
+                            color: Colors.white,
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                           ),
