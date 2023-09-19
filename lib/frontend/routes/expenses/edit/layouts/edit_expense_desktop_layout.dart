@@ -72,7 +72,7 @@ class _EditExpenseDesktopLayoutState extends State<EditExpenseDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -120,10 +120,7 @@ class _EditExpenseDesktopLayoutState extends State<EditExpenseDesktopLayout> {
                 // expense title
                 Text(
                   chooseTitleExpense,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -253,19 +250,13 @@ class _EditExpenseDesktopLayoutState extends State<EditExpenseDesktopLayout> {
                   children: [
                     Text(
                       selectExpenseDate,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Row(
                       children: [
                         Text(
                           DateFormat("MMM dd, yyyy").format(selectedDate),
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(
                           width: 8,

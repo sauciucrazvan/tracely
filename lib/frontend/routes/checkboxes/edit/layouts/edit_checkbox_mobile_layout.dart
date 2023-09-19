@@ -61,7 +61,7 @@ class _EditCheckboxMobileLayoutState extends State<EditCheckboxMobileLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -111,10 +111,7 @@ class _EditCheckboxMobileLayoutState extends State<EditCheckboxMobileLayout> {
                 // checklist title
                 Text(
                   editTitleCheckbox,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -157,19 +154,13 @@ class _EditCheckboxMobileLayoutState extends State<EditCheckboxMobileLayout> {
                   children: [
                     Text(
                       selectCheckboxDate,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Row(
                       children: [
                         Text(
                           DateFormat("MMM dd, yyyy").format(selectedDate),
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(
                           width: 8,

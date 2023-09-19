@@ -24,7 +24,7 @@ class HomepageMobileLayout extends StatefulWidget {
 class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
 
     // Displays a different message everyday
     int index = DateTime.now().day.toInt() % welcome.length;
@@ -59,10 +59,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 ),
                 Text(
                   getName(),
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 24,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.left,
                 ),
               ],
@@ -73,11 +70,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
             // Statistics meter
             Text(
               stats,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
 
             const SizedBox(height: 8),
@@ -115,10 +108,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 const SizedBox(height: 8),
                 Text(
                   tipsText,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
                   width: 250,
@@ -163,26 +153,17 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 const SizedBox(height: 8),
                 Text(
                   "$appName $appDesc",
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 Text(
                   githubDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 if (!kIsWeb) ...[
                   const SizedBox(height: 25),
                   Text(
                     tryWebDesc,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 14,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
@@ -228,10 +209,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 const SizedBox(height: 8),
                 Text(
                   contributeDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 8),
                 Column(

@@ -18,7 +18,7 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
 
     return SafeArea(
       child: Column(
@@ -56,7 +56,7 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
                           child: Text(
                             expensesChartTitle,
                             style: TextStyle(
-                              color: Theme.of(context).colorScheme.tertiary,
+                              color: textColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

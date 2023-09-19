@@ -81,10 +81,7 @@ class BuildAgenda extends StatelessWidget {
               ),
               Text(
                 noChecklistsSaved,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  fontSize: 16,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),

@@ -21,7 +21,6 @@ class ViewNotesMobileLayout extends StatefulWidget {
 class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
     Color backgroundColor = Theme.of(context).colorScheme.background;
 
     String title = (widget.data['useEncryption']
@@ -56,10 +55,7 @@ class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
                 Center(
                   child: Text(
                     title,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 24,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
 
@@ -81,10 +77,7 @@ class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
                         )
                       : Text(
                           content,
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                 ),
 
@@ -103,10 +96,7 @@ class _ViewNotesMobileLayoutState extends State<ViewNotesMobileLayout> {
                           widget.data['last_edit'],
                         ),
                       )}",
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                       textAlign: TextAlign.center,
                     ),
                   ],

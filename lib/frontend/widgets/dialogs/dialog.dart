@@ -20,7 +20,7 @@ class ConfirmDialog extends StatelessWidget {
       ),
       content: Text(
         title,
-        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        style: Theme.of(context).textTheme.bodyMedium,
         textAlign: TextAlign.center,
       ),
       backgroundColor: Theme.of(context).colorScheme.background,

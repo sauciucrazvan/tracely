@@ -21,7 +21,6 @@ class ViewNotesDesktopLayout extends StatefulWidget {
 class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
     Color backgroundColor = Theme.of(context).colorScheme.background;
 
     String title = (widget.data['useEncryption']
@@ -58,10 +57,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                 Center(
                   child: Text(
                     title,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 24,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
 
@@ -83,10 +79,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                         )
                       : Text(
                           content,
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                 ),
 
@@ -104,10 +97,7 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
                           widget.data['last_edit'],
                         ),
                       )}",
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const Spacer(),
                     if (widget.data['useEncryption']) ...[

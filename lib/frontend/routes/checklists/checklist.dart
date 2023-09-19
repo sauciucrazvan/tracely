@@ -26,7 +26,7 @@ class ChecklistWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     // EASTER EGGS
@@ -155,18 +155,12 @@ class ChecklistWidget extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 2.5,
                       child: Text(
                         name,
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 18,
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                     Text(
                       "$count ${(count == 1) ? checkboxesCountSingular : checkboxesCountPlural}",
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 12,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),

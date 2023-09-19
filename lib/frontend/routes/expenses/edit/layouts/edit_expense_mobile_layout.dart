@@ -72,7 +72,7 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -122,10 +122,7 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                 // expense title
                 Text(
                   chooseTitleExpense,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -169,10 +166,7 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
 
                 Text(
                   chooseValueExpense,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -252,10 +246,7 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                   children: [
                     Text(
                       selectExpenseDate,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -268,10 +259,7 @@ class _EditExpenseMobileLayoutState extends State<EditExpenseMobileLayout> {
                         const SizedBox(height: 8),
                         Text(
                           DateFormat("MMM dd, yyyy").format(selectedDate),
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),

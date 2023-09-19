@@ -29,7 +29,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -80,10 +80,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                 // note title
                 Text(
                   chooseNoteTitle,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -121,10 +118,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                 // add note content
                 Text(
                   enterNoteContent,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -145,7 +139,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                     MarkdownType.separator,
                   ],
                   controller: _contentController,
-                  textStyle: TextStyle(color: textColor, fontSize: 16),
+                  textStyle: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -157,10 +151,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                   children: [
                     Text(
                       shouldEncryptNote,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Switch(
                       activeColor: primaryColor,
@@ -177,10 +168,7 @@ class _AddNotesMobileLayoutState extends State<AddNotesMobileLayout> {
                   children: [
                     Text(
                       shouldUseMarkdown,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Switch(
                       activeColor: primaryColor,

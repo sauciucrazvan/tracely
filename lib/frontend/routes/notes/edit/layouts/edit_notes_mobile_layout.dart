@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:markdown_editable_textinput/format_markdown.dart';
 import 'package:markdown_editable_textinput/markdown_text_input.dart';
@@ -32,7 +31,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -72,11 +71,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                   children: [
                     Text(
                       modifyNote,
-                      style: GoogleFonts.arimo(
-                        color: textColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Lottie.asset(
                       "assets/animations/note.json",
@@ -93,10 +88,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                 // note title
                 Text(
                   editNoteTitle,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -134,10 +126,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                 // add note content
                 Text(
                   editNoteContent,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -158,7 +147,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                     MarkdownType.separator,
                   ],
                   controller: _contentController,
-                  textStyle: TextStyle(color: textColor, fontSize: 16),
+                  textStyle: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -171,10 +160,7 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
                     FittedBox(
                       child: Text(
                         shouldUseMarkdown,
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 16,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                     Switch(

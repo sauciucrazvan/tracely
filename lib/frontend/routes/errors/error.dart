@@ -30,7 +30,7 @@ class Error extends StatelessWidget {
                 child: Text(
                   error,
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiary,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),

@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
 
-Widget titleBar(
-  BuildContext context,
-  String title,
-  Function()? onPressed, {
-  double size = 12,
-}) {
-  Color textColor = Theme.of(context).colorScheme.tertiary;
+Widget titleBar(BuildContext context, String title, Function()? onPressed,
+    {double size = 12}) {
+  Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
   Color primaryColor = Theme.of(context).colorScheme.primary;
 
   return Padding(

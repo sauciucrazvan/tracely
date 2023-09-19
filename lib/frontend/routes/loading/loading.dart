@@ -66,7 +66,7 @@ class _LoadingState extends State<Loading> {
                 child: Text(
                   "$loading${'.' * dots}",
                   style: GoogleFonts.arimo(
-                    color: Theme.of(context).colorScheme.tertiary,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),

@@ -15,10 +15,7 @@ class Tile extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Text(
         title,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.tertiary,
-          fontSize: 16,
-        ),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
       titleAlignment: ListTileTitleAlignment.center,
       leading: leading,

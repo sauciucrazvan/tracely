@@ -29,7 +29,7 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -114,7 +114,7 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
             padding: const EdgeInsets.all(8.0),
             child: RoundedButton(
               backgroundColor: Theme.of(context).colorScheme.primary,
-              foregroundColor: Theme.of(context).colorScheme.tertiary,
+              foregroundColor: textColor,
               onPressed: () => showDialog(
                 context: context,
                 builder: (context) => ConfirmDialog(

@@ -14,7 +14,7 @@ class AuthentificationMobileLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -60,10 +60,7 @@ class AuthentificationMobileLayout extends StatelessWidget {
                 ),
                 Text(
                   services,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const Divider(),
                 Tile(
@@ -75,27 +72,10 @@ class AuthentificationMobileLayout extends StatelessWidget {
                   ),
                   onTap: () => AuthentificationService().signIn(context),
                 ),
-                // const SizedBox(
-                //   height: 8,
-                // ),
-                // Tile(
-                //   context,
-                //   facebook,
-                //   Image.asset(
-                //     "assets/images/facebook_logo.png",
-                //     width: 32,
-                //     height: 32,
-                //   ),
-                //   () {},
-                // ),
                 const Divider(),
                 Text(
                   usedData,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                    fontStyle: FontStyle.italic,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

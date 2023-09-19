@@ -66,10 +66,7 @@ class BuildNotes extends StatelessWidget {
               ),
               Text(
                 noNotesSaved,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  fontSize: 16,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ],
           ),

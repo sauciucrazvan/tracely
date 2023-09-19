@@ -24,7 +24,7 @@ class _NoteWidgetState extends State<NoteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     String title = (widget.data['useEncryption']
@@ -50,9 +50,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 children: [
                   Text(
                     limitString(title, 40),
-                    style: TextStyle(
-                      color: textColor,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(
                     height: 8,
@@ -73,10 +71,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                             widget.data['last_edit'],
                           ),
                         ),
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 12,
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),

@@ -50,7 +50,7 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -98,10 +98,7 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
                 // expense title
                 Text(
                   chooseTitleExpense,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -145,10 +142,7 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
 
                 Text(
                   chooseValueExpense,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -231,19 +225,13 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
                   children: [
                     Text(
                       selectExpenseDate,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Row(
                       children: [
                         Text(
                           DateFormat("MMM dd, yyyy").format(selectedDate),
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 16,
-                          ),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(
                           width: 8,

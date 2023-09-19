@@ -16,7 +16,7 @@ class BackLeadingButton extends StatelessWidget {
         child: Center(
           child: Icon(
             Icons.arrow_back_ios_new,
-            color: Theme.of(context).colorScheme.tertiary,
+            color: Theme.of(context).textTheme.bodyMedium!.color,
             size: 16,
           ),
         ),

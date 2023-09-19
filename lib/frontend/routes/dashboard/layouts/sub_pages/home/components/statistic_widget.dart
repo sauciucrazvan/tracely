@@ -23,6 +23,8 @@ class _StatisticWidgetState extends State<StatisticWidget> {
   Widget build(BuildContext context) {
     final hoveredAnimation = Matrix4.identity()..translate(0, -10, 0);
 
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
+
     return MouseRegion(
       onEnter: (event) => setState(() {
         onHover = true;
@@ -50,17 +52,14 @@ class _StatisticWidgetState extends State<StatisticWidget> {
                 Text(
                   "${widget.count}",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiary,
+                    color: textColor,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   widget.title,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiary,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),

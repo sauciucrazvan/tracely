@@ -23,7 +23,7 @@ class HomepageDesktopLayout extends StatefulWidget {
 class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
 
     // Displays a different message everyday
     int index = DateTime.now().day.toInt() % welcome.length;
@@ -58,10 +58,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 ),
                 Text(
                   getName(),
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 24,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.left,
                 ),
               ],
@@ -163,10 +160,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 const SizedBox(height: 8),
                 Text(
                   tipsText,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
                   width: 250,
@@ -211,25 +205,16 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 const SizedBox(height: 8),
                 Text(
                   "$appName $appDesc",
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 Text(
                   githubDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 25),
                 Text(
                   downloadAndroidDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 8),
                 SizedBox(
@@ -275,10 +260,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 const SizedBox(height: 8),
                 Text(
                   contributeDesc,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 8),
                 Row(

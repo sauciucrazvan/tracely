@@ -6,7 +6,7 @@ void showElevatedNotification(BuildContext context, String message, Color color,
     content: Center(
       child: Text(
         message,
-        style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     ),
     backgroundColor: color,

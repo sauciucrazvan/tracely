@@ -13,7 +13,7 @@ class AuthentificationDesktopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -50,10 +50,7 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                             ),
                             Text(
                               appDesc,
-                              style: TextStyle(
-                                color: textColor,
-                                fontSize: 16,
-                              ),
+                              style: Theme.of(context).textTheme.bodyMedium,
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -89,10 +86,7 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                       ),
                       Text(
                         services,
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 16,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const Divider(),
                       Tile(
@@ -107,11 +101,7 @@ class AuthentificationDesktopLayout extends StatelessWidget {
                       const Divider(),
                       Text(
                         usedData,
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 14,
-                          fontStyle: FontStyle.italic,
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),

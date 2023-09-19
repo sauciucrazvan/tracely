@@ -27,7 +27,7 @@ class ExpenseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
 
@@ -92,10 +92,7 @@ class ExpenseWidget extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 2.5,
                   child: Text(
                     expense,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 18,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 Row(
@@ -110,10 +107,7 @@ class ExpenseWidget extends StatelessWidget {
                     ),
                     Text(
                       "$currency $value",
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 12,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),
@@ -131,10 +125,7 @@ class ExpenseWidget extends StatelessWidget {
                       DateFormat("MMM d, yyyy").format(
                         DateTime.parse(date),
                       ),
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 12,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
                 ),

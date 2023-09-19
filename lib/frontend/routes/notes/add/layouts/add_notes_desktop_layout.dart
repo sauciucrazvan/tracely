@@ -29,7 +29,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -81,10 +81,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                 // note title
                 Text(
                   chooseNoteTitle,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -122,10 +119,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                 // add note content
                 Text(
                   enterNoteContent,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -141,14 +135,12 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                     MarkdownType.italic,
                     MarkdownType.strikethrough,
                     MarkdownType.list,
-                    //MarkdownType.title, <--- bugged for some reason, may fix later
                     MarkdownType.blockquote,
                     MarkdownType.code,
                     MarkdownType.separator,
-                    //MarkdownType.link, <---- does not work
                   ],
                   controller: _contentController,
-                  textStyle: TextStyle(color: textColor, fontSize: 16),
+                  textStyle: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -160,10 +152,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   children: [
                     Text(
                       shouldEncryptNote,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Switch(
                       activeColor: primaryColor,
@@ -180,10 +169,7 @@ class _AddNotesDesktopLayoutState extends State<AddNotesDesktopLayout> {
                   children: [
                     Text(
                       shouldUseMarkdown,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Switch(
                       activeColor: primaryColor,

@@ -30,7 +30,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color backgroundColor = Theme.of(context).colorScheme.background;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
     Color primaryColor = Theme.of(context).colorScheme.primary;
@@ -92,10 +92,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                 // note title
                 Text(
                   editNoteTitle,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -133,10 +130,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                 // add note content
                 Text(
                   editNoteContent,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -152,14 +146,12 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                     MarkdownType.italic,
                     MarkdownType.strikethrough,
                     MarkdownType.list,
-                    //MarkdownType.title, <--- bugged for some reason, may fix later
                     MarkdownType.blockquote,
                     MarkdownType.code,
                     MarkdownType.separator,
-                    //MarkdownType.link, <---- does not work
                   ],
                   controller: _contentController,
-                  textStyle: TextStyle(color: textColor, fontSize: 16),
+                  textStyle: Theme.of(context).textTheme.bodyMedium,
                 ),
 
                 const SizedBox(
@@ -171,10 +163,7 @@ class _EditNotesDesktopLayoutState extends State<EditNotesDesktopLayout> {
                   children: [
                     Text(
                       shouldUseMarkdown,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Switch(
                       activeColor: primaryColor,

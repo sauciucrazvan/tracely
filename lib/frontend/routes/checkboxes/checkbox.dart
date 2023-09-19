@@ -33,7 +33,7 @@ class CheckboxWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = Theme.of(context).colorScheme.tertiary;
+    Color textColor = Theme.of(context).textTheme.bodyMedium!.color!;
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     return Slidable(
@@ -150,10 +150,7 @@ class CheckboxWidget extends StatelessWidget {
                             date,
                           ),
                         ),
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 12,
-                        ),
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),
@@ -170,10 +167,7 @@ class CheckboxWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: Text(
                           limitString(categoryName, 32),
-                          style: TextStyle(
-                            color: textColor,
-                            fontSize: 12,
-                          ),
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                     ],
