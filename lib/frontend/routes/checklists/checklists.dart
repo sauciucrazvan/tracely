@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:tracely/frontend/routes/checklists/checklist.dart';
 
-import '../../../backend/handlers/users/account_handler.dart';
-import '../../config/messages.dart';
+import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
+
+import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/routes/checklists/checklist.dart';
 
 class BuildAgenda extends StatelessWidget {
   const BuildAgenda({super.key});
 
   @override
   Widget build(BuildContext context) {
-    DatabaseReference database = FirebaseDatabase.instance.ref();
-
     return StreamBuilder(
-      stream: database
-          .child("users/${getUID()}/checklists")
-          .onValue
-          .asBroadcastStream(),
+      stream: getChecklistsStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
