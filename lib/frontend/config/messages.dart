@@ -36,6 +36,7 @@ const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
 const expenses = "Expenses";
+const goals = "Goals";
 const checkboxes = "Checklist Board";
 
 // Widgets
@@ -48,6 +49,7 @@ const contribute = "Contribute";
 const notesSaved = "Notes stored";
 const todoSaved = "Checklists synced";
 const expensesSaved = "Expenses saved";
+const goalsSaved = "Goals recorded";
 
 // Tips content
 const tipsList = {

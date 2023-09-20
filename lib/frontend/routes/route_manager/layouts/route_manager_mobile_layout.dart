@@ -55,7 +55,7 @@ class _RouteManagerMobileLayoutState extends State<RouteManagerMobileLayout> {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.list),
-            label: "Goals",
+            label: goals,
           ),
           NavigationDestination(
             icon: Icon(Icons.event_note),

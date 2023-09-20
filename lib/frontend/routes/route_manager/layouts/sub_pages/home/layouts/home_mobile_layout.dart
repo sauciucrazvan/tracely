@@ -84,6 +84,10 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 "icon": Icons.event_note,
                 "stream": getNotesStream(),
               },
+              goalsSaved: {
+                "icon": Icons.list,
+                "stream": getNotesStream(),
+              },
               expensesSaved: {
                 "icon": Icons.wallet,
                 "stream": getExpensesStream(),

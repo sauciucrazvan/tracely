@@ -101,6 +101,26 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 ),
                 const SizedBox(width: 16),
                 StreamBuilder(
+                  stream: getNotesStream(),
+                  builder: (context, snapshot) {
+                    int goals = 0;
+
+                    if (snapshot.hasData &&
+                        snapshot.data?.snapshot.value is Map) {
+                      Map<dynamic, dynamic> map =
+                          snapshot.data?.snapshot.value as Map;
+                      goals = map.length;
+                    }
+
+                    return StatisticWidget(
+                      title: goalsSaved,
+                      count: goals,
+                      icon: Icons.list,
+                    );
+                  },
+                ),
+                const SizedBox(width: 16),
+                StreamBuilder(
                   stream: getExpensesStream(),
                   builder: (context, snapshot) {
                     int expenses = 0;
