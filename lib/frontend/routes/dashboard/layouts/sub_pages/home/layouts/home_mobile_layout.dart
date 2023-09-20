@@ -70,7 +70,11 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
             // Statistics meter
             Text(
               stats,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
 
             const SizedBox(height: 8),
