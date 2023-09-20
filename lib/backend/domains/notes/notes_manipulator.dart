@@ -68,12 +68,6 @@ void deleteNote(String id) async {
   await database.child("users/$userId/notes/$id").remove();
 }
 
-String decryptNoteText(String encryptedMessage, String iv) {
-  final encrypter = Encrypter(AES(getEncryptionKey()));
-  return encrypter.decrypt(Encrypted.fromBase64(encryptedMessage),
-      iv: IV.fromBase64(iv));
-}
-
 Stream getNotesStream() {
   String userId = getUID();
 

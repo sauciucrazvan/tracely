@@ -6,9 +6,7 @@
 Tracely is your ultimate management app with seamless cloud synchronization. Keep an organized track of all your projects, ideas, notes, expenses, and everything else you can imagine – all in one place, across multiple devices. 📊🗂️
 
 # Tracely on Web
-Access the web version by clicking [here](https://tracely.lol). The domain will change in the following days.
-In case that link does not work, use the [fallback](https://tracely-f42f5.firebaseapp.com/)
-
+Access the web version by clicking [here](https://tracely.lol). The website is up 24/7, accessible from any device with an internet connection.
 # Status
 [![Badge](https://img.shields.io/badge/version-1.2.0-blue?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/releases)
 [![Badge](https://img.shields.io/github/forks/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/forks)

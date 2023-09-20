@@ -6,6 +6,7 @@ import 'package:markdown_editable_textinput/format_markdown.dart';
 import 'package:markdown_editable_textinput/markdown_text_input.dart';
 
 import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/button.dart';
@@ -37,11 +38,11 @@ class _EditNotesMobileLayoutState extends State<EditNotesMobileLayout> {
     Color primaryColor = Theme.of(context).colorScheme.primary;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'], widget.data['iv'])
+        ? decryptText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     String content = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['content'], widget.data['iv'])
+        ? decryptText(widget.data['content'], widget.data['iv'])
         : widget.data['content']);
 
     _titleController.text = title;

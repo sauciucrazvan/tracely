@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import '../../../backend/functions/limit_string.dart';
@@ -28,7 +29,7 @@ class _NoteWidgetState extends State<NoteWidget> {
     Color secondaryColor = Theme.of(context).colorScheme.secondary;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'], widget.data['iv'])
+        ? decryptText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     return Container(

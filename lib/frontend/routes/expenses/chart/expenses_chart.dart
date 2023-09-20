@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:pie_chart/pie_chart.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 
 import 'package:tracely/backend/functions/limit_string.dart';
 
@@ -41,8 +42,9 @@ class ExpensesChart extends StatelessWidget {
           int indexes = 0;
           for (var element in expensesList) {
             if (indexes < 5) {
-              chartValues[limitString(element.value['expense'], 24)] =
-                  convertToEuro(
+              final expense =
+                  decryptText(element.value['expense'], element.value['iv']);
+              chartValues[limitString(expense, 24)] = convertToEuro(
                 double.parse(element.value['value'].toString()),
                 element.value['currency'],
               );
