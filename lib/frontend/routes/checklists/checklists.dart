@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:tracely/backend/domains/checklists/checklist_manipulator.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/routes/checklists/checklist.dart';
@@ -47,20 +48,26 @@ class BuildAgenda extends StatelessWidget {
           });
 
           return Column(
-            children: checklistsList
-                .map(
-                  (entry) => Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: ChecklistWidget(
-                      id: entry.key,
-                      name: entry.value['title'],
-                      color: entry.value['color'] ?? "red",
-                      count: (entry.value['checkboxes'] as Map?)?.length ?? 0,
-                      pinned: entry.value['pinned'] ?? false,
-                    ),
-                  ),
-                )
-                .toList(),
+            children: checklistsList.map((entry) {
+              String checklist = entry.value['title'];
+              if (entry.value['iv'] == null) {
+                encryptChecklist(entry.key, checklist);
+                return const CircularProgressIndicator();
+              }
+
+              checklist = decryptText(checklist, entry.value['iv']);
+
+              return Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ChecklistWidget(
+                  id: entry.key,
+                  name: checklist,
+                  color: entry.value['color'] ?? "red",
+                  count: (entry.value['checkboxes'] as Map?)?.length ?? 0,
+                  pinned: entry.value['pinned'] ?? false,
+                ),
+              );
+            }).toList(),
           );
         }
 
