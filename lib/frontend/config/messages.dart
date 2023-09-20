@@ -137,6 +137,13 @@ const editTitleCheckbox = "Edit the title:";
 */
 
 const expensesChartTitle = "Summary";
+const expensesCalculatorTitle = "Income Calculator";
+
+const monthlyIncome = "Monthly income";
+const result = "Result";
+const spentIncome = "of your income was spent in the last 60 days.";
+const noIncomeProvided =
+    "Input your income in the upper field and press the button to display the data.";
 
 const addExpense = "Adding an expense!";
 const chooseTitleExpense = "What product did you buy?";
