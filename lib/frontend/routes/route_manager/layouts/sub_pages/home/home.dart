@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/layouts/home_desktop_layout.dart';
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/layouts/home_mobile_layout.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/layouts/home_desktop_layout.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/layouts/home_mobile_layout.dart';
 
 import 'package:tracely/frontend/routes/responsive_layout.dart';
 

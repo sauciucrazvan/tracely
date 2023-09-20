@@ -44,11 +44,12 @@ void editNote(String id, String title, String content, bool useMarkdown,
     bool useEncryption) async {
   String userId = getUID();
 
+  IV iv = IV.fromLength(8);
   // ENCRYPT CONTENT
   if (useEncryption) {
     final encrypter = Encrypter(AES(getEncryptionKey()));
-    final encryptedTitle = encrypter.encrypt(title, iv: IV.fromLength(8));
-    final encryptedContent = encrypter.encrypt(content, iv: IV.fromLength(8));
+    final encryptedTitle = encrypter.encrypt(title, iv: iv);
+    final encryptedContent = encrypter.encrypt(content, iv: iv);
 
     title = encryptedTitle.base64;
     content = encryptedContent.base64;
@@ -57,6 +58,7 @@ void editNote(String id, String title, String content, bool useMarkdown,
   await database.child("users/$userId/notes/$id").update({
     'title': title,
     'content': content,
+    'iv': iv.base64,
     'useMarkdown': useMarkdown,
     'last_edit': DateTime.now().toString(),
   });

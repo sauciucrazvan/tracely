@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:tracely/frontend/routes/checkboxes/checkboxes.dart';
 import 'package:tracely/frontend/routes/checkboxes/add/add_checkbox.dart';
-import 'package:tracely/frontend/routes/dashboard/components/titlebar.dart';
+import 'package:tracely/frontend/routes/route_manager/components/titlebar.dart';
 
 import '../../../config/messages.dart';
 import '../../../widgets/buttons/back_button.dart';

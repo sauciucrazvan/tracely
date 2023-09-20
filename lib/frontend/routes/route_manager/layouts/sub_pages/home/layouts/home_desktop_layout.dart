@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/tile.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/statistic_widget.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/components/statistic_widget.dart';
 
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 
