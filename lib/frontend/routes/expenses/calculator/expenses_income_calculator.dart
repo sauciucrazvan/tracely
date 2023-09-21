@@ -52,7 +52,7 @@ class _ExpensesIncomeCalculatorState extends State<ExpensesIncomeCalculator> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.25,
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 4.75,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
