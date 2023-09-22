@@ -5,9 +5,6 @@
 */
 
 const appName = "Tracely";
-
-const loading = "Please wait while we do our magic";
-
 /*
 
   LOGIN PAGE
@@ -62,8 +59,6 @@ const tipsList = {
 // Routes
 const addEntries = "Add";
 
-const addTodo = "Add a new checklist!";
-
 // Daily message that's being displayed on the home page
 const welcome = {
   "Welcome back,",
@@ -76,6 +71,7 @@ const welcome = {
   "Stay safe,",
 };
 
+// Home page
 const appDesc =
     "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
 const githubDesc =
@@ -124,6 +120,8 @@ const checkboxesCountPlural = "entries";
 const rename = "Rename checklist";
 
 const addCheckbox = "Adding a new checkbox";
+const addTodo = "Add a new checklist!";
+
 const chooseTitleCheckbox = "Let's choose a title for your checkbox";
 const selectCheckboxDate = "Select a date";
 
@@ -146,11 +144,10 @@ const noIncomeProvided =
     "Input your income in the upper field and press the button to display the data.";
 
 const addExpense = "Adding an expense!";
+const modifyExpense = "You're editing an expense!";
 const chooseTitleExpense = "What product did you buy?";
 const chooseValueExpense = "How much did you pay?";
 const selectExpenseDate = "When did it happend?";
-
-const modifyExpense = "You're editing a note!";
 
 const List<String> currencies = [
   "EUR",
@@ -187,17 +184,18 @@ const reconnectNeeded =
     "Please reconnect to the internet in order to use $appName!";
 const restartNeeded = "Please restart or refresh the app in order to use it.";
 
-const noNotesSaved = "You don't have any notes stored yet! :(";
-const noChecklistsSaved = "No checklists saved.";
-const noCheckboxesSaved = "No checkboxes here!";
-const noExpensesSaved = "No expenses saved!";
+const loading = "Please wait while we do our magic";
 
+const noNotesSaved = "You don't have any notes stored yet! :(";
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
 
+const noChecklistsSaved = "No checklists saved.";
 const checklistWithoutName = "The checklist does not have a name!";
 const checkboxWithoutName = "The checkbox is not named! :(";
+const noCheckboxesSaved = "No checkboxes here!";
 
+const noExpensesSaved = "No expenses saved!";
 const expenseWithoutName = "Please name your expense.";
 const expenseWithoutValue = "Please enter the value of the product.";
 
