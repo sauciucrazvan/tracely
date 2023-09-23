@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 import 'package:tracely/backend/functions/decrypt.dart';
+import 'package:tracely/frontend/routes/goals/goal.dart';
 
 import '../../config/messages.dart';
 
@@ -41,11 +42,20 @@ class BuildGoals extends StatelessWidget {
             children: goalsList.map(
               (entry) {
                 String goal = entry.value['goal'];
+                String details = entry.value['details'];
                 goal = decryptText(goal, entry.value['iv']);
+                details = decryptText(details, entry.value['iv']);
 
                 return Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: Text(goal),
+                  child: GoalWidget(
+                    goalID: entry.key,
+                    goal: goal,
+                    details: details,
+                    deadline: entry.value['deadline'],
+                    progress: entry.value['progress'],
+                    maxProgress: entry.value['maxProgress'],
+                  ),
                 );
               },
             ).toList(),

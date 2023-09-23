@@ -232,3 +232,5 @@ const removeChecklist =
 const removeCheckbox = "Are you sure you want to delete this checkbox?";
 const removeExpense =
     "Are you sure you want to remove this expense?\nThis action cannot be undone!";
+const removeGoal =
+    "Are you sure you want to delete this goal?\nThis action can not be reverted and everything is lost!";
