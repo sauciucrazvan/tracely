@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
@@ -93,12 +94,22 @@ class GoalWidget extends StatelessWidget {
                     Icons.keyboard_double_arrow_left_outlined,
                     color: Theme.of(context).textTheme.bodyMedium!.color!,
                   ),
+                  const SizedBox(width: 4),
+                  Text(goal, style: Theme.of(context).textTheme.bodyMedium),
                   const Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const SizedBox(height: 4),
-                      Text(goal, style: Theme.of(context).textTheme.bodyMedium),
+                      Text(
+                        DateFormat("MMM dd, yyyy").format(
+                          DateTime.parse(deadline),
+                        ),
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontSize: 14,
+                        ),
+                      ),
                       const SizedBox(height: 8),
                       Text("$progress / $maxProgress",
                           style: Theme.of(context).textTheme.bodySmall),

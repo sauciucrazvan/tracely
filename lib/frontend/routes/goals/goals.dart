@@ -38,6 +38,15 @@ class BuildGoals extends StatelessWidget {
             return lastEditA.compareTo(lastEditB);
           });
 
+          // Sorting checkboxes by progress
+          goalsList.sort((a, b) {
+            final double progressA =
+                (a.value['progress'] / a.value['maxProgress']);
+            final double progressB =
+                (b.value['progress'] / b.value['maxProgress']);
+            return progressB.compareTo(progressA);
+          });
+
           return Column(
             children: goalsList.map(
               (entry) {
