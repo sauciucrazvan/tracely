@@ -188,6 +188,8 @@ const selectGoalDeadline = "What's the deadline?";
 
 const noDetailsAttached = "No details provided.";
 
+const updateProgress = "Update the progress for:";
+
 /*
 
   ERRORS

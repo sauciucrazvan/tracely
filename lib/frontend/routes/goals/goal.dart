@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/routes/goals/update/update_goal_progress.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 class GoalWidget extends StatelessWidget {
@@ -97,54 +98,68 @@ class GoalWidget extends StatelessWidget {
                 const SizedBox(width: 4),
               ],
             ),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.keyboard_double_arrow_left_outlined,
-                    color: Theme.of(context).textTheme.bodyMedium!.color!,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () => showDialog(
+                  context: context,
+                  builder: (context) => UpdateGoalProgress(
+                    goalID: goalID,
+                    goal: goal,
+                    progress: progress,
+                    maxProgress: maxProgress,
                   ),
-                  const SizedBox(width: 4),
-                  Text(goal, style: Theme.of(context).textTheme.bodyMedium),
-                  const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const SizedBox(height: 4),
-                      Text(
-                        DateFormat("MMM dd, yyyy").format(
-                          DateTime.parse(deadline),
-                        ),
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
-                          fontSize: 14,
-                        ),
+                      Icon(
+                        Icons.keyboard_double_arrow_left_outlined,
+                        color: Theme.of(context).textTheme.bodyMedium!.color!,
                       ),
-                      const SizedBox(height: 8),
-                      Text("$progress / $maxProgress",
-                          style: Theme.of(context).textTheme.bodySmall),
-                      const SizedBox(height: 2),
-                      SizedBox(
-                        width: 100,
-                        child: LinearProgressIndicator(
-                          borderRadius: BorderRadius.circular(4),
-                          value: (progress / maxProgress),
-                          color: Theme.of(context).colorScheme.primary,
-                          backgroundColor:
-                              Theme.of(context).colorScheme.background,
-                        ),
+                      const SizedBox(width: 4),
+                      Text(goal, style: Theme.of(context).textTheme.bodyMedium),
+                      const Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const SizedBox(height: 4),
+                          Text(
+                            DateFormat("MMM dd, yyyy").format(
+                              DateTime.parse(deadline),
+                            ),
+                            style: TextStyle(
+                              color: Colors.grey.shade500,
+                              fontSize: 14,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text("$progress / $maxProgress",
+                              style: Theme.of(context).textTheme.bodySmall),
+                          const SizedBox(height: 2),
+                          SizedBox(
+                            width: 100,
+                            child: LinearProgressIndicator(
+                              borderRadius: BorderRadius.circular(4),
+                              value: (progress / maxProgress),
+                              color: Theme.of(context).colorScheme.primary,
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.background,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                        ],
                       ),
-                      const SizedBox(height: 4),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
