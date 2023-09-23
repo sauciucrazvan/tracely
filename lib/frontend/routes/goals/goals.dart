@@ -31,10 +31,21 @@ class BuildGoals extends StatelessWidget {
 
           final goalsList = goals.entries.toList();
 
-          // Sorting checkboxes by deadline
+          // Sorting checkboxes by normal deadline
           goalsList.sort((a, b) {
             final DateTime lastEditA = DateTime.parse(a.value['deadline']);
             final DateTime lastEditB = DateTime.parse(b.value['deadline']);
+            return lastEditA.compareTo(lastEditB);
+          });
+
+          // Sorting checkboxes by passed deadline
+          goalsList.sort((a, b) {
+            final String lastEditA = DateTime.parse(a.value['deadline'])
+                .isBefore(DateTime.now())
+                .toString();
+            final String lastEditB = DateTime.parse(b.value['deadline'])
+                .isBefore(DateTime.now())
+                .toString();
             return lastEditA.compareTo(lastEditB);
           });
 
@@ -44,7 +55,7 @@ class BuildGoals extends StatelessWidget {
                 (a.value['progress'] / a.value['maxProgress']);
             final double progressB =
                 (b.value['progress'] / b.value['maxProgress']);
-            return progressB.compareTo(progressA);
+            return progressA.compareTo(progressB);
           });
 
           return Column(

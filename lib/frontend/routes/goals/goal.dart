@@ -30,34 +30,38 @@ class GoalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color timelineColor = (progress == maxProgress)
+        ? Theme.of(context).colorScheme.primary
+        : (DateTime.parse(deadline).isBefore(DateTime.now()))
+            ? Colors.red
+            : Colors.grey;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: TimelineTile(
         isFirst: first,
         isLast: last,
         indicatorStyle: IndicatorStyle(
-          color: (progress == maxProgress)
-              ? Theme.of(context).colorScheme.primary
-              : Colors.grey,
+          width: 30,
+          height: 30,
+          color: timelineColor,
           iconStyle: (progress == maxProgress)
               ? IconStyle(iconData: Icons.done, color: Colors.white)
-              : null,
+              : (DateTime.parse(deadline).isBefore(DateTime.now()))
+                  ? IconStyle(iconData: Icons.error, color: Colors.white)
+                  : IconStyle(iconData: Icons.timer, color: Colors.white),
         ),
         beforeLineStyle: LineStyle(
-          color: (progress == maxProgress)
-              ? Theme.of(context).colorScheme.primary
-              : Colors.grey,
+          color: timelineColor,
         ),
         afterLineStyle: LineStyle(
-          color: (progress == maxProgress)
-              ? Theme.of(context).colorScheme.primary
-              : Colors.grey,
+          color: timelineColor,
         ),
         endChild: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
           child: Slidable(
             startActionPane: ActionPane(
-              extentRatio: 0.15,
+              extentRatio: 0.3,
               motion: const ScrollMotion(),
               children: [
                 const SizedBox(width: 4),
@@ -74,6 +78,19 @@ class GoalWidget extends StatelessWidget {
                         deleteGoal(goalID);
                         Navigator.pop(context);
                       },
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 4),
+                SlidableAction(
+                  borderRadius: BorderRadius.circular(8),
+                  backgroundColor: Colors.lightGreen.shade700,
+                  foregroundColor: Colors.white,
+                  icon: Icons.edit,
+                  onPressed: (context) => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Placeholder(),
                     ),
                   ),
                 ),

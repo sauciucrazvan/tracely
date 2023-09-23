@@ -25,13 +25,13 @@ class _AddGoalDesktopLayoutState extends State<AddGoalDesktopLayout> {
   final TextEditingController _detailsController = TextEditingController();
   final TextEditingController _progressController = TextEditingController();
 
-  DateTime selectedDate = DateTime.now();
+  DateTime selectedDate = DateTime.now().add(const Duration(days: 1));
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate,
-      firstDate: DateTime.now(),
+      firstDate: DateTime.now().add(const Duration(days: 1)),
       lastDate: DateTime(selectedDate.year + 5),
     );
     if (picked != null && picked != selectedDate) {
