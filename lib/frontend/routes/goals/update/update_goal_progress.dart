@@ -7,6 +7,7 @@ import 'package:tracely/frontend/widgets/buttons/button.dart';
 class UpdateGoalProgress extends StatefulWidget {
   final String goalID;
   final String goal;
+  final String details;
   final int progress;
   final int maxProgress;
 
@@ -14,6 +15,7 @@ class UpdateGoalProgress extends StatefulWidget {
     super.key,
     required this.goalID,
     required this.goal,
+    required this.details,
     required this.progress,
     required this.maxProgress,
   });
@@ -47,12 +49,21 @@ class UpdateGoalProgressState extends State<UpdateGoalProgress> {
         ),
       ),
       content: SizedBox(
-        height: 200,
+        height: 250,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(updateProgress, style: Theme.of(context).textTheme.bodySmall),
             Text(widget.goal, style: Theme.of(context).textTheme.bodyMedium),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.details,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
+              ),
+            ),
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

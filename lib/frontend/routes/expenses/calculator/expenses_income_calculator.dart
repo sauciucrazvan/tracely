@@ -48,116 +48,112 @@ class _ExpensesIncomeCalculatorState extends State<ExpensesIncomeCalculator> {
             );
           }
 
-          return Column(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 1.25,
-                height: MediaQuery.of(context).size.height / 4.75,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          return Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  monthlyIncome,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      monthlyIncome,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 5,
+                      child: DropdownButtonFormField<String>(
+                        value: selectedCurrency,
+                        onChanged: (String? currency) {
+                          setState(() {
+                            selectedCurrency = currency!;
+                          });
+                        },
+                        items: currencies
+                            .map<DropdownMenuItem<String>>((String currency) {
+                          return DropdownMenuItem<String>(
+                            value: currency,
+                            child: Text(currency),
+                          );
+                        }).toList(),
+                        decoration: InputDecoration(
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(color: secondaryColor),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: primaryColor),
+                          ),
+                        ),
+                        style: TextStyle(color: textColor),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 5,
-                          child: DropdownButtonFormField<String>(
-                            value: selectedCurrency,
-                            onChanged: (String? currency) {
-                              setState(() {
-                                selectedCurrency = currency!;
-                              });
-                            },
-                            items: currencies.map<DropdownMenuItem<String>>(
-                                (String currency) {
-                              return DropdownMenuItem<String>(
-                                value: currency,
-                                child: Text(currency),
-                              );
-                            }).toList(),
-                            decoration: InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(color: secondaryColor),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: primaryColor),
-                              ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      child: TextField(
+                        controller: incomeController,
+                        maxLength: 128,
+                        maxLines: 1,
+                        obscureText: false,
+                        keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true),
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d+\.?\d*')),
+                        ],
+                        decoration: InputDecoration(
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: secondaryColor,
                             ),
-                            style: TextStyle(color: textColor),
                           ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          child: TextField(
-                            controller: incomeController,
-                            maxLength: 128,
-                            maxLines: 1,
-                            obscureText: false,
-                            keyboardType: const TextInputType.numberWithOptions(
-                                decimal: true),
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'^\d+\.?\d*')),
-                            ],
-                            decoration: InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: secondaryColor,
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: primaryColor),
-                              ),
-                              counterText: '',
-                            ),
-                            style: TextStyle(color: textColor),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: primaryColor),
                           ),
+                          counterText: '',
                         ),
-                        const SizedBox(width: 4),
-                        SmallButton(
-                          icon: Icons.calculate_rounded,
-                          color: primaryColor,
-                          pressed: () {
-                            if (incomeController.text.isEmpty) return;
-                            setState(() {
-                              income = convertToEuro(
-                                  double.parse(incomeController.text),
-                                  selectedCurrency);
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      result,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        style: TextStyle(color: textColor),
                       ),
                     ),
-                    (income != 0)
-                        ? Text(
-                            "${(totalSpent / (income * 2) * 100).round()}% $spentIncome",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          )
-                        : Text(
-                            noIncomeProvided,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                    const SizedBox(width: 4),
+                    SmallButton(
+                      icon: Icons.calculate_rounded,
+                      color: primaryColor,
+                      pressed: () {
+                        if (incomeController.text.isEmpty) return;
+                        setState(() {
+                          income = convertToEuro(
+                              double.parse(incomeController.text),
+                              selectedCurrency);
+                        });
+                      },
+                    ),
                   ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 16),
+                Text(
+                  result,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                (income != 0)
+                    ? Text(
+                        "${(totalSpent / (income * 2) * 100).round()}% $spentIncome",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      )
+                    : Text(
+                        noIncomeProvided,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+              ],
+            ),
           );
         }
 

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
+import 'package:tracely/backend/functions/limit_string.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
+
 import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 import 'package:tracely/frontend/routes/goals/edit/edit_goal.dart';
 import 'package:tracely/frontend/routes/goals/update/update_goal_progress.dart';
-import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 class GoalWidget extends StatelessWidget {
   final bool first;
@@ -113,6 +117,7 @@ class GoalWidget extends StatelessWidget {
                   builder: (context) => UpdateGoalProgress(
                     goalID: goalID,
                     goal: goal,
+                    details: details,
                     progress: progress,
                     maxProgress: maxProgress,
                   ),
@@ -132,7 +137,13 @@ class GoalWidget extends StatelessWidget {
                         color: Theme.of(context).textTheme.bodyMedium!.color!,
                       ),
                       const SizedBox(width: 4),
-                      Text(goal, style: Theme.of(context).textTheme.bodyMedium),
+                      Text(
+                          limitString(
+                              goal,
+                              (MediaQuery.of(context).size.width > 1200
+                                  ? 32
+                                  : 12)),
+                          style: Theme.of(context).textTheme.bodyMedium),
                       const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
