@@ -41,6 +41,9 @@ dependencies:
   # Pie Chart ~ used for Expenses
   pie_chart: ^5.3.2
 
+  # Timeline Tiles ~ used for goals
+  timeline_tile: ^2.0.0
+
   # Encrypt ~ used to encrypt notes with AES
   encrypt: ^5.0.1
 

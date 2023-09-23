@@ -134,7 +134,7 @@ class ExpenseWidget extends StatelessWidget {
             SizedBox(
               width: 64,
               child: Icon(
-                Icons.keyboard_tab,
+                Icons.keyboard_double_arrow_right_outlined,
                 color: textColor,
               ),
             ),

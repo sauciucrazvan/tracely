@@ -46,16 +46,15 @@ class BuildGoals extends StatelessWidget {
                 goal = decryptText(goal, entry.value['iv']);
                 details = decryptText(details, entry.value['iv']);
 
-                return Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: GoalWidget(
-                    goalID: entry.key,
-                    goal: goal,
-                    details: details,
-                    deadline: entry.value['deadline'],
-                    progress: entry.value['progress'],
-                    maxProgress: entry.value['maxProgress'],
-                  ),
+                return GoalWidget(
+                  first: goalsList.first.key == entry.key,
+                  last: goalsList.last.key == entry.key,
+                  goalID: entry.key,
+                  goal: goal,
+                  details: details,
+                  deadline: entry.value['deadline'],
+                  progress: entry.value['progress'],
+                  maxProgress: entry.value['maxProgress'],
                 );
               },
             ).toList(),
