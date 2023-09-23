@@ -15,6 +15,8 @@ const appName = "Tracely";
 const login = "Log in or sign up in seconds!";
 const logout = "Are you sure you want to logout?";
 
+const logoutButton = "Logout";
+
 // Services
 const services = "Use one of the services below to continue using $appName.";
 const google = "Continue with Google";
@@ -87,6 +89,8 @@ const tryWebDesc = "Try Tracely on the web. Same application, everywhere.";
 const learnMarkdown = "Learn about Markdown";
 const sourceCode = "Source code";
 const supportUs = "Donate";
+
+const accountOptions = "Account options";
 
 /*
 

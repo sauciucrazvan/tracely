@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
+import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -99,7 +100,38 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
               },
             }),
 
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
+
+            Text(
+              accountOptions,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 8),
+
+            Tile(
+              title: logoutButton,
+              leading: Icon(
+                Icons.logout,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => ConfirmDialog(
+                  title: logout,
+                  confirm: () {
+                    signOutUser();
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 15),
 
             // Quick tips
 
