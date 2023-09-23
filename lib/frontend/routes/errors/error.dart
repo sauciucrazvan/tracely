@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class Error extends StatelessWidget {
   final String error;
@@ -15,11 +14,7 @@ class Error extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Lottie.asset(
-                "assets/animations/error.json",
-                width: 256,
-                height: 256,
-              ),
+              const Icon(Icons.error, color: Colors.red),
               const SizedBox(
                 height: 8,
               ),

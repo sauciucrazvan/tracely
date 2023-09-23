@@ -76,7 +76,7 @@ class _AddExpenseDesktopLayoutState extends State<AddExpenseDesktopLayout> {
               children: [
                 Center(
                   child: Lottie.asset(
-                    "assets/animations/expenses.json",
+                    "assets/animations/expense.json",
                     height: 128,
                     width: 128,
                   ),

@@ -33,10 +33,8 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
           titleBar(
             context,
             expenses,
-            () => showDialog(
-              context: context,
-              builder: (context) => const AddExpense(),
-            ),
+            () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddExpense())),
           ),
 
           Padding(

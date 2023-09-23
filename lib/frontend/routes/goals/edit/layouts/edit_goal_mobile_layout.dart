@@ -101,7 +101,7 @@ class _EditGoalMobileLayoutState extends State<EditGoalMobileLayout> {
                       ),
                     ),
                     Lottie.asset(
-                      "assets/animations/goal.json",
+                      "assets/animations/goals.json",
                       height: 64,
                       width: 64,
                     ),
@@ -236,19 +236,18 @@ class _EditGoalMobileLayoutState extends State<EditGoalMobileLayout> {
                       selectGoalDeadline,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    Row(
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          DateFormat("MMM dd, yyyy").format(selectedDate),
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
                         SmallButton(
                           color: secondaryColor,
                           icon: Icons.calendar_today,
                           pressed: () => selectDate(context),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          DateFormat("MMM dd, yyyy").format(selectedDate),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),

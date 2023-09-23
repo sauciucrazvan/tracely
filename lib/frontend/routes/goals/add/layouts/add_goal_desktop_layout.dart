@@ -75,7 +75,7 @@ class _AddGoalDesktopLayoutState extends State<AddGoalDesktopLayout> {
               children: [
                 Center(
                   child: Lottie.asset(
-                    "assets/animations/goal.json",
+                    "assets/animations/goals.json",
                     height: 128,
                     width: 128,
                   ),
