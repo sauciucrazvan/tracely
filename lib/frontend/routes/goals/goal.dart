@@ -132,18 +132,25 @@ class GoalWidget extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Icon(
-                        Icons.keyboard_double_arrow_left_outlined,
-                        color: Theme.of(context).textTheme.bodyMedium!.color!,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.keyboard_double_arrow_left_outlined,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color!,
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                              limitString(
+                                goal,
+                                MediaQuery.of(context).size.width > 1200
+                                    ? 32
+                                    : 24,
+                              ),
+                              style: Theme.of(context).textTheme.bodyMedium),
+                        ],
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                          limitString(
-                              goal,
-                              (MediaQuery.of(context).size.width > 1200
-                                  ? 32
-                                  : 12)),
-                          style: Theme.of(context).textTheme.bodyMedium),
                       const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
