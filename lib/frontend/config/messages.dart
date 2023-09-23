@@ -180,6 +180,7 @@ const List<String> currencies = [
 */
 
 const addGoal = "Let's record a new goal!";
+const editGoal = "Let's edit this goal!";
 
 const chooseTitleGoal = "What's your goal?";
 const chooseDescriptionGoal = "Provide more details (optional)";

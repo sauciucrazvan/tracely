@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/routes/goals/edit/edit_goal.dart';
 import 'package:tracely/frontend/routes/goals/update/update_goal_progress.dart';
 import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
@@ -91,7 +92,13 @@ class GoalWidget extends StatelessWidget {
                   onPressed: (context) => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Placeholder(),
+                      builder: (context) => EditGoal(
+                        goalID: goalID,
+                        goal: goal,
+                        details: details,
+                        deadline: deadline,
+                        maxProgress: maxProgress,
+                      ),
                     ),
                   ),
                 ),
