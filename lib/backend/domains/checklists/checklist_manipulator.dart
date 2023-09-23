@@ -16,7 +16,7 @@ void insertChecklist(String name, String color) async {
   String userId = getUID();
 
   String id = DateTime.now().millisecondsSinceEpoch.toString();
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(name, iv: iv).base64;
@@ -30,7 +30,7 @@ void insertChecklist(String name, String color) async {
 
 void editChecklist(String id, String name, String color) async {
   String userId = getUID();
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(name, iv: iv).base64;
@@ -59,7 +59,7 @@ void deleteChecklist(String id) async {
 void encryptChecklist(String checklistId, String checklist) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(checklist, iv: iv).base64;

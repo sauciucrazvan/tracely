@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 import 'package:tracely/frontend/config/messages.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/goals.dart';
 import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/home.dart';
 
 import 'package:tracely/frontend/widgets/buttons/rounded_button.dart';
@@ -22,7 +23,7 @@ class _RouteManagerDesktopLayoutState extends State<RouteManagerDesktopLayout> {
   int _selectedIndex = 2;
 
   final pages = [
-    const Placeholder(),
+    const Goals(),
     const NotesDashboard(),
     const Home(),
     const AgendaDashboard(),

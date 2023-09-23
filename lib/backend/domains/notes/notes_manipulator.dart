@@ -18,7 +18,7 @@ void insertNote(
     String title, String content, bool useMarkdown, bool useEncryption) async {
   String userId = getUID();
   String id = DateTime.now().millisecondsSinceEpoch.toString();
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   // ENCRYPT CONTENT
   if (useEncryption) {
@@ -44,7 +44,7 @@ void editNote(String id, String title, String content, bool useMarkdown,
     bool useEncryption) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
   // ENCRYPT CONTENT
   if (useEncryption) {
     final encrypter = Encrypter(AES(getEncryptionKey()));

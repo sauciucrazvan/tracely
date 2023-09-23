@@ -18,7 +18,7 @@ void insertExpense(
   String userId = getUID();
 
   String id = DateTime.now().millisecondsSinceEpoch.toString();
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedExpense = encrypter.encrypt(expense, iv: iv).base64;
@@ -36,7 +36,7 @@ void editExpense(String id, String expense, String currency, double value,
     String date) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedExpense = encrypter.encrypt(expense, iv: iv).base64;
@@ -59,7 +59,7 @@ void deleteExpense(String id) async {
 void encryptExpense(String expenseId, String expense) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedExpense = encrypter.encrypt(expense, iv: iv).base64;

@@ -16,7 +16,7 @@ void insertCheckbox(String categoryID, String name, String date) async {
   String userId = getUID();
 
   String checkboxID = DateTime.now().millisecondsSinceEpoch.toString();
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(name, iv: iv).base64;
@@ -45,7 +45,7 @@ void updateCheckbox(
     String categoryID, String checkboxID, String name, String date) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(name, iv: iv).base64;
@@ -63,7 +63,7 @@ void encryptCheckbox(
     String categoryID, String checkboxID, String checklist) async {
   String userId = getUID();
 
-  IV iv = IV.fromLength(8);
+  IV iv = IV.fromLength(16);
 
   final encrypter = Encrypter(AES(getEncryptionKey()));
   final encryptedTitle = encrypter.encrypt(checklist, iv: iv).base64;

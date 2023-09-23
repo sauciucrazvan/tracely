@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/expenses.dart';
 
 import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/agenda.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/goals.dart';
 import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/home.dart';
 
 import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/notes.dart';
@@ -23,7 +24,7 @@ class _RouteManagerMobileLayoutState extends State<RouteManagerMobileLayout> {
   PageController pageController = PageController(initialPage: 2);
 
   final pages = [
-    const Placeholder(),
+    const Goals(),
     const NotesDashboard(),
     const Home(),
     const AgendaDashboard(),

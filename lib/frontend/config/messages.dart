@@ -175,6 +175,21 @@ const List<String> currencies = [
 
 /*
 
+  GOALS
+
+*/
+
+const addGoal = "Let's record a new goal!";
+
+const chooseTitleGoal = "What's your goal?";
+const chooseDescriptionGoal = "Provide more details (optional)";
+const chooseGoalProgress = "What's the maximum progress achievable?";
+const selectGoalDeadline = "What's the deadline?";
+
+const noDetailsAttached = "No details provided.";
+
+/*
+
   ERRORS
 
 */
@@ -198,6 +213,11 @@ const noCheckboxesSaved = "No checkboxes here!";
 const noExpensesSaved = "No expenses saved!";
 const expenseWithoutName = "Please name your expense.";
 const expenseWithoutValue = "Please enter the value of the product.";
+
+const noGoalsSaved = "No goals set!";
+const goalWithoutName = "Provide your goal.";
+const goalWithoutProgress = "Please set a maximum progress for your goal!";
+const invalidProgress = "The progress value must be between 1 and 10.000!";
 
 /*
 
