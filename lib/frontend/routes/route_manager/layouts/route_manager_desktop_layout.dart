@@ -48,7 +48,7 @@ class _RouteManagerDesktopLayoutState extends State<RouteManagerDesktopLayout> {
               backgroundColor:
                   _selectedIndex == 0 ? primaryColor : secondaryColor,
               child: Icon(
-                Icons.list,
+                Icons.track_changes,
                 color: textColor,
               ),
               onPressed: () {

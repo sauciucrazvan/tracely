@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -101,7 +102,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 ),
                 const SizedBox(width: 16),
                 StreamBuilder(
-                  stream: getNotesStream(),
+                  stream: getGoalsStream(),
                   builder: (context, snapshot) {
                     int goals = 0;
 
@@ -115,7 +116,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     return StatisticWidget(
                       title: goalsSaved,
                       count: goals,
-                      icon: Icons.list,
+                      icon: Icons.track_changes,
                     );
                   },
                 ),

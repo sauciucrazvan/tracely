@@ -62,7 +62,7 @@ class GoalWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
           child: Slidable(
             startActionPane: ActionPane(
-              extentRatio: 0.3,
+              extentRatio: 0.5,
               motion: const ScrollMotion(),
               children: [
                 const SizedBox(width: 4),

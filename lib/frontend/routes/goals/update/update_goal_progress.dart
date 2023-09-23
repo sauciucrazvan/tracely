@@ -23,7 +23,7 @@ class UpdateGoalProgress extends StatefulWidget {
 }
 
 class UpdateGoalProgressState extends State<UpdateGoalProgress> {
-  TextEditingController _progressController = TextEditingController();
+  final TextEditingController _progressController = TextEditingController();
 
   @override
   void initState() {

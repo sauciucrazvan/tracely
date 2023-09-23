@@ -55,7 +55,7 @@ class _RouteManagerMobileLayoutState extends State<RouteManagerMobileLayout> {
         selectedIndex: _selectedIndex,
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.track_changes),
             label: goals,
           ),
           NavigationDestination(

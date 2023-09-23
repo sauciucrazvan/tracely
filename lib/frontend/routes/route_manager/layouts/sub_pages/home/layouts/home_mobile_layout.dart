@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -85,8 +86,8 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 "stream": getNotesStream(),
               },
               goalsSaved: {
-                "icon": Icons.list,
-                "stream": getNotesStream(),
+                "icon": Icons.track_changes,
+                "stream": getGoalsStream(),
               },
               expensesSaved: {
                 "icon": Icons.wallet,
