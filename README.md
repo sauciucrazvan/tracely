@@ -8,7 +8,7 @@ Tracely is your ultimate management app with seamless cloud synchronization. Kee
 # Tracely on Web
 Access the web version by clicking [here](https://tracely.lol). The website is up 24/7, accessible from any device with an internet connection.
 # Status
-[![Badge](https://img.shields.io/badge/version-1.2.0-blue?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/releases)
+[![Badge](https://img.shields.io/badge/version-1.3.0-blue?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/releases)
 [![Badge](https://img.shields.io/github/forks/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/forks)
 [![Badge](https://img.shields.io/github/stars/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/stargazers)
 [![Badge](https://img.shields.io/github/issues/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/issues)
