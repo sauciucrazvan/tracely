@@ -91,7 +91,7 @@ class GoalWidget extends StatelessWidget {
                   onPressed: (context) => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Placeholder(),
+                      builder: (context) => const Placeholder(),
                     ),
                   ),
                 ),

@@ -24,7 +24,7 @@ class _RouteManagerMobileLayoutState extends State<RouteManagerMobileLayout> {
   PageController pageController = PageController(initialPage: 2);
 
   final pages = [
-    const Goals(),
+    const GoalsDashboard(),
     const NotesDashboard(),
     const Home(),
     const AgendaDashboard(),

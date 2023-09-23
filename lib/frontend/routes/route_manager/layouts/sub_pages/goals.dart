@@ -4,8 +4,8 @@ import 'package:tracely/frontend/routes/goals/add/add_goal.dart';
 import 'package:tracely/frontend/routes/goals/goals.dart';
 import 'package:tracely/frontend/routes/route_manager/components/titlebar.dart';
 
-class Goals extends StatelessWidget {
-  const Goals({super.key});
+class GoalsDashboard extends StatelessWidget {
+  const GoalsDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {

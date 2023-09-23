@@ -23,11 +23,23 @@ class _RouteManagerDesktopLayoutState extends State<RouteManagerDesktopLayout> {
   int _selectedIndex = 2;
 
   final pages = [
-    const Goals(),
-    const NotesDashboard(),
+    const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 128.0),
+      child: GoalsDashboard(),
+    ),
+    const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 128.0),
+      child: NotesDashboard(),
+    ),
     const Home(),
-    const AgendaDashboard(),
-    const ExpensesDashboard(),
+    const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 128.0),
+      child: AgendaDashboard(),
+    ),
+    const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 128.0),
+      child: ExpensesDashboard(),
+    ),
   ];
 
   @override
