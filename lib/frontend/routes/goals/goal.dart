@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
@@ -141,14 +142,19 @@ class GoalWidget extends StatelessWidget {
                                 Theme.of(context).textTheme.bodyMedium!.color!,
                           ),
                           const SizedBox(height: 4),
-                          Text(
-                              limitString(
-                                goal,
-                                MediaQuery.of(context).size.width > 1200
-                                    ? 32
-                                    : 24,
-                              ),
-                              style: Theme.of(context).textTheme.bodyMedium),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2.5,
+                            child: Text(
+                                limitString(
+                                  goal,
+                                  MediaQuery.of(context).size.width > 1200
+                                      ? 32
+                                      : 24,
+                                ),
+                                style: (kIsWeb
+                                    ? Theme.of(context).textTheme.bodyMedium
+                                    : Theme.of(context).textTheme.bodySmall)),
+                          ),
                         ],
                       ),
                       const Spacer(),
