@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+
 import 'package:intl/intl.dart';
-import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+
+import 'package:tracely/backend/functions/decrypt.dart';
 import 'package:tracely/frontend/config/messages.dart';
 
-import 'package:tracely/frontend/widgets/buttons/button.dart';
-
 import 'package:tracely/frontend/widgets/marginals/header.dart';
+import 'package:tracely/frontend/widgets/buttons/button.dart';
 import 'package:tracely/frontend/widgets/buttons/back_button.dart';
 
 class ViewNotesDesktopLayout extends StatefulWidget {
@@ -24,11 +25,11 @@ class _ViewNotesDesktopLayoutState extends State<ViewNotesDesktopLayout> {
     Color backgroundColor = Theme.of(context).colorScheme.background;
 
     String title = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['title'], widget.data['iv'])
+        ? decryptText(widget.data['title'], widget.data['iv'])
         : widget.data['title']);
 
     String content = (widget.data['useEncryption']
-        ? decryptNoteText(widget.data['content'], widget.data['iv'])
+        ? decryptText(widget.data['content'], widget.data['iv'])
         : widget.data['content']);
 
     return Scaffold(

@@ -172,7 +172,7 @@ class ChecklistWidget extends StatelessWidget {
                           color: Colors.amber,
                         )
                       : Icon(
-                          Icons.keyboard_tab,
+                          Icons.keyboard_double_arrow_right_outlined,
                           color: textColor,
                         ),
                 ),

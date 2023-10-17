@@ -5,9 +5,6 @@
 */
 
 const appName = "Tracely";
-
-const loading = "Please wait while we do our magic";
-
 /*
 
   LOGIN PAGE
@@ -17,6 +14,8 @@ const loading = "Please wait while we do our magic";
 // Authentification
 const login = "Log in or sign up in seconds!";
 const logout = "Are you sure you want to logout?";
+
+const logoutButton = "Logout";
 
 // Services
 const services = "Use one of the services below to continue using $appName.";
@@ -36,6 +35,7 @@ const dashboard = "Home";
 const notes = "Notes";
 const todo = "Agenda";
 const expenses = "Expenses";
+const goals = "Goals";
 const checkboxes = "Checklist Board";
 
 // Widgets
@@ -48,6 +48,7 @@ const contribute = "Contribute";
 const notesSaved = "Notes stored";
 const todoSaved = "Checklists synced";
 const expensesSaved = "Expenses saved";
+const goalsSaved = "Goals recorded";
 
 // Tips content
 const tipsList = {
@@ -59,8 +60,6 @@ const tipsList = {
 
 // Routes
 const addEntries = "Add";
-
-const addTodo = "Add a new checklist!";
 
 // Daily message that's being displayed on the home page
 const welcome = {
@@ -74,15 +73,24 @@ const welcome = {
   "Stay safe,",
 };
 
+// Home page
 const appDesc =
     "is a fully fledged management app with cloud synchronization. Keep track of your projects, ideas, expenses, notes - and everything you can think of.";
 const githubDesc =
     "Built from the ground up with Flutter & Firebase, Tracely is fully open-source over on GitHub and features an Android version too.";
+const downloadAndroid = "Download for Android";
 const downloadAndroidDesc =
     "Download Tracely for Android from the GitHub releases page by clicking on the button below!";
 const contributeDesc =
     "Contribute to Tracely by donating or improving the app yourself.";
+const tryWeb = "Try the web version";
 const tryWebDesc = "Try Tracely on the web. Same application, everywhere.";
+
+const learnMarkdown = "Learn about Markdown";
+const sourceCode = "Source code";
+const supportUs = "Donate";
+
+const accountOptions = "Account options";
 
 /*
 
@@ -116,6 +124,8 @@ const checkboxesCountPlural = "entries";
 const rename = "Rename checklist";
 
 const addCheckbox = "Adding a new checkbox";
+const addTodo = "Add a new checklist!";
+
 const chooseTitleCheckbox = "Let's choose a title for your checkbox";
 const selectCheckboxDate = "Select a date";
 
@@ -129,13 +139,19 @@ const editTitleCheckbox = "Edit the title:";
 */
 
 const expensesChartTitle = "Summary";
+const expensesCalculatorTitle = "Income Calculator";
+
+const monthlyIncome = "Monthly income";
+const result = "Result";
+const spentIncome = "of your income was spent in the last 60 days.";
+const noIncomeProvided =
+    "Input your income in the upper field and press the button to display the data.";
 
 const addExpense = "Adding an expense!";
+const modifyExpense = "You're editing an expense!";
 const chooseTitleExpense = "What product did you buy?";
 const chooseValueExpense = "How much did you pay?";
 const selectExpenseDate = "When did it happend?";
-
-const modifyExpense = "You're editing a note!";
 
 const List<String> currencies = [
   "EUR",
@@ -163,6 +179,24 @@ const List<String> currencies = [
 
 /*
 
+  GOALS
+
+*/
+
+const addGoal = "Let's record a new goal!";
+const editGoal = "Let's edit this goal!";
+
+const chooseTitleGoal = "What's your goal?";
+const chooseDescriptionGoal = "Provide more details (optional)";
+const chooseGoalProgress = "What's the maximum progress achievable?";
+const selectGoalDeadline = "What's the deadline?";
+
+const noDetailsAttached = "No details provided.";
+
+const updateProgress = "Viewing:";
+
+/*
+
   ERRORS
 
 */
@@ -172,19 +206,25 @@ const reconnectNeeded =
     "Please reconnect to the internet in order to use $appName!";
 const restartNeeded = "Please restart or refresh the app in order to use it.";
 
-const noNotesSaved = "You don't have any notes stored yet! :(";
-const noChecklistsSaved = "No checklists saved.";
-const noCheckboxesSaved = "No checkboxes here!";
-const noExpensesSaved = "No expenses saved!";
+const loading = "Please wait while we do our magic";
 
+const noNotesSaved = "You don't have any notes stored yet! :(";
 const noteWithoutName = "Please name your note.";
 const noteWithoutContent = "Please add content to your note.";
 
+const noChecklistsSaved = "No checklists saved.";
 const checklistWithoutName = "The checklist does not have a name!";
 const checkboxWithoutName = "The checkbox is not named! :(";
+const noCheckboxesSaved = "No checkboxes here!";
 
+const noExpensesSaved = "No expenses saved!";
 const expenseWithoutName = "Please name your expense.";
 const expenseWithoutValue = "Please enter the value of the product.";
+
+const noGoalsSaved = "No goals set!";
+const goalWithoutName = "Provide your goal.";
+const goalWithoutProgress = "Please set a maximum progress for your goal!";
+const invalidProgress = "The progress value must be between 1 and 10.000!";
 
 /*
 
@@ -199,3 +239,5 @@ const removeChecklist =
 const removeCheckbox = "Are you sure you want to delete this checkbox?";
 const removeExpense =
     "Are you sure you want to remove this expense?\nThis action cannot be undone!";
+const removeGoal =
+    "Are you sure you want to delete this goal?\nThis action can not be reverted and everything is lost!";

@@ -85,7 +85,7 @@ class _AddExpenseMobileLayoutState extends State<AddExpenseMobileLayout> {
                       ),
                     ),
                     Lottie.asset(
-                      "assets/animations/expenses.json",
+                      "assets/animations/expense.json",
                       height: 64,
                       width: 64,
                     ),

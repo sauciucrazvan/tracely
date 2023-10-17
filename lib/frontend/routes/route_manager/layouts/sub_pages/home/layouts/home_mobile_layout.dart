@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
+import 'package:tracely/frontend/widgets/dialogs/dialog.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/tile.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/full_statistic_widget.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/components/full_statistic_widget.dart';
 
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 
@@ -70,7 +72,11 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
             // Statistics meter
             Text(
               stats,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
 
             const SizedBox(height: 8),
@@ -79,6 +85,10 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
               notesSaved: {
                 "icon": Icons.event_note,
                 "stream": getNotesStream(),
+              },
+              goalsSaved: {
+                "icon": Icons.track_changes,
+                "stream": getGoalsStream(),
               },
               expensesSaved: {
                 "icon": Icons.wallet,
@@ -90,7 +100,38 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
               },
             }),
 
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
+
+            Text(
+              accountOptions,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 8),
+
+            Tile(
+              title: logoutButton,
+              leading: Icon(
+                Icons.logout,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => ConfirmDialog(
+                  title: logout,
+                  confirm: () {
+                    signOutUser();
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 15),
 
             // Quick tips
 
@@ -113,7 +154,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                 SizedBox(
                   width: 250,
                   child: Tile(
-                    title: "Learn about Markdown",
+                    title: learnMarkdown,
                     leading: Icon(
                       Icons.format_color_text_rounded,
                       color: Theme.of(context).colorScheme.primary,
@@ -169,7 +210,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                   SizedBox(
                     width: 250,
                     child: Tile(
-                      title: "Try the web version",
+                      title: tryWeb,
                       leading: Icon(
                         Icons.web,
                         color: Theme.of(context).colorScheme.primary,
@@ -218,7 +259,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                     SizedBox(
                       width: 150,
                       child: Tile(
-                        title: "Donate",
+                        title: supportUs,
                         leading: Icon(
                           Icons.paypal,
                           color: Theme.of(context).colorScheme.primary,
@@ -242,7 +283,7 @@ class _HomepageMobileLayoutState extends State<HomepageMobileLayout> {
                     SizedBox(
                       width: 200,
                       child: Tile(
-                        title: "Source code",
+                        title: sourceCode,
                         leading: Icon(
                           Icons.code,
                           color: Theme.of(context).colorScheme.primary,

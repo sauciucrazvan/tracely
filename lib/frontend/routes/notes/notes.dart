@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:firebase_database/firebase_database.dart';
 
-import 'package:tracely/backend/handlers/users/account_handler.dart';
 import 'package:tracely/frontend/config/messages.dart';
+
+import 'package:tracely/backend/domains/notes/notes_manipulator.dart';
 
 import 'note.dart';
 
@@ -13,11 +13,8 @@ class BuildNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DatabaseReference database = FirebaseDatabase.instance.ref();
-
     return StreamBuilder(
-      stream:
-          database.child("users/${getUID()}/notes").onValue.asBroadcastStream(),
+      stream: getNotesStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(

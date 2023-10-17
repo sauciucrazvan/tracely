@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 
 import 'package:pie_chart/pie_chart.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 
 import 'package:tracely/backend/functions/limit_string.dart';
 
 import '../../../../backend/functions/convert_currencies.dart';
-import '../../../../backend/handlers/users/account_handler.dart';
 
 class ExpensesChart extends StatelessWidget {
   const ExpensesChart({super.key});
 
   @override
   Widget build(BuildContext context) {
-    DatabaseReference database = FirebaseDatabase.instance.ref();
-
     return StreamBuilder(
-      stream: database
-          .child("users/${getUID()}/expenses")
-          .onValue
-          .asBroadcastStream(),
+      stream: getExpensesStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return Container();
 
@@ -41,8 +36,9 @@ class ExpensesChart extends StatelessWidget {
           int indexes = 0;
           for (var element in expensesList) {
             if (indexes < 5) {
-              chartValues[limitString(element.value['expense'], 24)] =
-                  convertToEuro(
+              final expense =
+                  decryptText(element.value['expense'], element.value['iv']);
+              chartValues[limitString(expense, 24)] = convertToEuro(
                 double.parse(element.value['value'].toString()),
                 element.value['currency'],
               );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:tracely/backend/domains/checkboxes/checkbox_manipulator.dart';
+import 'package:tracely/backend/functions/decrypt.dart';
 import 'package:tracely/frontend/routes/checkboxes/checkbox.dart';
 
 import '../../../backend/handlers/users/account_handler.dart';
@@ -57,22 +59,30 @@ class BuildCheckboxes extends StatelessWidget {
           });
 
           return Column(
-            children: checkboxesList
-                .map(
-                  (entry) => Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: CheckboxWidget(
-                      categoryName: name,
-                      categoryColor: color,
-                      title: entry.value['title'],
-                      date: entry.value['date'],
-                      checked: entry.value['checked'],
-                      categoryID: id,
-                      checkboxID: entry.key,
-                    ),
+            children: checkboxesList.map(
+              (entry) {
+                String checkbox = entry.value['title'];
+                if (entry.value['iv'] == null) {
+                  encryptCheckbox(id, entry.key, checkbox);
+                  return const CircularProgressIndicator();
+                }
+
+                checkbox = decryptText(checkbox, entry.value['iv']);
+
+                return Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: CheckboxWidget(
+                    categoryName: name,
+                    categoryColor: color,
+                    title: checkbox,
+                    date: entry.value['date'],
+                    checked: entry.value['checked'],
+                    categoryID: id,
+                    checkboxID: entry.key,
                   ),
-                )
-                .toList(),
+                );
+              },
+            ).toList(),
           );
         }
 

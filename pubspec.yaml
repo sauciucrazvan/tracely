@@ -17,8 +17,6 @@ dependencies:
   # Firebase Plugins
   firebase_core: ^2.15.0
   firebase_auth: ^4.9.0
-  cloud_firestore: ^4.9.1
-  firebase_storage: ^11.2.5
   firebase_database: ^10.2.4
 
   # Sign in platforms
@@ -28,7 +26,7 @@ dependencies:
   connectivity_plus: ^4.0.2
 
   # Markdown Editable Text Input for notes
-  markdown_editable_textinput: ^2.1.0 # Never to be updated. It does not work
+  markdown_editable_textinput: ^2.1.0 # Never to be updated. It does not work.
   flutter_markdown: ^0.6.17+2
 
   # Lottie for animations
@@ -43,47 +41,22 @@ dependencies:
   # Pie Chart ~ used for Expenses
   pie_chart: ^5.3.2
 
+  # Timeline Tiles ~ used for goals
+  timeline_tile: ^2.0.0
+
   # Encrypt ~ used to encrypt notes with AES
   encrypt: ^5.0.1
 
-  flutter_native_splash: ^2.3.2
-
+  # URL Launcher ~ used for homepage's buttons
   url_launcher: ^6.1.14
+  url_launcher_web: ^2.0.20
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: ^0.13.1
-
   flutter_lints: ^2.0.0
-
-# Icon generator for Android & iOS
-flutter_launcher_icons:
-  android: true
-  ios: true
-  remove_alpha_ios: true
-  image_path: "assets/foregroundLogo.png"
-  web:
-    generate: true
-    image_path: "assets/logo.png"
-
-flutter_native_splash:
-  color: "#F1F1F9"
-  image: assets/splashLogo.png
-  color_dark: "#333333"
-  image_dark: assets/splashLogo.png
-
-  android_12:
-    color: "#F1F1F9"
-    image: assets/splashLogo.png
-    color_dark: "#333333"
-    image_dark: assets/splashLogo.png
-
-  web: false
-  android: true
-  ios: true
 
 flutter:
 

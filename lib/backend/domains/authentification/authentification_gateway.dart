@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 
 import 'package:tracely/frontend/routes/authentification/authentification.dart';
-import 'package:tracely/frontend/routes/dashboard/dashboard.dart';
+import 'package:tracely/frontend/routes/route_manager/route_manager.dart';
 import 'package:tracely/frontend/routes/loading/loading.dart';
 
 StreamBuilder<User?> authentificationGateway() {
@@ -29,7 +29,7 @@ StreamBuilder<User?> authentificationGateway() {
           setUser(FirebaseAuth.instance.currentUser!);
 
           // Creating the dashboard
-          return const Dashboard();
+          return const RouteManager();
         }
       }
 

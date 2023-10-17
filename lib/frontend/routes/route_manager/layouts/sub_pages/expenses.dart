@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tracely/frontend/routes/expenses/calculator/expenses_income_calculator.dart';
 
 import '../../../../config/messages.dart';
 import '../../../expenses/add/add_expense.dart';
@@ -15,6 +16,7 @@ class ExpensesDashboard extends StatefulWidget {
 
 class _ExpensesDashboardState extends State<ExpensesDashboard> {
   bool openedChart = false;
+  bool openedCalculator = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +33,8 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
           titleBar(
             context,
             expenses,
-            () => showDialog(
-              context: context,
-              builder: (context) => const AddExpense(),
-            ),
+            () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddExpense())),
           ),
 
           Padding(
@@ -86,6 +86,61 @@ class _ExpensesDashboardState extends State<ExpensesDashboard> {
                       ],
                     ),
                     if (openedChart) const ExpensesChart(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text(
+                            expensesCalculatorTitle,
+                            style: TextStyle(
+                              color: textColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Theme.of(context).colorScheme.secondary),
+                            overlayColor: MaterialStateProperty.all<Color>(
+                                Theme.of(context).colorScheme.secondary),
+                            shadowColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent),
+                          ),
+                          onPressed: () => setState(
+                              () => openedCalculator = !openedCalculator),
+                          child: openedCalculator
+                              ? Icon(
+                                  Icons.keyboard_arrow_left,
+                                  color: textColor,
+                                )
+                              : Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: textColor,
+                                ),
+                        ),
+                      ],
+                    ),
+                    if (openedCalculator) const ExpensesIncomeCalculator(),
                   ],
                 ),
               ),

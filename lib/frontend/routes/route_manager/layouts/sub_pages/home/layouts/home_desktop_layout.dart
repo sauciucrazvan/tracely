@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tracely/backend/domains/goals/goals_manipulator.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:tracely/frontend/config/messages.dart';
 import 'package:tracely/frontend/widgets/buttons/tile.dart';
 
-import 'package:tracely/frontend/routes/dashboard/layouts/sub_pages/home/components/statistic_widget.dart';
+import 'package:tracely/frontend/routes/route_manager/layouts/sub_pages/home/components/statistic_widget.dart';
 
 import 'package:tracely/backend/handlers/users/account_handler.dart';
 
@@ -101,6 +102,26 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 ),
                 const SizedBox(width: 16),
                 StreamBuilder(
+                  stream: getGoalsStream(),
+                  builder: (context, snapshot) {
+                    int goals = 0;
+
+                    if (snapshot.hasData &&
+                        snapshot.data?.snapshot.value is Map) {
+                      Map<dynamic, dynamic> map =
+                          snapshot.data?.snapshot.value as Map;
+                      goals = map.length;
+                    }
+
+                    return StatisticWidget(
+                      title: goalsSaved,
+                      count: goals,
+                      icon: Icons.track_changes,
+                    );
+                  },
+                ),
+                const SizedBox(width: 16),
+                StreamBuilder(
                   stream: getExpensesStream(),
                   builder: (context, snapshot) {
                     int expenses = 0;
@@ -165,7 +186,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 SizedBox(
                   width: 250,
                   child: Tile(
-                    title: "Learn about Markdown",
+                    title: learnMarkdown,
                     leading: Icon(
                       Icons.format_color_text_rounded,
                       color: Theme.of(context).colorScheme.primary,
@@ -220,7 +241,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                 SizedBox(
                   width: 250,
                   child: Tile(
-                    title: "Download for Android",
+                    title: downloadAndroid,
                     leading: Icon(
                       Icons.android,
                       color: Theme.of(context).colorScheme.primary,
@@ -268,7 +289,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     SizedBox(
                       width: 200,
                       child: Tile(
-                        title: "Source code",
+                        title: sourceCode,
                         leading: Icon(
                           Icons.code,
                           color: Theme.of(context).colorScheme.primary,
@@ -292,7 +313,7 @@ class _HomepageDesktopLayoutState extends State<HomepageDesktopLayout> {
                     SizedBox(
                       width: 150,
                       child: Tile(
-                        title: "Donate",
+                        title: supportUs,
                         leading: Icon(
                           Icons.paypal,
                           color: Theme.of(context).colorScheme.primary,
