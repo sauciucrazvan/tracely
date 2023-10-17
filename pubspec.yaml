@@ -23,7 +23,7 @@ dependencies:
   google_sign_in: ^6.1.5
  
   # Connectivity checker
-  connectivity_plus: ^4.0.2
+  connectivity_plus: ^5.0.1
 
   # Markdown Editable Text Input for notes
   markdown_editable_textinput: ^2.1.0 # Never to be updated. It does not work.
