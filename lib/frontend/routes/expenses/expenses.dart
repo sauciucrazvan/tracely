@@ -86,7 +86,7 @@ class BuildExpenses extends StatelessWidget {
               Text(
                 noExpensesSaved,
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
+                  color: Theme.of(context).textTheme.bodyMedium!.color,
                   fontSize: 16,
                 ),
               ),

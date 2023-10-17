@@ -44,5 +44,4 @@ app.*.map.json
 /android/app/release
 
 # Private keys
-/lib/firebase_options.dart
 /lib/backend/keys/
