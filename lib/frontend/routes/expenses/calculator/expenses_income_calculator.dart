@@ -157,7 +157,18 @@ class _ExpensesIncomeCalculatorState extends State<ExpensesIncomeCalculator> {
           );
         }
 
-        return Container();
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                noExpensesSaved,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        );
       },
     );
   }

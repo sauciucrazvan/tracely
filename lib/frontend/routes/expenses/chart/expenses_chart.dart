@@ -5,6 +5,7 @@ import 'package:tracely/backend/domains/expenses/expenses_manipulator.dart';
 import 'package:tracely/backend/functions/decrypt.dart';
 
 import 'package:tracely/backend/functions/limit_string.dart';
+import 'package:tracely/frontend/config/messages.dart';
 
 import '../../../../backend/functions/convert_currencies.dart';
 
@@ -45,7 +46,6 @@ class ExpensesChart extends StatelessWidget {
             }
             indexes++;
           }
-
           return Column(
             children: [
               SizedBox(
@@ -68,7 +68,18 @@ class ExpensesChart extends StatelessWidget {
           );
         }
 
-        return Container();
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                noExpensesSaved,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        );
       },
     );
   }
