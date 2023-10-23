@@ -7,7 +7,6 @@ jobs:
   deploy:
     name: "Deploy"
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: 📚 Checkout repo
         uses: actions/checkout@v3
