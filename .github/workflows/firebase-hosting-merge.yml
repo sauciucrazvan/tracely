@@ -22,4 +22,3 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRACELY_F42F5 }}"
           channelId: live
           projectId: tracely-f42f5
-+
