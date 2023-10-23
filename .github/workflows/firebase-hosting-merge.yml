@@ -4,30 +4,6 @@ name: Analyze, Build and Deploy
 on: [push]
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📚 Git Checkout
-        uses: actions/checkout@v3
-      - name: 🐦 Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-          flutter-version: 3.13.8
-      - name: 📦 Install Dependencies
-        run: |
-          flutter --disable-telemetry
-          flutter pub global activate very_good_cli 0.17.0
-          very_good packages get --recursive
-      - name: 🛠️ Build the application
-        run: flutter pub get && flutter build web -t lib/main.dart
-      - name: ⬇️ Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: build
-          path: build/web
-
   deploy:
     name: "Deploy"
     runs-on: ubuntu-latest
