@@ -8,10 +8,10 @@ jobs:
     name: "Deploy"
     runs-on: ubuntu-latest
     steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
       - name: 🎯 Deploy to firebase
-      - uses: actions/checkout@v3
-        - run: npm init
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRACELY_F42F5 }}"
