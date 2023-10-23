@@ -7,6 +7,17 @@ name: Automatically deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
+  semantic-pull-request:
+    name: "Semantic"
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+  analyze:
+    name: "Analyze"
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      flutter_channel: stable
+      flutter_version: 3.3.8
+
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
@@ -21,3 +32,27 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRACELY_F42F5 }}'
           channelId: live
           projectId: tracely-f42f5
+  build:
+    name: Build
+    needs: [semantic-pull-request, analyze]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v3
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          flutter-version: 3.13.8
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub global activate very_good_cli
+          very_good --analytics false
+          very_good packages get --recursive
+      - name: 🛠️ Build the application
+        run: flutter build web -t lib/main_production.dart
+      - name: ⬇️ Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: build/web
