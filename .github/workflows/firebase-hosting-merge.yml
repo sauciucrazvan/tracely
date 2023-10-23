@@ -1,5 +1,5 @@
 # https://medium.com/@quen09t/automating-flutter-web-deployments-to-firebase-hosting-using-github-actions-4893e4f17135
-name: Analyze, Build and Deploy
+name: Automatic Deployment
 
 on: [push]
 
@@ -11,7 +11,7 @@ jobs:
       - name: 📚 Checkout repo
         uses: actions/checkout@v3
       - name: ⬇️ Download Artifact
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build/web
@@ -22,3 +22,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRACELY_F42F5 }}"
           channelId: live
           projectId: tracely-f42f5
++
