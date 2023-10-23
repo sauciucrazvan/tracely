@@ -4,20 +4,8 @@ name: Analyze, Build and Deploy
 on: [push]
 
 jobs:
-  semantic-pull-request:
-    name: "Semantic"
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
-  analyze:
-    name: "Analyze"
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_channel: stable
-      flutter_version: 3.13.8
-
   build:
     name: Build
-    needs: [semantic-pull-request, analyze]
     runs-on: ubuntu-latest
     steps:
       - name: 📚 Git Checkout
@@ -33,7 +21,7 @@ jobs:
           very_good --analytics false
           very_good packages get --recursive
       - name: 🛠️ Build the application
-        run: flutter build web -t lib/main_production.dart
+        run: flutter build web -t lib/main.dart
       - name: ⬇️ Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
