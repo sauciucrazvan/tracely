@@ -8,13 +8,6 @@ jobs:
     name: "Deploy"
     runs-on: ubuntu-latest
     steps:
-      - name: 📚 Checkout repo
-        uses: actions/checkout@v3
-      - name: ⬇️ Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build/web
       - name: 🎯 Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
