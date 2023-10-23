@@ -13,7 +13,7 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       flutter_channel: stable
-      flutter_version: 3.3.8
+      flutter_version: 3.13.8
 
   build:
     name: Build
@@ -29,7 +29,7 @@ jobs:
           flutter-version: 3.13.8
       - name: 📦 Install Dependencies
         run: |
-          flutter pub global activate very_good_cli
+          flutter pub global activate very_good_cli 0.17.0
           very_good --analytics false
           very_good packages get --recursive
       - name: 🛠️ Build the application
