@@ -13,6 +13,7 @@ Access the web version by clicking [here](https://tracely.lol). The website is u
 [![Badge](https://img.shields.io/github/forks/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/forks)
 [![Badge](https://img.shields.io/github/stars/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/stargazers)
 [![Badge](https://img.shields.io/github/issues/sauciucrazvan/tracely?style=for-the-badge)](https://github.com/sauciucrazvan/tracely/issues)
+[![Badge](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
 - [Features](#features)
