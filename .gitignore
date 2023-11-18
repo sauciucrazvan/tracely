@@ -42,5 +42,12 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Platforms that are not supported
+/ios/
+/linux/
+/macos/
+/windows/
+/public/
+
 # Private keys
 /lib/backend/keys/
