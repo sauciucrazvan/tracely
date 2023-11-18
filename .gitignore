@@ -43,6 +43,8 @@ app.*.map.json
 /android/app/release
 /build/
 
+/.firebase/
+
 # Platforms that are not supported
 /ios/
 /linux/
