@@ -5,7 +5,7 @@
 
 Tracely is your ultimate management app with seamless cloud synchronization. Keep an organized track of all your projects, ideas, notes, goals, expenses, and everything else you can imagine – all in one place, across multiple devices. 📊🗂️
 
-> !!! Tracely is discontinued. There will be no other updates, but the website will keep running. Sorry for the inconvenience!
+> ⚠️ Tracely is going to shut down on the first of June 2024. It was discontinued for about 6 months, the website is accessible only for backups. -RS
 
 # Tracely on Web
 Access the web version by clicking [here](https://tracely.lol). The website is up 24/7, accessible from any device with an internet connection.
